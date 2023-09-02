@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mover : MonoBehaviour
+public class Movimiento : MonoBehaviour
 {
     // Variables a configurar desde el editor
     [Header("Configuracion")]
@@ -15,11 +15,13 @@ public class Mover : MonoBehaviour
 
     // Variable para referenciar otro componente del objeto
     private Rigidbody2D miRigidbody2D;
+    private Animator miAnimator;
 
     // Codigo ejecutado cuando el objeto se activa en el nivel
     private void OnEnable()
     {
         miRigidbody2D = GetComponent<Rigidbody2D>();
+        miAnimator = GetComponent<Animator>();
     }
 
     // Codigo ejecutado en cada frame del juego (Intervalo variable)
@@ -28,6 +30,17 @@ public class Mover : MonoBehaviour
         moverHorizontal = Input.GetAxis("Horizontal");
         moverVertical = Input.GetAxis("Vertical");
         direccion = new Vector2(moverHorizontal, moverVertical);
+
+        //Retorna el estado de movimiento al componente animator
+        if (moverHorizontal != 0 || moverVertical != 0)
+        {
+            miAnimator.SetBool("EnMovimiento", true);
+        }
+        else
+        {
+            miAnimator.SetBool("EnMovimiento", false);
+        }
+
     }
     private void FixedUpdate()
     {
