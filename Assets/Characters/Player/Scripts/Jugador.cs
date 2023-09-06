@@ -13,16 +13,15 @@ public class Jugador : MonoBehaviour
     public Sprite[] playerSprites;
 
     //                 ----Funciones----
-    public void ModificarVida(float puntos)
+    public void ModificarVida(float puntos)     //Modifica los puntos de vida del jugador segun el valor ingresado
     {
         vida += puntos;
         Debug.Log(EstasVivo());
     }
 
-    private bool EstasVivo()
-    {
-        return vida > 0;
-    }
+    private bool EstasVivo() { return vida > 0; }   //Retorna si el jugador sigue con vida
+
+    public float VidaActual() { return vida; }   //Retorna los puntos de vida actuales del jugador
 
     //Actualiza el Sprite del jugador dependiendo de la cantidad de hp restante
     private void PlayerSpriteUpdate()
