@@ -17,10 +17,12 @@ public class HealSource : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Player player = collision.gameObject.GetComponent<Player>();
-            if(player.GetHP() < 5)    //No aumenta la salud del jugador si ya esta al maximo
+            Player player = collision.gameObject.GetComponent<Player>();    //Referencia al player
+            Health playerHP = player.GetComponent<Health>();                //Referencia al componente de HP del player
+
+            if (playerHP.GetHP() < playerHP.GetMaxHP())    //No aumenta la salud del jugador si ya esta al maximo
             {
-                player.SetHP(RestoredHP);
+                playerHP.SetHP(playerHP.GetHP() + RestoredHP);
                 Debug.Log("Vida restaurada al jugador " + RestoredHP);
             }
         }

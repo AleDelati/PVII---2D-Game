@@ -14,6 +14,9 @@ public class WeaponParent : MonoBehaviour {
     public Animator _weaponAnimator;
     public float coolDown = 0.3f;
 
+    public Transform circleOrigin;
+    public float radius;
+
 
 
     //              ----|Variables|----
@@ -68,6 +71,23 @@ public class WeaponParent : MonoBehaviour {
 
     public void ResetIsAttacking() {
         isAttacking = false;
+    }
+
+    //Dibuja el area de ataque
+    private void OnDrawGizmosSelected() {
+        Gizmos.color = Color.blue;
+        Vector3 position = circleOrigin == null ? Vector3.zero : circleOrigin.position;
+        Gizmos.DrawWireSphere(position, radius);
+    }
+
+    public void DetectColliders() {
+        foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position, radius)) {
+            //Debug.Log(collider.name);
+            Health health;
+            if(health = collider.GetComponent<Health>()) {
+                health.GetHit(1, transform.parent.gameObject);
+            }
+        }
     }
 
 }

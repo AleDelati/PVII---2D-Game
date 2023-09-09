@@ -9,7 +9,6 @@ public class Player : MonoBehaviour {
 
     //              ----|Unity Config|----
     [Header("General Config")]
-    [SerializeField] private float HP = 3f;
     public Sprite[] playerSprites;  //Permite setear el array de sprites del jugador desde el menu de Unity
     [SerializeReference] private Sprite _PlayerSprite;   //Referencia al sprite actual del jugador para usar en la animaciones
     [SerializeField] private InputActionReference pointerPositionInput;
@@ -33,6 +32,7 @@ public class Player : MonoBehaviour {
     private Rigidbody2D _Rigidbody2D;
     private Animator _Animator;
     private WeaponParent _WeaponParent;
+    private Health _Health;
 
 
 
@@ -41,6 +41,7 @@ public class Player : MonoBehaviour {
         _Rigidbody2D = GetComponent<Rigidbody2D>();
         _Animator = GetComponent<Animator>();
         _SpriteRenderer = GetComponent<SpriteRenderer>();
+        _Health = GetComponent<Health>();
 
         _WeaponParent = GetComponentInChildren<WeaponParent>();
 
@@ -68,14 +69,6 @@ public class Player : MonoBehaviour {
 
     }
 
-    public void SetHP(float value) {    //Permite modificar los puntos de vida del jugador
-        HP += value;
-    }
-
-    public float GetHP() {              //Retorna los puntos de vida actual del jugador
-        return HP;
-    }
-
     private Vector2 GetPointerInput() {
         Vector3 mousePos = pointerPositionInput.action.ReadValue<Vector2>();
         mousePos.z = Camera.main.nearClipPlane;
@@ -88,7 +81,7 @@ public class Player : MonoBehaviour {
     }
 
     private void PlayerSpriteUpdate() { //Actualiza el Sprite del jugador dependiendo de la cantidad de hp restante
-        _SpriteRenderer.sprite = playerSprites[(int)HP - 1];
+        _SpriteRenderer.sprite = playerSprites[(int)_Health.GetHP() - 1];
         _PlayerSprite = _SpriteRenderer.sprite;     //Mantiene actualizado cual es el sprite actual del jugador
     }
 
