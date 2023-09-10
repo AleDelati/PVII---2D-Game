@@ -17,7 +17,7 @@ public class HealSource : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Player player = collision.gameObject.GetComponent<Player>();    //Referencia al player
+            Agent player = collision.gameObject.GetComponent<Agent>();    //Referencia al player
             Health playerHP = player.GetComponent<Health>();                //Referencia al componente de HP del player
 
             if (playerHP.GetHP() < playerHP.GetMaxHP())    //No aumenta la salud del jugador si ya esta al maximo
