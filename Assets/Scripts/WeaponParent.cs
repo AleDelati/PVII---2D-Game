@@ -17,17 +17,23 @@ public class WeaponParent : MonoBehaviour {
     public Transform circleOrigin;
     public float radius;
 
-
+    [Header("Audio Config")]
+    [SerializeField] private AudioClip swordSwing;
+    [SerializeField] private AudioClip swordImpact;
+    [SerializeField] private AudioClip swordLethal;
 
     //              ----|Variables|----
     private bool attackCoolDown;
     public bool isAttacking { get; private set; }
 
-
-
     //              ----|References|----
+    private AudioSource _AudioSource;
 
     //              ----|Functions|----
+    private void OnEnable() {
+        _AudioSource = GetComponentInParent<AudioSource>();
+    }
+
     private void Update() {
 
         if (isAttacking) return;
@@ -82,12 +88,42 @@ public class WeaponParent : MonoBehaviour {
 
     public void DetectColliders() {
         foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position, radius)) {
-            Debug.Log(collider.name);
+            //Debug.Log(collider.name);
             Health health;
             if(health = collider.GetComponent<Health>()) {
                 health.GetHit(1, transform.parent.gameObject);
             }
+
+            //Reproduce un sonido dependiendo de si se impacto a un enemigo o no
+            if(health.transform.gameObject.layer != gameObject.layer) {
+                if(health.GetHP() > 0) {
+                    PlayAudio(1);   //Impacto
+                } else {
+                    PlayAudio(2);   //Letal
+                }
+            } else {
+                PlayAudio(0);   //Sin Impacto
+            }
+
         }
     }
 
+    //Ejecuta los sonidos del arma
+    private void PlayAudio(int typeofimpact) {
+        if (_AudioSource.isPlaying) {
+            return;
+        } else {
+            switch (typeofimpact) {
+                case 0:     //Sin impacto
+                    _AudioSource.PlayOneShot(swordSwing);
+                    break;
+                case 1:     //Impacto
+                    _AudioSource.PlayOneShot(swordImpact);
+                    break;
+                case 2:     //Letal
+                    _AudioSource.PlayOneShot(swordLethal);
+                    break;
+            }
+        }
+    }
 }
