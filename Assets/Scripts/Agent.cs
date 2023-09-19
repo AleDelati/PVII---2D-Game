@@ -10,6 +10,8 @@ public class Agent : MonoBehaviour {
     [Header("Movement Config")]
     [SerializeField] float velocity = 5f;
 
+    [SerializeReference] private Sprite _AgentSprite;   //Referencia al sprite actual del agente para usar en la animaciones
+
 
 
     //              ----|Variables|----
@@ -38,6 +40,8 @@ public class Agent : MonoBehaviour {
         _Health = GetComponent<Health>();
 
         _WeaponParent = GetComponentInChildren<WeaponParent>();
+
+        _AgentSprite = _SpriteRenderer.sprite;     //Guarda el sprite actual del agente
     }
 
     private void Update() {              //Se ejecuta en cada frame del juego (Intervalo variable) 
