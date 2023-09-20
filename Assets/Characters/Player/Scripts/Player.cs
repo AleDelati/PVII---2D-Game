@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
     //              ----|Unity Config|----
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour {
     //              ----|References|----
     private SpriteRenderer _SpriteRenderer;
     private Health _Health;
+    private PlayerInput _PlayerInput;
 
     //              ----|Functions|----
     private void Update() {
@@ -23,6 +25,7 @@ public class Player : MonoBehaviour {
 
         _SpriteRenderer = GetComponent<SpriteRenderer>();
         _Health = GetComponent<Health>();
+        _PlayerInput = GetComponent<PlayerInput>();
 
     }
 
@@ -30,4 +33,5 @@ public class Player : MonoBehaviour {
         _SpriteRenderer.sprite = playerSprites[(int)_Health.GetHP() - 1];
         _PlayerSprite = _SpriteRenderer.sprite;     //Mantiene actualizado cual es el sprite actual del jugador
     }
+
 }

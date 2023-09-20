@@ -22,6 +22,7 @@ public class Agent : MonoBehaviour {
 
 
 
+
     //              ----|References|----
     private SpriteRenderer _SpriteRenderer;
     private Rigidbody2D _Rigidbody2D;

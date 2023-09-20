@@ -92,19 +92,18 @@ public class WeaponParent : MonoBehaviour {
             Health health;
             if(health = collider.GetComponent<Health>()) {
                 health.GetHit(1, transform.parent.gameObject);
-            }
 
-            //Reproduce un sonido dependiendo de si se impacto a un enemigo o no
-            if(health.transform.gameObject.layer != gameObject.layer) {
-                if(health.GetHP() > 0) {
-                    PlayAudio(1);   //Impacto
+                //Reproduce un sonido dependiendo de si se impacto a un enemigo o no
+                if (health.transform.gameObject.layer != gameObject.layer) {
+                    if (health.GetHP() > 0) {
+                        PlayAudio(1);   //Impacto
+                    } else {
+                        PlayAudio(2);   //Letal
+                    }
                 } else {
-                    PlayAudio(2);   //Letal
+                    PlayAudio(0);   //Sin Impacto
                 }
-            } else {
-                PlayAudio(0);   //Sin Impacto
             }
-
         }
     }
 

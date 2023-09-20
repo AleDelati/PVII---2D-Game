@@ -15,8 +15,13 @@ public class Health : MonoBehaviour {
     public UnityEvent<GameObject> OnHitWithReference, OnDeathWithReference;
 
     //              ----|References|----
+    private Agent _Agent;
 
     //              ----|Functions|----
+    private void OnEnable() {
+        _Agent = GetComponent<Agent>();
+    }
+
     public void InitializeHealth(int initialHP) {
         currentHP = initialHP;
         maxHP = initialHP;

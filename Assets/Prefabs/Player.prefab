@@ -308,6 +308,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 6
+  _AgentSprite: {fileID: 0}
+  KillCount: 0
 --- !u!114 &8405392298797810796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,6 +451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460f7a304de050a4fb89d52ab3bad5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _WeaponSprite: {fileID: 0}
   OnAnimationEventTriggered:
     m_PersistentCalls:
       m_Calls:
@@ -530,3 +533,6 @@ MonoBehaviour:
   coolDown: 0.3
   circleOrigin: {fileID: 7128348700196053792}
   radius: 0.5
+  swordSwing: {fileID: 0}
+  swordImpact: {fileID: 0}
+  swordLethal: {fileID: 0}
