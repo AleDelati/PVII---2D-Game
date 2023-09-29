@@ -15,6 +15,10 @@ public class EnemyAI : MonoBehaviour {
     public UnityEvent<Vector2> OnMovementInput, OnPointerInput;
     public UnityEvent OnAttack;
 
+    [Header("Detection Circle Config")]
+    [SerializeField] private Transform playerDetectionOrigin;
+    [SerializeField] private float playerDetectionRadius;
+
     //              ----|Variables|----
 
     //              ----|References|----
@@ -24,7 +28,7 @@ public class EnemyAI : MonoBehaviour {
     private void Update() {
         if (player == null) {   //Verifica si el jugador sigue con vida
             OnMovementInput?.Invoke(Vector2.zero);
-            return;
+            DetectPlayerColliders();
         } else {
             float distance = Vector2.Distance(player.position, transform.position);
             if (distance < chaseDistanceThreshold) {
@@ -49,4 +53,23 @@ public class EnemyAI : MonoBehaviour {
             }
         }
     }
+
+    //Dibuja un area de busqueda de objetivos
+    private void OnDrawGizmosSelected() {
+        Gizmos.color = Color.yellow;
+        Vector3 position = playerDetectionOrigin == null ? Vector3.zero : playerDetectionOrigin.position;
+        Gizmos.DrawWireSphere(position, playerDetectionRadius);
+    }
+
+    public void DetectPlayerColliders() {
+        foreach (Collider2D collider in Physics2D.OverlapCircleAll(playerDetectionOrigin.position, playerDetectionRadius)) {
+
+            //Si se detecta un jugador en el area de busqueda
+            if (collider.CompareTag("Player") == true) {
+                Transform transform = collider.transform;
+                player = collider.transform;
+            }
+        }
+    }
+
 }
