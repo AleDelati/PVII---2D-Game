@@ -8,32 +8,36 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField] private GameObject[] enemyPrefab;
 
     [SerializeField]
-    [Range(0.5f, 5.0f)]
+    [Range(1.0f, 60.0f)]
     private float coolDown;
 
     [SerializeField]
-    [Range(0.5f, 5.0f)]
+    [Range(1.0f, 30.0f)]
     private float coolDownI;
 
     //              ----|Variables|----
 
     //              ----|References|----
-
+    [SerializeField] private GameObject _ExitDoor;
     //              ----|Functions|----
-
     void SpawnRandomEnemy() {
-        int randomIndex = Random.Range(0, enemyPrefab.Length);
-        GameObject randomEnemy = enemyPrefab[randomIndex];
-        Instantiate(randomEnemy, transform.position, Quaternion.identity);
+        //Si la puerta de salida esta abierta detiene la generacion de nuevos enemigos en los puntos de spawn
+        if (_ExitDoor.GetComponent<ExitDoor>().GetDoorState() == false) {
+            int randomIndex = Random.Range(0, enemyPrefab.Length);
+            GameObject randomEnemy = enemyPrefab[randomIndex];
+            Instantiate(randomEnemy, transform.position, Quaternion.identity);
+        } else {
+            Debug.Log("Puerta de salida abierta, Spawn de enemigo cancelado");
+        }
     }
 
     private void OnBecameVisible() {
-        Debug.Log("Spawner dentro del rango de la camara, Activado");
+        //Debug.Log("Spawner dentro del rango de la camara, Activado");
         InvokeRepeating(nameof(SpawnRandomEnemy), coolDown, coolDownI);
     }
 
     private void OnBecameInvisible() {
-        Debug.Log("Spawner fuera del rango de la camara, Desactivado");
+        //Debug.Log("Spawner fuera del rango de la camara, Desactivado");
         CancelInvoke(nameof(SpawnRandomEnemy));
     }
 

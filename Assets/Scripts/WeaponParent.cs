@@ -8,14 +8,15 @@ public class WeaponParent : MonoBehaviour {
 
     //              ----|Unity Config|----
     [Header("General Config")]
-    public SpriteRenderer characterRenderer;
-    public SpriteRenderer weaponRenderer;
-    public Vector2 PointerPosition { get; set; }
-    public Animator _weaponAnimator;
-    public float coolDown = 0.3f;
+    [SerializeField] private SpriteRenderer characterRenderer;
+    [SerializeField] private SpriteRenderer weaponRenderer;
+    [SerializeField] public Vector2 PointerPosition { get; set; }
+    [SerializeField] private Animator _weaponAnimator;
+    [SerializeField] private float coolDown = 0.3f;
 
-    public Transform circleOrigin;
-    public float radius;
+    [SerializeField] private Transform circleOrigin;
+    [SerializeField] private float radius;
+    [SerializeField] private bool areaAttack;
 
     [Header("Audio Config")]
     [SerializeField] private AudioClip swordSwing;
@@ -24,6 +25,7 @@ public class WeaponParent : MonoBehaviour {
 
     //              ----|Variables|----
     private bool attackCoolDown;
+    private bool hasTarget;
     public bool isAttacking { get; private set; }
 
     //              ----|References|----
@@ -73,6 +75,7 @@ public class WeaponParent : MonoBehaviour {
     private IEnumerator AttackCoolDown() {
         yield return new WaitForSeconds(coolDown);
         attackCoolDown = false;
+        hasTarget = false;
     }
 
     public void ResetIsAttacking() {
@@ -90,39 +93,38 @@ public class WeaponParent : MonoBehaviour {
         foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position, radius)) {
             //Debug.Log(collider.name);
             Health health;
-            if(health = collider.GetComponent<Health>()) {
-                health.GetHit(1, transform.parent.gameObject);
+            if (health = collider.GetComponent<Health>()) {
 
-                //Reproduce un sonido dependiendo de si se impacto a un enemigo o no
-                if (health.transform.gameObject.layer != gameObject.layer) {
-                    if (health.GetHP() > 0) {
-                        PlayAudio(1);   //Impacto
-                    } else {
-                        PlayAudio(2);   //Letal
-                    }
-                } else {
-                    PlayAudio(0);   //Sin Impacto
+                //Ataque con daño en area
+                if(areaAttack == true) {    
+                    health.GetHit(1, transform.parent.gameObject);
+                    PlayAudioImpact(health);
+
+                //Ataque con daño individual
+                }else if(areaAttack == false && hasTarget == false) {   //Evita que se impacten a varios enemigos a la vez si no tiene daño en area
+                    health.GetHit(1, transform.parent.gameObject);
+                    hasTarget = true;
+                    PlayAudioImpact(health);
                 }
             }
         }
     }
 
     //Ejecuta los sonidos del arma
-    private void PlayAudio(int typeofimpact) {
-        if (_AudioSource.isPlaying) {
-            return;
-        } else {
-            switch (typeofimpact) {
-                case 0:     //Sin impacto
-                    _AudioSource.PlayOneShot(swordSwing);
-                    break;
-                case 1:     //Impacto
-                    _AudioSource.PlayOneShot(swordImpact);
-                    break;
-                case 2:     //Letal
-                    _AudioSource.PlayOneShot(swordLethal);
-                    break;
+    private void PlayAudioImpact(Health _health) {
+
+        Health health = _health;
+        //Reproduce un sonido dependiendo de si se impacto a un enemigo o no
+        if (health.transform.gameObject.layer != gameObject.layer) {
+            if (health.GetHP() > 0) {
+                _AudioSource.PlayOneShot(swordImpact);   //Impacto
+            } else {
+                _AudioSource.PlayOneShot(swordLethal);   //Letal
             }
+        } else {
+            _AudioSource.PlayOneShot(swordSwing);   //Sin Impacto
         }
+
     }
+
 }

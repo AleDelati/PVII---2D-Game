@@ -264,6 +264,7 @@ MonoBehaviour:
   coolDown: 0.5
   circleOrigin: {fileID: 405099261312356515}
   radius: 0.6
+  areaAttack: 1
   swordSwing: {fileID: 8300000, guid: 6458ae4173880d14b84d80a401ed7599, type: 3}
   swordImpact: {fileID: 8300000, guid: a257b70528eb37f4ab207e195f1ee763, type: 3}
   swordLethal: {fileID: 8300000, guid: fde31e5126eeafc429b1a888b3982410, type: 3}
@@ -392,7 +393,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.002974987, y: -0.028327703}
+  m_Offset: {x: -0.0026073456, y: -0.028328419}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -403,7 +404,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5040579, y: 0.68876886}
+  m_Size: {x: 0.6045418, y: 0.81530476}
   m_EdgeRadius: 0
 --- !u!50 &4713165869051949446
 Rigidbody2D:

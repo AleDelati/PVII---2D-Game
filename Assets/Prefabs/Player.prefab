@@ -309,7 +309,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: 6
   _AgentSprite: {fileID: 0}
-  KillCount: 0
 --- !u!114 &8405392298797810796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,9 +529,10 @@ MonoBehaviour:
   characterRenderer: {fileID: 6892771349302171428}
   weaponRenderer: {fileID: 7316917858412100483}
   _weaponAnimator: {fileID: 4784629186730548709}
-  coolDown: 0.3
+  coolDown: 0.5
   circleOrigin: {fileID: 7128348700196053792}
-  radius: 0.5
+  radius: 0.75
+  areaAttack: 0
   swordSwing: {fileID: 0}
   swordImpact: {fileID: 0}
   swordLethal: {fileID: 0}

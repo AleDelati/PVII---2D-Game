@@ -5,9 +5,10 @@ using UnityEngine;
 public class ExitDoor : MonoBehaviour {
     //              ----|Unity Config|----
     [Header("General Config")]
-    public Sprite[] doorSprites;    //Permite setear el array de sprites de la puerta desde el menu de Unity
+    [SerializeField] private Sprite[] doorSprites;    //Permite setear el array de sprites de la puerta desde el menu de Unity
 
     //              ----|Variables|----
+    public bool doorOpen = false;
 
     //              ----|References|----
     [SerializeField] Agent _LevelBossAgent;
@@ -31,8 +32,13 @@ public class ExitDoor : MonoBehaviour {
     private void OpenDoor() {
         if(_SpriteRenderer.sprite == doorSprites[0]) {
             _SpriteRenderer.sprite = doorSprites[1];
+            doorOpen = true;
             Debug.Log("Victoria!, La puerta de salida esta abierta");
         }
+    }
+
+    public bool GetDoorState() {
+        return doorOpen;
     }
 
 }

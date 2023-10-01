@@ -60,4 +60,9 @@ public class Health : MonoBehaviour {
 
     }
 
+    // !- Cambia temporalmente el color del sprite del agente que recibio el impacto para dar feedback durante el combate
+    private void HitFeedBack() {
+
+    }
+
 }
