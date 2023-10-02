@@ -13088,8 +13088,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 436727060}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.143283, y: 28.81912, z: 0.18428344}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.668596, y: 35.23766, z: -0.06948957}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13097,7 +13097,7 @@ Transform:
   - {fileID: 766561937}
   - {fileID: 1807028327}
   - {fileID: 1220145681}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1985955478}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &484881344 stripped
 Transform:
@@ -22934,6 +22934,7 @@ Transform:
   - {fileID: 1487956512}
   - {fileID: 1359037696}
   - {fileID: 384178551}
+  - {fileID: 436727061}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2006236762
@@ -23145,6 +23146,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 909699364}
     m_Modifications:
+    - target: {fileID: -2380684426248923380, guid: f3b39ae7d6a79874d8738dac1ca29a72, type: 3}
+      propertyPath: delay
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -2380684426248923380, guid: f3b39ae7d6a79874d8738dac1ca29a72, type: 3}
+      propertyPath: knockbackStrenght
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 608443863860436287, guid: f3b39ae7d6a79874d8738dac1ca29a72, type: 3}
       propertyPath: m_Size.x
       value: 0.5001451
@@ -23175,11 +23184,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3335760974968934200, guid: f3b39ae7d6a79874d8738dac1ca29a72, type: 3}
       propertyPath: radius
-      value: 0.75
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 3335760974968934200, guid: f3b39ae7d6a79874d8738dac1ca29a72, type: 3}
       propertyPath: coolDown
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3335760974968934200, guid: f3b39ae7d6a79874d8738dac1ca29a72, type: 3}
       propertyPath: swordSwing
@@ -23265,4 +23274,3 @@ SceneRoots:
   - {fileID: 1242576988}
   - {fileID: 909699364}
   - {fileID: 1985955478}
-  - {fileID: 436727061}
