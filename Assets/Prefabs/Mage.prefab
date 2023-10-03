@@ -68,12 +68,114 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1051629111, guid: db738e67d07602643b50b61b935fc173, type: 3}
+    - target: {fileID: 7946722818204679944, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: OnDone.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7946722818204679944, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: OnBegin.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8436290498940154097, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_Name
       value: Mage
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2270556486058160356, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8436290498940154097, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      insertIndex: 6
+      addedObject: {fileID: 2168625426243423565}
   m_SourcePrefab: {fileID: 100100000, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+--- !u!114 &8596593219248049 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4296948375338229556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+  m_PrefabInstance: {fileID: 4305257941795504261}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669153194583928948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6de1e7c5874f60e4188980564c0dffc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &5669153194583928948 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8436290498940154097, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+  m_PrefabInstance: {fileID: 4305257941795504261}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2168625426243423565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669153194583928948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f9d2c80905eb340bbd23889bdd7930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseDistanceThreshold: 10
+  attackDistanceThreshold: 4.2
+  mantainDistanceThreshold: 4
+  attackDelay: 3
+  passedTime: 1
+  OnMovementInput:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8596593219248049}
+        m_TargetAssemblyTypeName: Agent, Assembly-CSharp
+        m_MethodName: set_MovementInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnPointerInput:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8596593219248049}
+        m_TargetAssemblyTypeName: Agent, Assembly-CSharp
+        m_MethodName: set_PointerInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnAttack:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8596593219248049}
+        m_TargetAssemblyTypeName: Agent, Assembly-CSharp
+        m_MethodName: PerformAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  playerDetectionOrigin: {fileID: 7129523951127592820}
+  playerDetectionRadius: 10
+  movePositions:
+  - {x: 0, y: 65}
+  - {x: -5, y: 60}
+  - {x: 0, y: 55}
+  - {x: 5, y: 65}
+--- !u!4 &7129523951127592820 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6435205213170171889, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+  m_PrefabInstance: {fileID: 4305257941795504261}
+  m_PrefabAsset: {fileID: 0}

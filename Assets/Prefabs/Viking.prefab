@@ -482,7 +482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  chaseDistanceThreshold: 20
+  chaseDistanceThreshold: 10
   attackDistanceThreshold: 0.9
   attackDelay: 1.5
   passedTime: 1

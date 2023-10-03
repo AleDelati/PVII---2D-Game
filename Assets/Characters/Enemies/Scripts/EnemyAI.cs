@@ -20,38 +20,16 @@ public class EnemyAI : MonoBehaviour {
     [SerializeField] private float playerDetectionRadius;
 
     //              ----|Variables|----
-
+    private Vector3 startingPos;
     //              ----|References|----
 
     //              ----|Functions|----
+    private void Start() {
+        startingPos = transform.position;
+    }
 
     private void Update() {
-        if (player == null) {   //Verifica si el jugador sigue con vida
-            OnMovementInput?.Invoke(Vector2.zero);
-            DetectPlayerColliders();
-        } else {
-            float distance = Vector2.Distance(player.position, transform.position);
-            if (distance < chaseDistanceThreshold) {
-                OnPointerInput?.Invoke(player.position);
-                if(distance <= attackDistanceThreshold) {
-                    //Atacando al jugador
-                    OnMovementInput?.Invoke(Vector2.zero); 
-                    if(passedTime >= attackDelay) {
-                        passedTime = 0;
-                        OnAttack?.Invoke();
-                    }
-
-                } else {
-                    //Siguiendo al jugador
-                    Vector2 direction = player.position - transform.position;
-                    OnMovementInput?.Invoke(direction.normalized);
-                }
-            }
-            //Idle
-            if(passedTime < attackDelay) {
-                passedTime += Time.deltaTime;
-            }
-        }
+        BasicBehavior();
     }
 
     //Dibuja un area de busqueda de objetivos
@@ -68,6 +46,42 @@ public class EnemyAI : MonoBehaviour {
             if (collider.CompareTag("Player") == true) {
                 Transform transform = collider.transform;
                 player = collider.transform;
+            }
+        }
+    }
+
+    private void BasicBehavior() {
+        if (player == null) {   //Verifica si el jugador sigue con vida
+            //Vuelve a la posicion inicial al perder de vista al jugador
+            float distance = Vector2.Distance(startingPos, transform.position);
+            if (distance > 0.05f) {
+                Vector3 direction = startingPos - transform.position;
+                OnMovementInput?.Invoke(direction.normalized);
+            } else {
+                OnMovementInput?.Invoke(Vector2.zero);
+                DetectPlayerColliders();
+            }
+        } else {
+            float distance = Vector2.Distance(player.position, transform.position);
+            if (distance < chaseDistanceThreshold) {
+                OnPointerInput?.Invoke(player.position);
+                if (distance <= attackDistanceThreshold) {
+                    //Atacando al jugador
+                    OnMovementInput?.Invoke(Vector2.zero);
+                    if (passedTime >= attackDelay) {
+                        passedTime = 0;
+                        OnAttack?.Invoke();
+                    }
+
+                } else {
+                    //Siguiendo al jugador
+                    Vector2 direction = player.position - transform.position;
+                    OnMovementInput?.Invoke(direction.normalized);
+                }
+            }
+            //Idle
+            if (passedTime < attackDelay) {
+                passedTime += Time.deltaTime;
             }
         }
     }
