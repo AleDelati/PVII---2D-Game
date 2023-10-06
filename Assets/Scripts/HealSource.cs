@@ -40,7 +40,7 @@ public class HealSource : MonoBehaviour
                 if (playerHP.GetHP() < playerHP.GetMaxHP())    //No aumenta la salud del jugador si ya esta al maximo
                 {
                     playerHP.SetHP(playerHP.GetHP() + RestoredHP);
-                    Debug.Log("Vida restaurada al jugador " + RestoredHP);
+                    //Debug.Log("Vida restaurada al jugador " + RestoredHP);
 
                     PlayAudio();
                     healCoolDown = true;

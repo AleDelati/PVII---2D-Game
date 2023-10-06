@@ -9,17 +9,45 @@ public class Projectile : MonoBehaviour {
 
     //              ----|Variables|----
     private Vector2 direction;
+    private GameObject caster;
 
     //              ----|References|----
     private Rigidbody2D _RigidBody2D;
+    private BoxCollider2D _BoxCollider2D;
 
     //              ----|Functions|----
-    Projectile(Vector2 _direction) {
-        direction = _direction;
-    }
-
     private void OnEnable() {
         _RigidBody2D = GetComponent<Rigidbody2D>();
+        _BoxCollider2D = GetComponent<BoxCollider2D>();
+    }
+
+    private void Update() {
+
+    }
+
+    private void FixedUpdate() {
+        _RigidBody2D.MovePosition(_RigidBody2D.position + direction * (velocity * Time.fixedDeltaTime));
+    }
+
+    //Permite configurar el projectil luego de ser instanciado
+    public void SetProjectile(Vector2 dir, GameObject _caster) {
+        direction = dir;
+        caster = _caster;
+    }
+
+    //Si el projectil impacta con cualquier objeto que no sea su propio caster es destruido e inflinge daño si es posible
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if(collision.gameObject.layer != caster.layer) {
+            
+            //Si el objetivo impactado tiene vida le hace daño
+            Health health;
+            if (health = collision.gameObject.GetComponent<Health>()) {
+                health.GetHit(1, caster);
+                //PlayAudioImpact(health)
+                Destroy(this.gameObject);
+            }
+            Destroy(this.gameObject);
+        }
     }
 
 }

@@ -17,20 +17,24 @@ public class EnemyAIMage : MonoBehaviour {
     [SerializeField] private Transform playerDetectionOrigin;
     [SerializeField] private float playerDetectionRadius;
 
-    [Header("MovePositions")]
-    [SerializeField] private Vector2[] movePositions;
-
     [Header("Projectile Config")]
-    [SerializeField] private GameObject Projectile;
+    [SerializeField] private GameObject ProjectilePrefab;
     [SerializeField] private Transform ProjectileSpawnPoint;
+
+    [Header("Summon Config")]
+    [SerializeField] private GameObject SummonPrefab;
+    [SerializeField] private float SummonTime = 1.5f;
 
     //              ----|Variables|----
     private Vector3 startingPos;
 
     private float currentWaitTime;
     private int currentState;
-    private Transform target;
+
     //              ----|References|----
+    private Transform target;
+    private GameObject ProjectileInstance;
+    private GameObject SummonInstance;
 
     //              ----|Functions|----
     private void Start() {
@@ -67,6 +71,10 @@ public class EnemyAIMage : MonoBehaviour {
                     StartCoroutine(Combat());
                     currentWaitTime = 0;
                     break;
+                case 2:
+                    StartCoroutine(Summon());
+                    currentWaitTime = SummonTime;
+                    break;
             }
 
             //Debug.Log(currentState);
@@ -80,6 +88,8 @@ public class EnemyAIMage : MonoBehaviour {
     private void UpdateState() {
         if(target == null) {
             currentState = 0;
+        } else if (SummonInstance == null && target != null) {
+            currentState = Random.Range(1, 3);
         } else {
             currentState = 1;
         }
@@ -96,6 +106,7 @@ public class EnemyAIMage : MonoBehaviour {
         float distance = Vector2.Distance(target.position, transform.position);
         if (distance < chaseDistanceThreshold) {
             OnPointerInput?.Invoke(target.position);
+            
             if (distance <= mantainDistanceThreshold) {
                 //Mantener distancia con el jugador
                 Vector2 direction = target.position + transform.position;
@@ -103,11 +114,21 @@ public class EnemyAIMage : MonoBehaviour {
                 yield return null;
 
             } else if (distance <= attackDistanceThreshold) {
+                
                 //Atacando al jugador
                 OnMovementInput?.Invoke(Vector2.zero);
+                yield return new WaitForSeconds(1.0f);
+
                 if (passedTime >= attackDelay) {
                     passedTime = 0;
                     OnAttack?.Invoke();
+
+                    //Disparar projectil
+                    Vector2 direction = target.position - transform.position;
+
+                    ProjectileInstance = Instantiate(ProjectilePrefab, ProjectileSpawnPoint.position, Quaternion.identity);
+                    ProjectileInstance.GetComponent<Projectile>().SetProjectile(direction.normalized, this.gameObject);
+
                     yield return null;
                 }
 
@@ -123,6 +144,13 @@ public class EnemyAIMage : MonoBehaviour {
             passedTime += Time.deltaTime;
             yield return null;
         }
+    }
+
+    private IEnumerator Summon() {
+        OnMovementInput?.Invoke(Vector2.zero);
+        yield return new WaitForSeconds(SummonTime);
+        SummonInstance = Instantiate(SummonPrefab, transform.position, Quaternion.identity);
+        yield return null;
     }
 
     private void MoveTo(Vector3 targetPos) {

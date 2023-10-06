@@ -545,8 +545,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3c07f241f09a149877add27fdb4847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHP: 3
-  maxHP: 3
+  currentHP: 2
+  maxHP: 2
   isDead: 0
   OnHitWithReference:
     m_PersistentCalls:
@@ -578,7 +578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772c4b731d9ebec4ca8f072e7ca8239a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackStrenght: 2
+  knockbackStrenght: 3
   delay: 0.3
   knockBack: 1
   OnBegin:
