@@ -54,4 +54,9 @@ public class Collect : MonoBehaviour {
         return collectables.Count;
     }
 
+    //Reinicia la lista ( Usado en GameOver )
+    public void ResetCollectables() {
+        collectables.Clear();
+    }
+
 }

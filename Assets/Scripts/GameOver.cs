@@ -13,8 +13,11 @@ public class GameOver : MonoBehaviour {
     //              ----|Variables|----
 
     //              ----|References|----
-
+    private Collect _Collect;
     //              ----|Functions|----
+    private void OnEnable() {
+        _Collect = _Player.GetComponent<Collect>();
+    }
 
     private void Update() {
         if(autoRestart == true) {
@@ -32,6 +35,7 @@ public class GameOver : MonoBehaviour {
     //Reinicia el nivel
     public void ResetGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        _Collect.ResetCollectables();
         Debug.Log("Game Over");
     }
 

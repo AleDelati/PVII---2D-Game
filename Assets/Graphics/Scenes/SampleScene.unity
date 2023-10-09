@@ -13201,7 +13201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &436727061
 Transform:
   m_ObjectHideFlags: 0
@@ -14571,7 +14571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Player: {fileID: 501361020}
-  autoRestart: 0
+  autoRestart: 1
 --- !u!1 &1404513998
 GameObject:
   m_ObjectHideFlags: 0

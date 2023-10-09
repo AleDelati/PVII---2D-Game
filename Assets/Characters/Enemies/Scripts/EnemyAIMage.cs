@@ -168,8 +168,10 @@ public class EnemyAIMage : MonoBehaviour {
     }
 
     private void OnDestroy() {
-        DropInstance = Instantiate(DropPrefab, transform.position, Quaternion.identity);
-        DropInstance.name = "KeyFragmentC";
+        if (target != null) {   //Evita que se instancie el objeto si el jugador murio y se reinicia el nivel
+            DropInstance = Instantiate(DropPrefab, transform.position, Quaternion.identity);
+            DropInstance.name = "KeyFragmentC";
+        }
     }
 
 }
