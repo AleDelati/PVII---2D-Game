@@ -11,10 +11,14 @@ public class Collect : MonoBehaviour {
     //              ----|Variables|----
 
     //              ----|References|----
+    private Player _Player;
+    private PlayerProgression _PlayerProgression;
 
     //              ----|Functions|----
     private void Awake() {
         collectables = new List<GameObject>();
+        _Player = GetComponent<Player>();
+        _PlayerProgression = GetComponent<PlayerProgression>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
@@ -25,6 +29,8 @@ public class Collect : MonoBehaviour {
 
         collectables.Add(newCollectable);
         newCollectable.transform.SetParent(bag.transform);
+
+        _PlayerProgression.GiveXP(_Player.PlayerProfile.XPKeyFragment); //Da XP al jugador al recolectar
 
         Debug.Log("Fragmentos de llaves obtenidos: " + collectables.Count);
     }

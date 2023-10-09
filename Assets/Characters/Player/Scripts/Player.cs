@@ -16,6 +16,9 @@ public class Player : MonoBehaviour {
     private Health _Health;
     private PlayerInput _PlayerInput;
 
+    [SerializeField] private PlayerProfile _PlayerProfile;  //Referencia al perfil del jugador
+    [SerializeField] public PlayerProfile PlayerProfile { get => _PlayerProfile; }
+
     //              ----|Functions|----
     private void Update() {
         PlayerSpriteUpdate();
