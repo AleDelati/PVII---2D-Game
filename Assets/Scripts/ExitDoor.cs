@@ -11,22 +11,23 @@ public class ExitDoor : MonoBehaviour {
     public bool doorOpen = false;
 
     //              ----|References|----
-    [SerializeField] Agent _LevelBossAgent;
+    [SerializeField] private GameObject Player;
+
     private SpriteRenderer _SpriteRenderer;
+    private Collect _PlayerBag;
 
     //              ----|Functions|----
 
     private void OnEnable() {
         _SpriteRenderer = GetComponent<SpriteRenderer>();
         _SpriteRenderer.sprite = doorSprites[0];
+        _PlayerBag = Player.GetComponent<Collect>();
     }
 
     private void Update() {
-
-        if(_LevelBossAgent == null) {
+        if(_PlayerBag.GetCollectablesCount() == 3) {
             OpenDoor();
         }
-
     }
 
     private void OpenDoor() {
