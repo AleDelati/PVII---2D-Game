@@ -16,8 +16,10 @@ public class HUDController : MonoBehaviour {
 
         if(HealthContainerQuantity() > HP) {
             RemoveHealthIcon();
-        } else {
+        } else if (HealthContainerQuantity() < HP) {
             AddHealthIcon();
+        } else {
+            return;
         }
 
     }

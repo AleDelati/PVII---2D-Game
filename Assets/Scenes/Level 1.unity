@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1404513999}
     m_Modifications:
+    - target: {fileID: 3206114293252034290, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: destroyOnDeath
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3
@@ -12851,6 +12855,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1404513999}
     m_Modifications:
+    - target: {fileID: 3206114293252034290, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: destroyOnDeath
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3
@@ -13351,6 +13359,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1404513999}
     m_Modifications:
+    - target: {fileID: 3206114293252034290, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: destroyOnDeath
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -13683,6 +13695,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1404513999}
     m_Modifications:
+    - target: {fileID: 3206114293252034290, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: destroyOnDeath
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -13890,6 +13906,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1404513999}
     m_Modifications:
+    - target: {fileID: 3206114293252034290, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: destroyOnDeath
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3
@@ -14817,7 +14837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b29a0ed947c1a4d8defb3305a9dec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Player: {fileID: 501361020}
+  _player: {fileID: 501361020}
   autoRestart: 1
 --- !u!1 &1404513998
 GameObject:
@@ -20005,6 +20025,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1404513999}
     m_Modifications:
+    - target: {fileID: 3206114293252034290, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: destroyOnDeath
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3
@@ -20071,6 +20095,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1404513999}
     m_Modifications:
+    - target: {fileID: 3206114293252034290, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: destroyOnDeath
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3
@@ -20221,6 +20249,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1404513999}
     m_Modifications:
+    - target: {fileID: 3206114293252034290, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: destroyOnDeath
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -20858,6 +20890,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1404513999}
     m_Modifications:
+    - target: {fileID: 3206114293252034290, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: destroyOnDeath
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -20924,6 +20960,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1404513999}
     m_Modifications:
+    - target: {fileID: 3206114293252034290, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: destroyOnDeath
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -23320,6 +23360,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1404513999}
     m_Modifications:
+    - target: {fileID: 3206114293252034290, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: destroyOnDeath
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3
@@ -23453,6 +23497,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1404513999}
     m_Modifications:
+    - target: {fileID: 3206114293252034290, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: destroyOnDeath
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3
@@ -23558,6 +23606,10 @@ PrefabInstance:
     - target: {fileID: 164651961277800713, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711718324136676983, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
+      propertyPath: destroyOnDeath
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2168625426243423565, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: DropPrefab
@@ -23782,6 +23834,10 @@ PrefabInstance:
     - target: {fileID: 8300453392307119598, guid: f3b39ae7d6a79874d8738dac1ca29a72, type: 3}
       propertyPath: OnLivesChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405392298797810796, guid: f3b39ae7d6a79874d8738dac1ca29a72, type: 3}
+      propertyPath: destroyOnDeath
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8405392298797810796, guid: f3b39ae7d6a79874d8738dac1ca29a72, type: 3}
       propertyPath: _PlayerProgression

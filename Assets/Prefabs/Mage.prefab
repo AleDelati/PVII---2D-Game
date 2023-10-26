@@ -24,6 +24,14 @@ PrefabInstance:
       propertyPath: currentHP
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3206114293252034290, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: initialHP
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206114293252034290, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: destroyOnDeath
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -122,6 +130,7 @@ MonoBehaviour:
   mantainDistanceThreshold: 4
   attackDelay: 3
   passedTime: 1
+  DropPrefab: {fileID: 0}
   OnMovementInput:
     m_PersistentCalls:
       m_Calls:
@@ -169,13 +178,10 @@ MonoBehaviour:
         m_CallState: 2
   playerDetectionOrigin: {fileID: 7129523951127592820}
   playerDetectionRadius: 10
-  movePositions:
-  - {x: 0, y: 65}
-  - {x: -5, y: 60}
-  - {x: 0, y: 55}
-  - {x: 5, y: 65}
   ProjectilePrefab: {fileID: 1808977328325856672, guid: 96428b0877a578047a9870ac4dfd1d96, type: 3}
   ProjectileSpawnPoint: {fileID: 0}
+  SummonPrefab: {fileID: 0}
+  SummonTime: 1.5
 --- !u!4 &7129523951127592820 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6435205213170171889, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}

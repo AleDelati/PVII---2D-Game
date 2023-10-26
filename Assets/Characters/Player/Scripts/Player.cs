@@ -26,22 +26,19 @@ public class Player : MonoBehaviour {
     private UnityEvent<float> OnLivesChanged;
 
     //              ----|Functions|----
-    private void Start() {
-        OnLivesChanged.Invoke(_Health.GetHP());
-        currentHealth = _Health.GetHP();
-    }
-
-    private void Update() {
-        PlayerSpriteUpdate();
-        PlayerHealthBarUpdate();
-    }
-
     private void OnEnable() {           //Se ejecuta cuando el objeto se activa en el nivel
 
         _SpriteRenderer = GetComponent<SpriteRenderer>();
         _Health = GetComponent<Health>();
         _PlayerInput = GetComponent<PlayerInput>();
 
+        currentHealth = _Health.GetHP();
+        OnLivesChanged.Invoke(_Health.GetHP());
+    }
+
+    private void Update() {
+        PlayerSpriteUpdate();
+        PlayerHealthBarUpdate();
     }
 
     private void PlayerSpriteUpdate() { //Actualiza el Sprite del jugador dependiendo de la cantidad de hp restante

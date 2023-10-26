@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1658431322287019764}
   - component: {fileID: 5089491819667694979}
+  - component: {fileID: 2072747774561064632}
   - component: {fileID: 3959573628073668640}
   m_Layer: 0
   m_Name: EnemySpawner
@@ -45,10 +46,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b8c1fc3fd33cd04aaf23a7c8f898bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab:
-  - {fileID: 8436290498940154097, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
   coolDown: 3
   coolDownI: 10
+  _ExitDoor: {fileID: 0}
+--- !u!114 &2072747774561064632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7981005291630025062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe6ab9d418bee974eb05bc6355014042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefab: {fileID: 8436290498940154097, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+  poolSize: 3
 --- !u!212 &3959573628073668640
 SpriteRenderer:
   m_ObjectHideFlags: 0

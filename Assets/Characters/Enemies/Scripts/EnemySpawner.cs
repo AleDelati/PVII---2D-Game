@@ -5,8 +5,6 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour {
     //              ----|Unity Config|----
     [Header("General Config")]
-    [SerializeField] private GameObject[] enemyPrefab;
-
     [SerializeField]
     [Range(1.0f, 60.0f)]
     private float coolDown;
@@ -16,16 +14,23 @@ public class EnemySpawner : MonoBehaviour {
     private float coolDownI;
 
     //              ----|Variables|----
-
+    private ObjectPool objectPool;
     //              ----|References|----
     [SerializeField] private GameObject _ExitDoor;
     //              ----|Functions|----
-    void SpawnRandomEnemy() {
+    private void Start() {
+        objectPool = GetComponent<ObjectPool>();
+    }
+
+    void SpawnEnemy() {
         //Si la puerta de salida esta abierta detiene la generacion de nuevos enemigos en los puntos de spawn
         if (_ExitDoor.GetComponent<ExitDoor>().GetDoorState() == false) {
-            int randomIndex = Random.Range(0, enemyPrefab.Length);
-            GameObject randomEnemy = enemyPrefab[randomIndex];
-            Instantiate(randomEnemy, transform.position, Quaternion.identity);
+            GameObject pooledObject = objectPool.GetPooledObject();
+            if (pooledObject != null) {
+                pooledObject.transform.position = transform.position;
+                pooledObject.transform.rotation = Quaternion.identity;
+                pooledObject.SetActive(true);
+            }
         } else {
             Debug.Log("Puerta de salida abierta, Spawn de enemigo cancelado");
         }
@@ -33,12 +38,12 @@ public class EnemySpawner : MonoBehaviour {
 
     private void OnBecameVisible() {
         //Debug.Log("Spawner dentro del rango de la camara, Activado");
-        InvokeRepeating(nameof(SpawnRandomEnemy), coolDown, coolDownI);
+        InvokeRepeating(nameof(SpawnEnemy), coolDown, coolDownI);
     }
 
     private void OnBecameInvisible() {
         //Debug.Log("Spawner fuera del rango de la camara, Desactivado");
-        CancelInvoke(nameof(SpawnRandomEnemy));
+        CancelInvoke(nameof(SpawnEnemy));
     }
 
 }

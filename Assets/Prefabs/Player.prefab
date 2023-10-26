@@ -239,6 +239,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8bfd1adca4ab92645beceaa7405907ca, type: 3}
   - {fileID: 21300000, guid: 22fa6542f563fb747b2faeafe23ce739, type: 3}
   _PlayerSprite: {fileID: 0}
+  _PlayerProfile: {fileID: 0}
+  OnLivesChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5691603180260971105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3c07f241f09a149877add27fdb4847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialHP: 3
   currentHP: 3
   maxHP: 5
   isDead: 0
@@ -417,8 +422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5956dc763a0e9454288887fc8e807b49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  XPNextLevel: 0
-  scalateXP: 0
 --- !u!1 &5077318831543629458
 GameObject:
   m_ObjectHideFlags: 0

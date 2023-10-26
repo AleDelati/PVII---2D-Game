@@ -7,24 +7,30 @@ public class Health : MonoBehaviour {
 
     //              ----|Unity Config|----
     [Header("General Config")]
-    [SerializeField] private float currentHP;
+    [SerializeField] private float initialHP;
     [SerializeField] private float maxHP;
     
-    [SerializeField] public bool isDead = false;
+    [SerializeField] private bool isDead = false;
+    [SerializeField] private bool destroyOnDeath = false;
     //              ----|Variables|----
     public UnityEvent<GameObject> OnHitWithReference, OnDeathWithReference;
+    private float currentHP;
 
     //              ----|References|----
     private Agent _Agent;
 
     //              ----|Functions|----
-    private void OnEnable() {
-        _Agent = GetComponent<Agent>();
+    private void Start() {
+        currentHP = initialHP;
     }
 
-    public void InitializeHealth(int initialHP) {
+    private void OnEnable() {
+        _Agent = GetComponent<Agent>();
+        InitializeHealth();
+    }
+
+    public void InitializeHealth() {
         currentHP = initialHP;
-        maxHP = initialHP;
         isDead = false;
     }
 
@@ -55,7 +61,11 @@ public class Health : MonoBehaviour {
         } else {
             OnDeathWithReference?.Invoke(sender);
             isDead = true;
-            Destroy(gameObject);
+            if(destroyOnDeath == true) {
+                Destroy(gameObject);
+            } else {
+                gameObject.SetActive(false);
+            }
         }
 
     }

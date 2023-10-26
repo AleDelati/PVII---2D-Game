@@ -7,7 +7,7 @@ public class GameOver : MonoBehaviour {
 
     //              ----|Unity Config|----
     [Header("General Config")]
-    [SerializeField] Player _Player;
+    [SerializeField] private Player _player;
     [SerializeField] private bool autoRestart;
 
     //              ----|Variables|----
@@ -16,18 +16,18 @@ public class GameOver : MonoBehaviour {
     private Collect _Collect;
     //              ----|Functions|----
     private void OnEnable() {
-        _Collect = _Player.GetComponent<Collect>();
+        _Collect = _player.GetComponent<Collect>();
     }
 
     private void Update() {
         if(autoRestart == true) {
-            CheckGameOver(_Player);
+            CheckGameOver(_player);
         }
     }
 
     //Si el jugador fue eliminado reinicia el nivel
-    private void CheckGameOver(Player _Player) {
-        if (_Player == null){
+    private void CheckGameOver(Player _player) {
+        if (_player == null){
             ResetGame();
         }
     }

@@ -42,6 +42,9 @@ public class EnemyAIMage : MonoBehaviour {
     //              ----|Functions|----
     private void Start() {
         startingPos = transform.position;
+    }
+
+    private void OnEnable() {
         StartCoroutine(MageBehavior());
     }
 
@@ -89,7 +92,7 @@ public class EnemyAIMage : MonoBehaviour {
     }
 
     private void UpdateState() {
-        if(target == null) {
+        if (target == null) {
             currentState = 0;
         } else if (SummonInstance == null && target != null) {
             currentState = Random.Range(1, 3);
@@ -152,7 +155,9 @@ public class EnemyAIMage : MonoBehaviour {
     private IEnumerator Summon() {
         OnMovementInput?.Invoke(Vector2.zero);
         yield return new WaitForSeconds(SummonTime);
-        SummonInstance = Instantiate(SummonPrefab, transform.position, Quaternion.identity);
+        if(SummonInstance == null) {
+           SummonInstance = Instantiate(SummonPrefab, transform.position, Quaternion.identity);
+        }
         yield return null;
     }
 
