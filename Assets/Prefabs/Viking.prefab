@@ -282,6 +282,7 @@ GameObject:
   - component: {fileID: 4713165869051949446}
   - component: {fileID: 823549693609316604}
   - component: {fileID: 4296948375338229556}
+  - component: {fileID: 2978405427302500279}
   - component: {fileID: 2270556486058160356}
   - component: {fileID: 3206114293252034290}
   - component: {fileID: 7946722818204679944}
@@ -469,6 +470,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: 5
   _AgentSprite: {fileID: 0}
+--- !u!114 &2978405427302500279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8436290498940154097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81750d16b77087e42ad4d847f5e4d4f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreDrop: 100
 --- !u!114 &2270556486058160356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,7 +496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  chaseDistanceThreshold: 10
+  chaseDistanceThreshold: 15
   attackDistanceThreshold: 0.9
   attackDelay: 1.5
   passedTime: 1

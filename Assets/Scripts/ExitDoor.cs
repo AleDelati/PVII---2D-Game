@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class ExitDoor : MonoBehaviour {
     //              ----|Unity Config|----
@@ -16,17 +18,28 @@ public class ExitDoor : MonoBehaviour {
     private SpriteRenderer _SpriteRenderer;
     private Collect _PlayerBag;
 
-    //              ----|Functions|----
+    //              ----|Events|----
+    [SerializeField] private UnityEvent OnDoorPlayerCollision;
 
+    //              ----|Functions|----
     private void OnEnable() {
         _SpriteRenderer = GetComponent<SpriteRenderer>();
         _SpriteRenderer.sprite = doorSprites[0];
         _PlayerBag = Player.GetComponent<Collect>();
+
     }
 
     private void Update() {
         if(_PlayerBag.GetCollectablesCount() == 3) {
             OpenDoor();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Player")) {
+            if (doorOpen == true) {
+                OnDoorPlayerCollision.Invoke();
+            }
         }
     }
 
@@ -41,5 +54,4 @@ public class ExitDoor : MonoBehaviour {
     public bool GetDoorState() {
         return doorOpen;
     }
-
 }

@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: b9e3bc191629a0f4f9419422f5dcb280, type: 3}
+    - target: {fileID: 2978405427302500279, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: scoreDrop
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 3206114293252034290, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: maxHP
       value: 10

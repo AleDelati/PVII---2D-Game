@@ -9,6 +9,7 @@ public class HealSource : MonoBehaviour
     //              ----|Unity Config|----
     [Header("General Config")]
     [SerializeField] float RestoredHP = 1f;
+    [SerializeField] private int scorePenalty = 50;
     public float coolDown = 1.0f;
 
     [Header("Audio Config")]
@@ -44,6 +45,7 @@ public class HealSource : MonoBehaviour
 
                     PlayAudio();
                     healCoolDown = true;
+                    GameManager.instance.SubtractScore(scorePenalty);     //Disminuye la puntuacion al curarse
                     StartCoroutine(HealCoolDown());
                 }
             }

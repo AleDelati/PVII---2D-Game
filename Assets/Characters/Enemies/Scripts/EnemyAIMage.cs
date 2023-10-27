@@ -95,7 +95,7 @@ public class EnemyAIMage : MonoBehaviour {
         if (target == null) {
             currentState = 0;
         } else if (SummonInstance == null && target != null) {
-            currentState = Random.Range(1, 3);
+            currentState = 2;
         } else {
             currentState = 1;
         }
@@ -123,7 +123,7 @@ public class EnemyAIMage : MonoBehaviour {
                 
                 //Atacando al jugador
                 OnMovementInput?.Invoke(Vector2.zero);
-                yield return new WaitForSeconds(1.0f);
+                yield return new WaitForSeconds(1.5f);
 
                 if (passedTime >= attackDelay) {
                     passedTime = 0;
@@ -135,7 +135,7 @@ public class EnemyAIMage : MonoBehaviour {
                     ProjectileInstance = Instantiate(ProjectilePrefab, ProjectileSpawnPoint.position, Quaternion.identity);
                     ProjectileInstance.GetComponent<Projectile>().SetProjectile(direction.normalized, this.gameObject);
 
-                    yield return null;
+                    yield return new WaitForSeconds(0.5f);
                 }
 
             } else {

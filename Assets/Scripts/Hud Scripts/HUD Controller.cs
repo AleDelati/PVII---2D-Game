@@ -1,14 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class HUDController : MonoBehaviour {
-
+    [Header("Healt Bar Config")]
+    [SerializeField] private bool showHealt;
     [SerializeField] GameObject healthIcon;
     [SerializeField] GameObject playerHealthContainter;
 
+    [Header("General Config")]
+    [SerializeField]
+    public UnityEvent<string> OnScoreChanged, OnDeathCountChanged;
+
+    private void Update() {
+        UpdateScoreHUD();
+        UpdateDeathScoreHUD();
+        playerHealthContainter.SetActive(showHealt);
+    }
+
+    //              -|Health HUD|-
     public void UpdateHPHud(float HP) {
-        Debug.Log("Hud HP Update");
+        //Debug.Log("Hud HP Update");
         if (HealthContainerQuantity() == 0) {
             LoadHealthContainer(HP);
             return;
@@ -21,14 +35,11 @@ public class HUDController : MonoBehaviour {
         } else {
             return;
         }
-
     }
 
     private int HealthContainerQuantity() {
         return playerHealthContainter.transform.childCount;
     }
-
-
 
     private void LoadHealthContainer(float Quantity) {
         for(int i = 0; i < Quantity; i++) {
@@ -45,4 +56,15 @@ public class HUDController : MonoBehaviour {
         GameObject.Destroy(container.GetChild(container.childCount - 1).gameObject);
     }
 
+    //              -|Score HUD|-
+    public void UpdateScoreHUD() {
+        int score = GameManager.instance.GetScore();
+        OnScoreChanged?.Invoke(score.ToString());
+    }
+
+    //              -|Death Count HUD|-
+    public void UpdateDeathScoreHUD() {
+        int deathCount = GameManager.instance.GetDeathCount();
+        OnDeathCountChanged?.Invoke(deathCount.ToString());
+    }
 }

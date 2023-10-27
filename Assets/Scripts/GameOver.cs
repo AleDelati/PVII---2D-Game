@@ -36,6 +36,7 @@ public class GameOver : MonoBehaviour {
     public void ResetGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         _Collect.ResetCollectables();
+        GameManager.instance.ResetScore();
         Debug.Log("Game Over");
     }
 

@@ -61,6 +61,19 @@ public class Health : MonoBehaviour {
         } else {
             OnDeathWithReference?.Invoke(sender);
             isDead = true;
+
+            //Asigna los puntos al contador en caso de que el jugador elimine a un enemigo
+            if (sender.CompareTag("Player") == true) {
+                if(gameObject.GetComponent<Enemy>() != null) {
+                    GameManager.instance.AddScore(gameObject.GetComponent<Enemy>().GetScoreDrop());
+                    //Debug.Log("Puntuacion Actual: " + GameManager.instance.GetScore());
+                }
+            }
+            //Añade la muerte del jugador al contador de muertes
+            if(gameObject.CompareTag("Player") == true) {
+                GameManager.instance.AddDeathCount();
+            }
+
             if(destroyOnDeath == true) {
                 Destroy(gameObject);
             } else {

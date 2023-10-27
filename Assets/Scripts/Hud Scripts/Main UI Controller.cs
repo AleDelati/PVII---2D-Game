@@ -10,4 +10,9 @@ public class MainUIController : MonoBehaviour {
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
 
+    public void LoadPreviousScene() {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex - 1);
+    }
+
 }

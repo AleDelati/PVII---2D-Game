@@ -21,10 +21,6 @@ public class Projectile : MonoBehaviour {
         _BoxCollider2D = GetComponent<BoxCollider2D>();
     }
 
-    private void Update() {
-
-    }
-
     private void FixedUpdate() {
         _RigidBody2D.MovePosition(_RigidBody2D.position + direction * (velocity * Time.fixedDeltaTime));
     }
@@ -37,8 +33,9 @@ public class Projectile : MonoBehaviour {
 
     //Si el projectil impacta con cualquier objeto que no sea su propio caster es destruido e inflinge daño si es posible
     private void OnCollisionEnter2D(Collision2D collision) {
-        if(collision.gameObject.layer != caster.layer) {
-            
+        if(caster == null) {
+            Destroy(this.gameObject);
+        } else if (collision.gameObject.layer != caster.layer) {
             //Si el objetivo impactado tiene vida le hace daño
             Health health;
             if (health = collision.gameObject.GetComponent<Health>()) {
