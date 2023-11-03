@@ -5,10 +5,14 @@ using UnityEngine.Events;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class HUDController : MonoBehaviour {
-    [Header("Healt Bar Config")]
+    [Header("Health Bar Config")]
     [SerializeField] private bool showHealt;
     [SerializeField] GameObject healthIcon;
     [SerializeField] GameObject playerHealthContainter;
+
+    [Header("KeyFragments Bar Config")]
+    [SerializeField] GameObject keyFragmentIcon;
+    [SerializeField] GameObject keyFragmentsContainer;
 
     [Header("General Config")]
     [SerializeField]
@@ -54,6 +58,11 @@ public class HUDController : MonoBehaviour {
     private void RemoveHealthIcon() {
         Transform container = playerHealthContainter.transform;
         GameObject.Destroy(container.GetChild(container.childCount - 1).gameObject);
+    }
+
+    //              -|Key Fragments HUD|-
+    public void AddKeyFragmentIcon() {
+        Instantiate(keyFragmentIcon, keyFragmentsContainer.transform);
     }
 
     //              -|Score HUD|-

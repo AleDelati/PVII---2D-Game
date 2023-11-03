@@ -5262,6 +5262,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
   m_PrefabInstance: {fileID: 119884166}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &135448713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 135448715}
+  - component: {fileID: 135448714}
+  m_Layer: 5
+  m_Name: KeyFragmentsContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &135448714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135448713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!224 &135448715
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135448713}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 281105844}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 75, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &150665600 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1658431322287019764, guid: ebc85a62a1528a04abd7c3646c4ee843, type: 3}
@@ -18083,6 +18145,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1000553938}
+  - {fileID: 135448715}
   - {fileID: 1208743216}
   - {fileID: 1216437673}
   m_Father: {fileID: 0}
@@ -18107,6 +18170,8 @@ MonoBehaviour:
   showHealt: 1
   healthIcon: {fileID: 7165317082633549888, guid: 1012f36d8f07668438f2e903e6aaadd0, type: 3}
   playerHealthContainter: {fileID: 1000553937}
+  keyFragmentIcon: {fileID: 7165317082633549888, guid: 9c874d036eb168c48b073b19ee52d50d, type: 3}
+  keyFragmentsContainer: {fileID: 135448713}
   OnScoreChanged:
     m_PersistentCalls:
       m_Calls:
@@ -29529,6 +29594,34 @@ PrefabInstance:
       propertyPath: bag
       value: 
       objectReference: {fileID: 967568035}
+    - target: {fileID: 4043021337006075312, guid: f3b39ae7d6a79874d8738dac1ca29a72, type: 3}
+      propertyPath: OnCollectablePickUp.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043021337006075312, guid: f3b39ae7d6a79874d8738dac1ca29a72, type: 3}
+      propertyPath: OnCollectablePickUp.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043021337006075312, guid: f3b39ae7d6a79874d8738dac1ca29a72, type: 3}
+      propertyPath: OnCollectablePickUp.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 281105845}
+    - target: {fileID: 4043021337006075312, guid: f3b39ae7d6a79874d8738dac1ca29a72, type: 3}
+      propertyPath: OnCollectablePickUp.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043021337006075312, guid: f3b39ae7d6a79874d8738dac1ca29a72, type: 3}
+      propertyPath: OnCollectablePickUp.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddKeyFragmentIcon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043021337006075312, guid: f3b39ae7d6a79874d8738dac1ca29a72, type: 3}
+      propertyPath: OnCollectablePickUp.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HUDController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043021337006075312, guid: f3b39ae7d6a79874d8738dac1ca29a72, type: 3}
+      propertyPath: OnCollectablePickUp.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4786345485572939417, guid: f3b39ae7d6a79874d8738dac1ca29a72, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0

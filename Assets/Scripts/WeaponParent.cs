@@ -90,11 +90,12 @@ public class WeaponParent : MonoBehaviour {
     }
 
     public void DetectColliders() {
+        bool impact = false;
         foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position, radius)) {
             //Debug.Log(collider.name);
             Health health;
             if (health = collider.GetComponent<Health>()) {
-
+                impact = true;
                 //Ataque con daño en area
                 if(areaAttack == true) {    
                     health.GetHit(1, transform.parent.gameObject);
@@ -107,6 +108,10 @@ public class WeaponParent : MonoBehaviour {
                     PlayAudioImpact(health);
                 }
             }
+        }
+        //Si al terminar de verificar las colisiones no se impacto a ningun objetivo reproduce el sonido correspondiente
+        if (impact == false) {
+            _AudioSource.PlayOneShot(swordSwing);    //Sin Impacto
         }
     }
 
@@ -121,10 +126,6 @@ public class WeaponParent : MonoBehaviour {
             } else {
                 _AudioSource.PlayOneShot(swordLethal);   //Letal
             }
-        } else {
-            _AudioSource.PlayOneShot(swordSwing);   //Sin Impacto
         }
-
     }
-
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Collect : MonoBehaviour {
 
@@ -13,6 +14,9 @@ public class Collect : MonoBehaviour {
     //              ----|References|----
     private Player _Player;
     private PlayerProgression _PlayerProgression;
+
+    //              ----|Events|----
+    public UnityEvent OnCollectablePickUp;
 
     //              ----|Functions|----
     private void Awake() {
@@ -31,6 +35,8 @@ public class Collect : MonoBehaviour {
         newCollectable.transform.SetParent(bag.transform);
 
         _PlayerProgression.GiveXP(_Player.PlayerProfile.XPKeyFragment); //Da XP al jugador al recolectar
+
+        OnCollectablePickUp?.Invoke();  //Triggerea un evento al recolectar un Collectable Object
 
         Debug.Log("Fragmentos de llaves obtenidos: " + collectables.Count);
     }
