@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -26,6 +25,7 @@ public class EnemyAIMage : MonoBehaviour {
     [Header("Summon Config")]
     [SerializeField] private GameObject SummonPrefab;
     [SerializeField] private float SummonTime = 1.5f;
+    [SerializeField] private float summonRadius = 3.0f;
 
     //              ----|Variables|----
     private Vector3 startingPos;
@@ -53,6 +53,9 @@ public class EnemyAIMage : MonoBehaviour {
         Gizmos.color = Color.yellow;
         Vector3 position = playerDetectionOrigin == null ? Vector3.zero : playerDetectionOrigin.position;
         Gizmos.DrawWireSphere(position, playerDetectionRadius);
+
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(transform.position, summonRadius);
     }
     
     public void DetectPlayerColliders() {
@@ -125,7 +128,7 @@ public class EnemyAIMage : MonoBehaviour {
                 OnMovementInput?.Invoke(Vector2.zero);
                 yield return new WaitForSeconds(1.5f);
 
-                if (passedTime >= attackDelay) {
+                if (passedTime >= attackDelay && ProjectileInstance == null) {
                     passedTime = 0;
                     OnAttack?.Invoke();
 
@@ -154,10 +157,23 @@ public class EnemyAIMage : MonoBehaviour {
 
     private IEnumerator Summon() {
         OnMovementInput?.Invoke(Vector2.zero);
+        OnPointerInput?.Invoke(transform.position + new Vector3(10, 1, 0));
         yield return new WaitForSeconds(SummonTime);
-        if(SummonInstance == null) {
-           SummonInstance = Instantiate(SummonPrefab, transform.position, Quaternion.identity);
+
+        foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, summonRadius)) {
+            //Si se esta lo suficientemente alejado del borde del mapa se summonea en el area especificada
+            if (collider.CompareTag("General Map") != true) {
+                if (SummonInstance == null) {
+                    SummonInstance = Instantiate(SummonPrefab, transform.position + new Vector3(Random.Range(summonRadius - summonRadius*2, summonRadius), Random.Range(summonRadius - summonRadius*2, summonRadius), 0), Quaternion.identity);
+                }
+            } else {
+                if (SummonInstance == null) {
+                    SummonInstance = Instantiate(SummonPrefab, transform.position, Quaternion.identity);
+                }
+            }
         }
+
+       
         yield return null;
     }
 

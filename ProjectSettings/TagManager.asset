@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Exit
   - Collectable
+  - General Map
   layers:
   - Default
   - TransparentFX

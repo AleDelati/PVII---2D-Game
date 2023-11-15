@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,12 +11,15 @@ public class Health : MonoBehaviour {
     
     [SerializeField] private bool isDead = false;
     [SerializeField] private bool destroyOnDeath = false;
+
     //              ----|Variables|----
     public UnityEvent<GameObject> OnHitWithReference, OnDeathWithReference;
     private float currentHP;
+    private float healEffectCooldown = 0.25f;
 
     //              ----|References|----
     private Agent _Agent;
+    private SpriteRenderer _SpriteRenderer;
 
     //              ----|Functions|----
     private void Start() {
@@ -26,6 +28,7 @@ public class Health : MonoBehaviour {
 
     private void OnEnable() {
         _Agent = GetComponent<Agent>();
+        _SpriteRenderer = GetComponent<SpriteRenderer>();
         InitializeHealth();
     }
 
@@ -36,6 +39,9 @@ public class Health : MonoBehaviour {
 
     public void SetHP(float value) {
         currentHP = value;
+
+        _SpriteRenderer.color = Color.green;
+        StartCoroutine(ColorReset());
     }
 
     public float GetHP() {      //Retorna los puntos de vida actuales
@@ -81,6 +87,11 @@ public class Health : MonoBehaviour {
             }
         }
 
+    }
+
+    private IEnumerator ColorReset() {
+        yield return new WaitForSeconds(healEffectCooldown);
+        _SpriteRenderer.color = Color.white;
     }
 
 }
