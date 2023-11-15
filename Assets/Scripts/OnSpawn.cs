@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-//              -|Se encarga de gestionar caracteristicas al momento de spawnear|-
+//              -|Se encarga de gestionar caracteristicas de un agente al momento de spawnear|-
 public class OnSpawn : MonoBehaviour {
     //              ----|Unity Config|----
     [SerializeField] private float spawnColorTime = 1.0f;

@@ -5198,6 +5198,7 @@ GameObject:
   - component: {fileID: 2270556486058160356}
   - component: {fileID: 3206114293252034290}
   - component: {fileID: 7946722818204679944}
+  - component: {fileID: 4141565785763516012}
   - component: {fileID: 902944631296624063}
   m_Layer: 7
   m_Name: Viking
@@ -5564,6 +5565,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &4141565785763516012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8436290498940154097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e332b2a4d04d0f64592aecdcde47188b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leaveCorpseOnDeath: 1
+  onDeathPrefab: {fileID: 8420522698240876771, guid: 63a1b1c5f79caac47aead739277e79a7, type: 3}
 --- !u!82 &902944631296624063
 AudioSource:
   m_ObjectHideFlags: 0

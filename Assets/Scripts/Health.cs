@@ -20,6 +20,7 @@ public class Health : MonoBehaviour {
     //              ----|References|----
     private Agent _Agent;
     private SpriteRenderer _SpriteRenderer;
+    private OnDeath _OnDeath;
 
     //              ----|Functions|----
     private void Start() {
@@ -29,6 +30,7 @@ public class Health : MonoBehaviour {
     private void OnEnable() {
         _Agent = GetComponent<Agent>();
         _SpriteRenderer = GetComponent<SpriteRenderer>();
+        _OnDeath = GetComponent<OnDeath>();
         InitializeHealth();
     }
 
@@ -79,6 +81,9 @@ public class Health : MonoBehaviour {
             if(gameObject.CompareTag("Player") == true) {
                 GameManager.instance.AddDeathCount();
             }
+
+            //Instancia el cadaver del agente
+            _OnDeath.LeaveCorpse();
 
             if(destroyOnDeath == true) {
                 Destroy(gameObject);

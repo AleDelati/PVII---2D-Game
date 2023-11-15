@@ -4864,6 +4864,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Particles
       objectReference: {fileID: 0}
+    - target: {fileID: 4141565785763516012, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: leaveCorpseOnDeath
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.9474056
