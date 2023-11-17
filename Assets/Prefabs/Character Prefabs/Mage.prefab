@@ -36,6 +36,10 @@ PrefabInstance:
       propertyPath: destroyOnDeath
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4104100894214863564, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: m_InstanceId
+      value: -131944
+      objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -186,6 +190,7 @@ MonoBehaviour:
   ProjectileSpawnPoint: {fileID: 0}
   SummonPrefab: {fileID: 0}
   SummonTime: 1.5
+  summonRadius: 3
 --- !u!4 &7129523951127592820 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6435205213170171889, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
