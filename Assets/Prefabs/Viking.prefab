@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -203,7 +203,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5199,6 +5199,7 @@ GameObject:
   - component: {fileID: 3206114293252034290}
   - component: {fileID: 7946722818204679944}
   - component: {fileID: 902944631296624063}
+  - component: {fileID: 4104100894214863564}
   m_Layer: 7
   m_Name: Viking
   m_TagString: Enemy
@@ -5245,7 +5246,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: de2552591010be847a056d106e8ff3f6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5266,7 +5267,7 @@ SpriteRenderer:
   m_SortingLayerID: -1171276837
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ea8f2af829dd4904eaaed072cc052619, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 95866993ea2db364295dbeddbb31e8ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5660,3 +5661,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4104100894214863564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8436290498940154097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: d17c0e97fd0ad1a900000000dbbb2fba
+  m_ShapePath:
+  - {x: -0.34816647, y: -0.456048, z: 0}
+  - {x: -0.35615778, y: 0.324193, z: 0}
+  - {x: 0.28423643, y: 0.324193, z: 0}
+  - {x: 0.29222775, y: -0.45205307, z: 0}
+  m_ShapePathHash: -1835553995
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 56390
+  m_LocalBounds:
+    m_Center: {x: -0.031965017, y: -0.065927505, z: 0}
+    m_Extent: {x: 0.32419276, y: 0.3901205, z: 0}
