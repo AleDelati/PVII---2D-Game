@@ -4866,7 +4866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104100894214863564, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_InstanceId
-      value: -68848
+      value: -599670
       objectReference: {fileID: 0}
     - target: {fileID: 4141565785763516012, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: leaveCorpseOnDeath
@@ -4919,7 +4919,11 @@ PrefabInstance:
     - target: {fileID: 6384135811159613800, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1647597289, guid: db738e67d07602643b50b61b935fc173, type: 3}
+      objectReference: {fileID: 21300000, guid: 20964693ddb723f4da55bfda53be4ade, type: 3}
+    - target: {fileID: 6384135811159613800, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 15a4ff7aac86c9e4fa831f620d5e6f51, type: 2}
     - target: {fileID: 7946722818204679944, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: knockbackStrenght
       value: 2
