@@ -83,7 +83,9 @@ public class Health : MonoBehaviour {
             }
 
             //Instancia el cadaver del agente
-            _OnDeath.LeaveCorpse();
+            if (gameObject.GetComponent<OnDeath>() != null) {
+                _OnDeath.LeaveCorpse();
+            }
 
             if(destroyOnDeath == true) {
                 Destroy(gameObject);

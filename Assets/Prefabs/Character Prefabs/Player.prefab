@@ -239,7 +239,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 99f050e3ecc8547428dbb842b8ed6992, type: 3}
   - {fileID: 21300000, guid: 65065f1f44945074a9a371f20434b1e7, type: 3}
   - {fileID: 21300000, guid: ee222c29987c1b1418b8bc33285556ce, type: 3}
-  - {fileID: 21300000, guid: 8bfd1adca4ab92645beceaa7405907ca, type: 3}
+  - {fileID: 21300000, guid: 22fa6542f563fb747b2faeafe23ce739, type: 3}
   _PlayerSprite: {fileID: 0}
   _PlayerProfile: {fileID: 0}
   OnLivesChanged:
