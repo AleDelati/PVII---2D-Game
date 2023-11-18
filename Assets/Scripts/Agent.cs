@@ -84,4 +84,8 @@ public class Agent : MonoBehaviour {
         _WeaponParent.Attack();
     }
 
+    public void SetVelocity(float value) {
+        velocity = value;
+    }
+
 }

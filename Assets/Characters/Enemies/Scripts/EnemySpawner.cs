@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
@@ -7,24 +5,35 @@ public class EnemySpawner : MonoBehaviour {
     [Header("General Config")]
     [SerializeField]
     [Range(1.0f, 60.0f)]
-    private float coolDown;
+    private float Interval;
 
     [SerializeField]
     [Range(1.0f, 30.0f)]
-    private float coolDownI;
+    private float repeatRate;
+    private bool active = true;
 
     //              ----|Variables|----
     private ObjectPool objectPool;
     //              ----|References|----
-    [SerializeField] private GameObject _ExitDoor;
+
     //              ----|Functions|----
     private void Start() {
         objectPool = GetComponent<ObjectPool>();
     }
 
+    private void OnEnable() {
+        GameEvents.onLevelCleared += Disable;
+    }
+
+    private void OnDisable() {
+        GameEvents.onLevelCleared -= Disable;
+    }
+
+    private void Disable() => active = false;
+
     void SpawnEnemy() {
-        //Si la puerta de salida esta abierta detiene la generacion de nuevos enemigos en los puntos de spawn
-        if (_ExitDoor.GetComponent<ExitDoor>().GetDoorState() == false) {
+        //Si se limpio el nivel detiene la generacion de enemigos
+        if (active) {
             GameObject pooledObject = objectPool.GetPooledObject();
             if (pooledObject != null) {
                 pooledObject.transform.position = transform.position;
@@ -38,7 +47,7 @@ public class EnemySpawner : MonoBehaviour {
 
     private void OnBecameVisible() {
         //Debug.Log("Spawner dentro del rango de la camara, Activado");
-        InvokeRepeating(nameof(SpawnEnemy), coolDown, coolDownI);
+        InvokeRepeating(nameof(SpawnEnemy), Interval, repeatRate);
     }
 
     private void OnBecameInvisible() {

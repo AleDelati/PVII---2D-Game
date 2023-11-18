@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b8c1fc3fd33cd04aaf23a7c8f898bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coolDown: 3
-  coolDownI: 10
+  Interval: 7
+  repeatRate: 15
   _ExitDoor: {fileID: 0}
 --- !u!114 &2072747774561064632
 MonoBehaviour:
@@ -61,7 +61,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe6ab9d418bee974eb05bc6355014042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectPrefab: {fileID: 8436290498940154097, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+  objectPrefab:
+  - {fileID: 8436290498940154097, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+  - {fileID: 4825892674719261536, guid: 05bd5814500b1e944bacfdd4185fcafe, type: 3}
   poolSize: 3
 --- !u!212 &3959573628073668640
 SpriteRenderer:
