@@ -17,6 +17,7 @@ public class EnemyAIMage : MonoBehaviour {
     [Header("Detection Circle Config")]
     [SerializeField] private Transform playerDetectionOrigin;
     [SerializeField] private float playerDetectionRadius;
+    [SerializeField] private float TPRadius = 1.0f;
 
     [Header("Projectile Config")]
     [SerializeField] private GameObject ProjectilePrefab;
@@ -118,8 +119,18 @@ public class EnemyAIMage : MonoBehaviour {
             
             if (distance <= mantainDistanceThreshold) {
                 //Mantener distancia con el jugador
-                Vector2 direction = target.position + transform.position;
-                OnMovementInput?.Invoke(direction.normalized);
+                Vector2 direction = target.position - transform.position;
+                OnMovementInput?.Invoke(-direction.normalized);
+
+                foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, TPRadius)) {
+                    //Si esta atascado al borde del mapa realiza un tp
+                    if (collider.CompareTag("General Map") == true) {
+                        yield return new WaitForSeconds(1f);
+                        transform.position = new Vector3(0, 54, 0);
+                        yield return new WaitForSeconds(1f);
+                    }
+                }
+
                 yield return null;
 
             } else if (distance <= attackDistanceThreshold) {

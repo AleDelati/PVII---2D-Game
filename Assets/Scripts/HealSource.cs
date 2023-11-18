@@ -18,11 +18,13 @@ public class HealSource : MonoBehaviour
 
     //              ----|References|----
     private AudioSource _AudioSource;
+    private ParticleSystem PS;
 
     //              ----|Functions|----
 
     private void OnEnable() {
         _AudioSource = GetComponent<AudioSource>();
+        PS = GetComponent<ParticleSystem>();
     }
 
     //Si el Objeto colisiona con el jugador le restaura al mismo los puntos de vidas configurados
@@ -45,6 +47,7 @@ public class HealSource : MonoBehaviour
                     healCoolDown = true;
                     GameManager.instance.SubtractScore(scorePenalty);     //Disminuye la puntuacion al curarse
                     StartCoroutine(HealCoolDown());
+                    PS.Play();
                 }
             }
         }

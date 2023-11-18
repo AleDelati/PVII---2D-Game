@@ -4873,8 +4873,12 @@ PrefabInstance:
       value: -541730
       objectReference: {fileID: 0}
     - target: {fileID: 4141565785763516012, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: onDeathPrefab
+      value: 
+      objectReference: {fileID: 8420522698240876771, guid: cd5808298eeb8f6488c9c2e78bfd46e3, type: 3}
+    - target: {fileID: 4141565785763516012, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: leaveCorpseOnDeath
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4918,7 +4922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4296948375338229556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: velocity
-      value: 3.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6384135811159613800, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_Sprite

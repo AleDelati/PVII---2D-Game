@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 042abbea51ab367488bf608961b56d80, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8dbe8678621407945aad824347e2d5b4, type: 3}
   m_Color: {r: 0.8, g: 0.7921569, b: 0.7921569, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5074,7 +5074,7 @@ GameObject:
   - component: {fileID: 3077325831742587533}
   - component: {fileID: 788824423059381223}
   m_Layer: 0
-  m_Name: VikingCorpse
+  m_Name: CyclopsCorpse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5139,7 +5139,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6f1a967591059294db8bce47b34a049b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3c2249f27a06dd248a4fdd1eede3abcd, type: 3}
   m_Color: {r: 0.8, g: 0.7921569, b: 0.7921569, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -52,14 +52,18 @@ public class EnemyAI : MonoBehaviour {
 
     private void BasicBehavior() {
         if (player == null) {   //Verifica si el jugador sigue con vida
-            //Vuelve a la posicion inicial al perder de vista al jugador
-            float distance = Vector2.Distance(startingPos, transform.position);
-            if (distance > 0.05f) {
-                Vector3 direction = startingPos - transform.position;
-                OnMovementInput?.Invoke(direction.normalized);
-            } else {
-                OnMovementInput?.Invoke(Vector2.zero);
-                DetectPlayerColliders();
+           
+            DetectPlayerColliders();
+            if(player == null) {
+                //Vuelve a la posicion inicial al perder de vista al jugador
+                float distance = Vector2.Distance(startingPos, transform.position);
+                if (distance > 0.05f) {
+                    Vector3 direction = startingPos - transform.position;
+                    OnMovementInput?.Invoke(direction.normalized);
+                } else {
+                    OnMovementInput?.Invoke(Vector2.zero);
+                    DetectPlayerColliders();
+                }
             }
         } else {
             float distance = Vector2.Distance(player.position, transform.position);
