@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class HUDController : MonoBehaviour {
     [Header("Health Bar Config")]
@@ -17,6 +16,21 @@ public class HUDController : MonoBehaviour {
     [Header("General Config")]
     [SerializeField]
     public UnityEvent<string> OnScoreChanged, OnDeathCountChanged;
+    [SerializeField] GameObject pauseMenu;
+
+
+    private void OnEnable() {
+        GameEvents.onPause += Pause;
+        GameEvents.onResume += Resume;
+    }
+
+    private void OnDisable() {
+        GameEvents.onPause -= Pause;
+        GameEvents.onResume -= Resume;
+    }
+
+    private void Pause() => pauseMenu.SetActive(true);
+    private void Resume() => pauseMenu.SetActive(false);
 
     private void Update() {
         UpdateScoreHUD();

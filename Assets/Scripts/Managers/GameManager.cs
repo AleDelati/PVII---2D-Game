@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance {get; private set;}
@@ -14,6 +13,32 @@ public class GameManager : MonoBehaviour {
             DontDestroyOnLoad(gameObject);
         } else {
             Destroy(gameObject);
+        }
+    }
+
+    //              -|Pausa|-
+
+    private void OnEnable() {
+        GameEvents.onPause += Pause;
+        GameEvents.onResume += Resume;
+    }
+
+    private void OnDisable() {
+        GameEvents.onPause -= Pause;
+        GameEvents.onResume -= Resume;
+    }
+
+    private void Pause() => Time.timeScale = 0;
+    private void Resume() => Time.timeScale = 1;
+
+    private void Update() {
+        //Pausa el Juego al presionar ESC
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            if (Time.timeScale != 0) {
+                GameEvents.TriggerPause();
+            } else {
+                GameEvents.TriggerResume();
+            }
         }
     }
 
