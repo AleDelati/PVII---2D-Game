@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -25,7 +23,6 @@ public class ExitDoor : MonoBehaviour {
         _SpriteRenderer = GetComponent<SpriteRenderer>();
         _SpriteRenderer.sprite = doorSprites[0];
         _PlayerBag = Player.GetComponent<Collect>();
-
     }
 
     private void Update() {
@@ -33,6 +30,8 @@ public class ExitDoor : MonoBehaviour {
             OpenDoor();
         }
     }
+
+    private void LevelCleared() => GameEvents.TriggerLevelCleared();
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Player")) {
@@ -45,6 +44,7 @@ public class ExitDoor : MonoBehaviour {
     private void OpenDoor() {
         if(_SpriteRenderer.sprite == doorSprites[0]) {
             _SpriteRenderer.sprite = doorSprites[1];
+            LevelCleared();
             doorOpen = true;
             Debug.Log("Victoria!, La puerta de salida esta abierta");
         }

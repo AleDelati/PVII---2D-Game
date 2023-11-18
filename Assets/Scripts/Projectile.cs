@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour {
@@ -13,12 +11,10 @@ public class Projectile : MonoBehaviour {
 
     //              ----|References|----
     private Rigidbody2D _RigidBody2D;
-    private BoxCollider2D _BoxCollider2D;
 
     //              ----|Functions|----
     private void OnEnable() {
         _RigidBody2D = GetComponent<Rigidbody2D>();
-        _BoxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     private void FixedUpdate() {

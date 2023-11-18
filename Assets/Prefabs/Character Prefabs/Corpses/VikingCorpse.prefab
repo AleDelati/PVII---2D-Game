@@ -5073,6 +5073,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3077325831742587533}
   - component: {fileID: 788824423059381223}
+  - component: {fileID: 4492256128673932987}
   m_Layer: 0
   m_Name: VikingCorpse
   m_TagString: Untagged
@@ -5150,3 +5151,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4492256128673932987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8420522698240876771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4be4ef69f8d3e7a4496eb4de9b94d563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  corpseDespawnTime: 60
