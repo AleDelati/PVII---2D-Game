@@ -39,6 +39,7 @@ public class EnemyAIMage : MonoBehaviour {
     private GameObject ProjectileInstance;
     private GameObject SummonInstance;
     private GameObject DropInstance;
+    private ParticleSystem PS;
 
     //              ----|Functions|----
     private void Start() {
@@ -47,6 +48,7 @@ public class EnemyAIMage : MonoBehaviour {
 
     private void OnEnable() {
         StartCoroutine(MageBehavior());
+        PS = GetComponent<ParticleSystem>();
     }
 
     //Dibuja un area de busqueda de objetivos
@@ -125,7 +127,8 @@ public class EnemyAIMage : MonoBehaviour {
                 foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, TPRadius)) {
                     //Si esta atascado al borde del mapa realiza un tp
                     if (collider.CompareTag("General Map") == true) {
-                        yield return new WaitForSeconds(1f);
+                        PS.Play();
+                        yield return new WaitForSeconds(0.8f);   
                         transform.position = new Vector3(0, 54, 0);
                         yield return new WaitForSeconds(1f);
                     }
