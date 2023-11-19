@@ -97,7 +97,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9ca37160ebc595948a68dcc9eb8aa987, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -118,7 +118,7 @@ SpriteRenderer:
   m_SortingLayerID: -1171276837
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: f6a2456f8b1dc7643b105a55763d7d8d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea673dcdbdbeb3e469e0e7922e12a08a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -235,11 +235,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSprites:
-  - {fileID: 21300000, guid: b19267f51fb1fbb42bc2d511ef26c047, type: 3}
-  - {fileID: 21300000, guid: 99f050e3ecc8547428dbb842b8ed6992, type: 3}
-  - {fileID: 21300000, guid: 65065f1f44945074a9a371f20434b1e7, type: 3}
-  - {fileID: 21300000, guid: ee222c29987c1b1418b8bc33285556ce, type: 3}
-  - {fileID: 21300000, guid: 22fa6542f563fb747b2faeafe23ce739, type: 3}
+  - {fileID: 21300000, guid: cd5dc306435b1884fa24163028e37b5c, type: 3}
+  - {fileID: 21300000, guid: f82976cb949e3184a85806101773f2ef, type: 3}
+  - {fileID: 21300000, guid: a3e9fce4178a7554dba4cb0c0d7c31ff, type: 3}
+  - {fileID: 21300000, guid: ea673dcdbdbeb3e469e0e7922e12a08a, type: 3}
+  - {fileID: 21300000, guid: 28835dec8f998af448ef1cc538a07080, type: 3}
   _PlayerSprite: {fileID: 0}
   _PlayerProfile: {fileID: 0}
   OnLivesChanged:
@@ -587,7 +587,7 @@ SpriteRenderer:
   m_SortingLayerID: -1171276837
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 62ea219c9104300488b7f7150ea8a1be, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0b0f9240da2756344990552b574cf37f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
