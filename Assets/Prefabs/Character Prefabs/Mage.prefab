@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8022105439412174197}
   - component: {fileID: 9119711046826371862}
   - component: {fileID: 3937005228798738769}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particles Mage TP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4894,6 +4894,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1061109116207192901, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2270556486058160356, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: chaseDistanceThreshold
       value: 10
@@ -4910,6 +4914,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c57e5028acaff2a4d8fed8de75ded437, type: 2}
+    - target: {fileID: 2616273106421804546, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2978405427302500279, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: scoreDrop
       value: 1000
@@ -4929,6 +4937,10 @@ PrefabInstance:
     - target: {fileID: 3206114293252034290, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: destroyOnDeath
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3206340417494229576, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4104100894214863564, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_InstanceId
@@ -4990,6 +5002,14 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.50980395
       objectReference: {fileID: 0}
+    - target: {fileID: 6706475933220148846, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7726232025039258884, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7946722818204679944, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: OnDone.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -4998,9 +5018,17 @@ PrefabInstance:
       propertyPath: OnBegin.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8022746673309083153, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8436290498940154097, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_Name
       value: Mage
+      objectReference: {fileID: 0}
+    - target: {fileID: 8436290498940154097, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2270556486058160356, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
@@ -5169,12 +5197,15 @@ MonoBehaviour:
         m_CallState: 2
   playerDetectionOrigin: {fileID: 7129523951127592820}
   playerDetectionRadius: 10
-  TPRadius: 1
   ProjectilePrefab: {fileID: 1808977328325856672, guid: 96428b0877a578047a9870ac4dfd1d96, type: 3}
   ProjectileSpawnPoint: {fileID: 4476695576123887654}
   SummonPrefab: {fileID: 6098168185088547132, guid: d86be4fe76719554cad0d0b9ad578e86, type: 3}
   SummonTime: 1.5
   summonRadius: 3
+  TPpositions: []
+  TPRadius: 1
+  TPStunBefore: 1
+  TPStunAfter: 1
 --- !u!198 &4268081702109610699
 ParticleSystem:
   m_ObjectHideFlags: 0

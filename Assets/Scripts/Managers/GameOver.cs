@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,13 +8,15 @@ public class GameOver : MonoBehaviour {
     [SerializeField] private Player _player;
     [SerializeField] private bool autoRestart;
 
+    private bool EasyMode = true;
+
     //              ----|Variables|----
 
     //              ----|References|----
-    private Collect _Collect;
+    private Inventory _PlayerInventory;
     //              ----|Functions|----
     private void OnEnable() {
-        _Collect = _player.GetComponent<Collect>();
+        _PlayerInventory = _player.GetComponent<Inventory>();
     }
 
     private void Update() {
@@ -34,8 +34,13 @@ public class GameOver : MonoBehaviour {
 
     //Reinicia el nivel
     public void ResetGame() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        _Collect.ResetCollectables();
+        if (EasyMode) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        } else {
+            SceneManager.LoadScene(2);  //Testear
+        }
+       
+        _PlayerInventory.ResetItems();
         GameManager.instance.ResetScore();
         Debug.Log("Game Over");
     }

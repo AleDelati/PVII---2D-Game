@@ -7,8 +7,8 @@ TagManager:
   - HealtSource
   - Enemy
   - Exit
-  - Collectable
   - General Map
+  - Item
   layers:
   - Default
   - TransparentFX
