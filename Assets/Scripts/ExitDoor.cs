@@ -13,7 +13,7 @@ public class ExitDoor : MonoBehaviour {
     [SerializeField] private GameObject Player;
 
     private SpriteRenderer _SpriteRenderer;
-    private Collect _PlayerBag;
+    private Inventory _PlayerInventory;
 
     //              ----|Events|----
     [SerializeField] private UnityEvent OnDoorPlayerCollision;
@@ -22,11 +22,11 @@ public class ExitDoor : MonoBehaviour {
     private void OnEnable() {
         _SpriteRenderer = GetComponent<SpriteRenderer>();
         _SpriteRenderer.sprite = doorSprites[0];
-        _PlayerBag = Player.GetComponent<Collect>();
+        _PlayerInventory = Player.GetComponent<Inventory>();
     }
 
     private void Update() {
-        if(_PlayerBag.GetCollectablesCount() == 3) {
+        if(_PlayerInventory.GetItemsCount() == 1) {
             OpenDoor();
         }
     }

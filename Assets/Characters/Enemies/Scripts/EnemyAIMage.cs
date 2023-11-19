@@ -17,7 +17,6 @@ public class EnemyAIMage : MonoBehaviour {
     [Header("Detection Circle Config")]
     [SerializeField] private Transform playerDetectionOrigin;
     [SerializeField] private float playerDetectionRadius;
-    [SerializeField] private float TPRadius = 1.0f;
 
     [Header("Projectile Config")]
     [SerializeField] private GameObject ProjectilePrefab;
@@ -28,11 +27,18 @@ public class EnemyAIMage : MonoBehaviour {
     [SerializeField] private float SummonTime = 1.5f;
     [SerializeField] private float summonRadius = 3.0f;
 
+    [Header("TP Config")]
+    [SerializeField] private Vector3[] TPpositions;
+    [SerializeField] private float TPRadius = 1.0f;
+    [SerializeField] private float TPStunBefore = 1.0f;
+    [SerializeField] private float TPStunAfter = 1.0f;
+
     //              ----|Variables|----
     private Vector3 startingPos;
 
     private float currentWaitTime;
     private int currentState;
+    private bool teleporting = false;
 
     //              ----|References|----
     private Transform target;
@@ -128,9 +134,10 @@ public class EnemyAIMage : MonoBehaviour {
                     //Si esta atascado al borde del mapa realiza un tp
                     if (collider.CompareTag("General Map") == true) {
                         PS.Play();
-                        yield return new WaitForSeconds(0.8f);   
-                        transform.position = new Vector3(0, 54, 0);
-                        yield return new WaitForSeconds(1f);
+                        yield return new WaitForSeconds(TPStunBefore);
+                        Teleport();
+                        yield return new WaitForSeconds(TPStunAfter);
+                        teleporting = false;
                     }
                 }
 
@@ -201,11 +208,19 @@ public class EnemyAIMage : MonoBehaviour {
             DetectPlayerColliders();
         }
     }
-
+    
     private void OnDestroy() {
         if (target != null) {   //Evita que se instancie el objeto si el jugador murio y se reinicia el nivel
             DropInstance = Instantiate(DropPrefab, transform.position, Quaternion.identity);
-            DropInstance.name = "KeyFragmentC";
+            DropInstance.name = "Key";
+        }
+    }
+
+    private void Teleport() {
+        if (!teleporting) {
+            int randPos = Random.Range(0, TPpositions.Length);
+            transform.position = TPpositions[randPos];
+            teleporting = true;
         }
     }
 

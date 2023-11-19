@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
-public class Item : ScriptableObject {
+public class Item : MonoBehaviour {
 
-    public string itemName;
-    public Sprite itemSprite;
+    public void DestroyItem () {
+        Destroy(gameObject);
+    }
 
 }

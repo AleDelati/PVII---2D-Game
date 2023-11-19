@@ -4840,9 +4840,10 @@ GameObject:
   - component: {fileID: 6560146850615897713}
   - component: {fileID: 3752027650622928025}
   - component: {fileID: 4667210398561509463}
+  - component: {fileID: -6177160559333347382}
   m_Layer: 0
-  m_Name: Collectable
-  m_TagString: Collectable
+  m_Name: Item
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4987,3 +4988,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &-6177160559333347382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164914025833157633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de8eba4b313ac8440b12ee961a9ee372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
