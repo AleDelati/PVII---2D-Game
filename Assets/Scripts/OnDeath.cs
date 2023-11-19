@@ -8,7 +8,10 @@ public class OnDeath : MonoBehaviour {
     [SerializeField] private GameObject corpsePrefab;
 
     [Header("LootDrop Config")]
+    [SerializeField] private bool dropLoot = false;
+    [SerializeField] private bool alwaysDrop = false;
     [SerializeField] private GameObject dropPrefab;
+    [SerializeField] private string dropName = null;
 
     //              ----|Variables|----
     private GameObject corpseContainer;
@@ -24,11 +27,24 @@ public class OnDeath : MonoBehaviour {
         lootContainer = GameObject.Find("Loot Container");
     }
 
-    private void LootDrop() {
-        int rand = Random.Range(0, 3);
-        if(rand == 1) {
-            dropInstance = Instantiate(dropPrefab, transform.position, dropPrefab.transform.rotation);
-            dropInstance.transform.SetParent(lootContainer.transform);
+    private void OnDestroy() {
+        DropLoot();
+    }
+
+    public void DropLoot() {
+        if (dropLoot && dropPrefab != null) {
+            if (alwaysDrop) {
+                dropInstance = Instantiate(dropPrefab, transform.position, dropPrefab.transform.rotation);
+                dropInstance.transform.SetParent(lootContainer.transform);
+                if(dropName != null) { dropInstance.name = dropName; }
+            } else {
+                int rand = Random.Range(0, 3);
+                if (rand == 1) {
+                    dropInstance = Instantiate(dropPrefab, transform.position, dropPrefab.transform.rotation);
+                    dropInstance.transform.SetParent(lootContainer.transform);
+                    if (dropName != null) { dropInstance.name = dropName; }
+                }
+            }
         }
     }
 
@@ -36,10 +52,8 @@ public class OnDeath : MonoBehaviour {
         if (corpsePrefab != null && leaveCorpseOnDeath == true) {
             corpseInstance = Instantiate(corpsePrefab, transform.position, corpsePrefab.transform.rotation);
             corpseInstance.transform.SetParent(corpseContainer.transform);
-            Debug.Log("CorpseContainer" + corpseContainer);
 
             int rand = Random.Range(0, 2);
-            Debug.Log("CorpseRand" + rand);
             switch (rand) {
                 case 0:
                     corpseInstance.transform.localScale = new Vector3(1, 1, 1);

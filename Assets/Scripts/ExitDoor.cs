@@ -10,10 +10,9 @@ public class ExitDoor : MonoBehaviour {
     public bool doorOpen = false;
 
     //              ----|References|----
-    [SerializeField] private GameObject Player;
+    [SerializeField] private GameObject target;
 
     private SpriteRenderer _SpriteRenderer;
-    private Inventory _PlayerInventory;
 
     //              ----|Events|----
     [SerializeField] private UnityEvent OnDoorPlayerCollision;
@@ -22,11 +21,10 @@ public class ExitDoor : MonoBehaviour {
     private void OnEnable() {
         _SpriteRenderer = GetComponent<SpriteRenderer>();
         _SpriteRenderer.sprite = doorSprites[0];
-        _PlayerInventory = Player.GetComponent<Inventory>();
     }
 
     private void Update() {
-        if(_PlayerInventory.GetItemsCount() == 1) {
+        if(target == null) {
             OpenDoor();
         }
     }
