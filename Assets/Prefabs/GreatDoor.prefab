@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1459452242951866391}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 39, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -93,8 +93,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9addbb102912b43a956d28375698ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   doorTriggered: 0
+  TargetTriggered: 0
+  target: {fileID: 0}
+  invertTrigger: 0
+  keyTriggered: 1
   OnDoorTriggered:
     m_PersistentCalls:
       m_Calls:
@@ -208,7 +211,7 @@ SpriteRenderer:
   m_SortingLayerID: -1171276837
   m_SortingLayer: 1
   m_SortingOrder: -1
-  m_Sprite: {fileID: -233458166, guid: db738e67d07602643b50b61b935fc173, type: 3}
+  m_Sprite: {fileID: 1730265970, guid: db738e67d07602643b50b61b935fc173, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -232,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorSprites:
-  - {fileID: -233458166, guid: db738e67d07602643b50b61b935fc173, type: 3}
+  - {fileID: 1730265970, guid: db738e67d07602643b50b61b935fc173, type: 3}
   - {fileID: 213118538, guid: db738e67d07602643b50b61b935fc173, type: 3}
   doorOpen: 1
 --- !u!1 &4874199589182468694
@@ -410,7 +413,7 @@ SpriteRenderer:
   m_SortingLayerID: -1171276837
   m_SortingLayer: 1
   m_SortingOrder: -1
-  m_Sprite: {fileID: 645782054, guid: db738e67d07602643b50b61b935fc173, type: 3}
+  m_Sprite: {fileID: 1730265970, guid: db738e67d07602643b50b61b935fc173, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -434,6 +437,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorSprites:
-  - {fileID: 645782054, guid: db738e67d07602643b50b61b935fc173, type: 3}
+  - {fileID: 1730265970, guid: db738e67d07602643b50b61b935fc173, type: 3}
   - {fileID: 1697290613, guid: db738e67d07602643b50b61b935fc173, type: 3}
   doorOpen: 1

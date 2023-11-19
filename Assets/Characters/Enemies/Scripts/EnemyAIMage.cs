@@ -63,8 +63,13 @@ public class EnemyAIMage : MonoBehaviour {
         Vector3 position = playerDetectionOrigin == null ? Vector3.zero : playerDetectionOrigin.position;
         Gizmos.DrawWireSphere(position, playerDetectionRadius);
 
+        //Summon Area
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(transform.position, summonRadius);
+
+        //TP Area
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, TPRadius);
     }
     
     public void DetectPlayerColliders() {

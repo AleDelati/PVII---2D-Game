@@ -7,6 +7,8 @@ public class Inventory : MonoBehaviour {
     //              ----|Unity Config|----
     [SerializeField] private List<GameObject> items;
     [SerializeField] private GameObject inventory;
+    [SerializeField] private GameObject keyInventory;
+
 
     //              ----|Variables|----
 
@@ -27,7 +29,13 @@ public class Inventory : MonoBehaviour {
         newItem.SetActive(false);
 
         items.Add(newItem);
-        newItem.transform.SetParent(inventory.transform);
+
+        if(collision.transform.name == "Key") {
+            newItem.transform.SetParent(keyInventory.transform);
+        } else {
+            newItem.transform.SetParent(inventory.transform);
+        }
+        
 
         OnItemPickUp?.Invoke();  //Triggerea un evento al recolectar un Collectable Object
 

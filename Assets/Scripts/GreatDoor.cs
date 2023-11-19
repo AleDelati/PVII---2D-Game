@@ -4,37 +4,83 @@ using UnityEngine.Events;
 public class GreatDoor : MonoBehaviour {
 
     [Header("General Config")]
-    [SerializeField] GameObject target;
     [SerializeField] bool doorTriggered = false;
+
+    [SerializeField] bool TargetTriggered = false;
+    [SerializeField] GameObject target;
+
+    [SerializeField] bool invertTrigger = false;
+
+    [SerializeField] bool keyTriggered = true;
     
     private bool lastDoorState = false;
     private bool disableDoor = false;
+    private bool keyDelivered = false;
+
     private BoxCollider2D doorRB;
+    private GameObject playerKeys;
 
     [SerializeField]
     private UnityEvent OnDoorTriggered;
 
     private void Start() {
         doorRB = GetComponent<BoxCollider2D>();
+        playerKeys = GameObject.Find("Inventory/Keys");
     }
 
     private void Update() {
-        DetectPlayer();
+        DetectPlayerTrigger();
+        DetectPlayerKeyDeliver();
         if(disableDoor == false) {
             CheckTrigger();
         }
     }
+    
+    private void OnDrawGizmos() {
 
-    private void OnDrawGizmosSelected() {
+        //Dibuja el Trigger de la puerta
         Gizmos.color = Color.yellow;
-        Gizmos.DrawCube(transform.position + new Vector3(0, 1, 0), new Vector3(3.3f, 1f, 1f));
+        if (invertTrigger) {
+            Gizmos.DrawCube(transform.position + new Vector3(0, -2, 0), new Vector3(3.3f, 1f, 1f));
+        } else {
+            Gizmos.DrawCube(transform.position + new Vector3(0, 1, 0), new Vector3(3.3f, 1f, 1f));
+        }
+
+        //Dibuja el area de colision para la entrega de la llave
+        Gizmos.color = Color.cyan;
+        if (doorRB != null) {
+            Gizmos.DrawCube(transform.position + new Vector3(doorRB.offset.x, doorRB.offset.y, 0), doorRB.size + new Vector2(0, 0.2f));
+        }
     }
 
-    private void DetectPlayer() {
-        foreach (Collider2D collider in Physics2D.OverlapBoxAll(transform.position + new Vector3(0, 1, 0), new Vector3(3.3f, 1, 1), 0)) {
+    private void DetectPlayerTrigger() {
+        if (invertTrigger) {
+            foreach (Collider2D collider in Physics2D.OverlapBoxAll(transform.position + new Vector3(0, -2, 0), new Vector3(3.3f, 1, 1), 0)) {
+                if (collider.CompareTag("Player")) {
+                    doorTriggered = true;
+                    Debug.Log("Door Triggered");
+                }
+            }
+        } else {
+            foreach (Collider2D collider in Physics2D.OverlapBoxAll(transform.position + new Vector3(0, 1, 0), new Vector3(3.3f, 1, 1), 0)) {
+                if (collider.CompareTag("Player")) {
+                    doorTriggered = true;
+                    Debug.Log("Door Triggered");
+                }
+            }
+        }
+    }
+
+    private void DetectPlayerKeyDeliver() {
+        foreach (Collider2D collider in Physics2D.OverlapBoxAll(transform.position + new Vector3(doorRB.offset.x, doorRB.offset.y, 0), doorRB.size + new Vector2(0, 0.2f), 0)) {
             if (collider.CompareTag("Player")) {
-                doorTriggered = true;
-                Debug.Log("Door Triggered");
+
+                //Busca la llave en el inventario del jugador
+                
+                if (playerKeys != null && playerKeys.transform.childCount != 0) {
+                    playerKeys.transform.GetChild(0).GetComponent<Item>().DestroyItem();
+                    keyDelivered = true;
+                }
             }
         }
     }
@@ -46,11 +92,19 @@ public class GreatDoor : MonoBehaviour {
         }
 
         //Desactiva la puerta si el target murio
-        if(target == null) {
+        if(TargetTriggered && target == null) {
             doorTriggered = false;
             disableDoor = true;
             UpdateDoorStatus();
         }
+
+        //Desactiva la puerta si se entrego la llave
+        if(keyTriggered && keyDelivered) {
+            doorTriggered = false;
+            disableDoor = true;
+            UpdateDoorStatus();
+        }
+
     }
 
     private void UpdateDoorStatus() {
@@ -62,5 +116,7 @@ public class GreatDoor : MonoBehaviour {
             OnDoorTriggered?.Invoke();
         }
     }
+
+
 
 }

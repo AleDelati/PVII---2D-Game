@@ -16,7 +16,6 @@ public class EnemyAIArcher : MonoBehaviour {
     [Header("Detection Circle Config")]
     [SerializeField] private Transform playerDetectionOrigin;
     [SerializeField] private float playerDetectionRadius;
-    [SerializeField] private float TPRadius = 1.0f;
 
     [Header("Projectile Config")]
     [SerializeField] private GameObject ProjectilePrefab;
@@ -48,10 +47,6 @@ public class EnemyAIArcher : MonoBehaviour {
         Gizmos.color = Color.yellow;
         Vector3 position = playerDetectionOrigin == null ? Vector3.zero : playerDetectionOrigin.position;
         Gizmos.DrawWireSphere(position, playerDetectionRadius);
-
-        //TP Area
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, TPRadius);
     }
 
     public void DetectPlayerColliders() {
