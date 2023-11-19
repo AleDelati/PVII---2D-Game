@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8022105439412174197
 Transform:
   m_ObjectHideFlags: 0
@@ -116,7 +116,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -223,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 0.586016, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -287,7 +287,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -870,7 +870,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 3
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1034,7 +1034,7 @@ ParticleSystem:
       repeatInterval: 0.01
       probability: 1
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -1045,22 +1045,22 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
-          inSlope: 0
-          outSlope: 1
-          tangentMode: 0
+          value: 0.59999996
+          inSlope: 0.40000004
+          outSlope: 0.40000004
+          tangentMode: 34
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
           value: 1
-          inSlope: 1
-          outSlope: 0
-          tangentMode: 0
+          inSlope: 0.40000004
+          outSlope: 0.40000004
+          tangentMode: 34
           weightedMode: 0
           inWeight: 0.33333334
-          outWeight: 0.33333334
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -4835,7 +4835,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c7c451e8f19a60346a3b9b71f3afc80f, type: 2}
+  - {fileID: 2100000, guid: 2cbff1b624cbc1d42ad37d7b04b87e64, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4853,9 +4853,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1171276837
+  m_SortingLayer: 1
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -4908,7 +4908,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 84430170b0132c54bb39b1819ee6ae89, type: 3}
     - target: {fileID: 2571589878134789918, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2571589878134789918, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4944,7 +4944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104100894214863564, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_InstanceId
-      value: -5360276
+      value: -3631802
       objectReference: {fileID: 0}
     - target: {fileID: 4141565785763516012, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: leaveCorpseOnDeath
@@ -5005,6 +5005,14 @@ PrefabInstance:
     - target: {fileID: 6706475933220148846, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6910294079586763529, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.437
+      objectReference: {fileID: 0}
+    - target: {fileID: 6910294079586763529, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.263
       objectReference: {fileID: 0}
     - target: {fileID: 7726232025039258884, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_Layer
@@ -5095,7 +5103,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: d17c0e97fd0ad1a900000000dbbb2fba
   m_LightCookieSprite: {fileID: 21300000, guid: 698dc2e3bd8386e47b6b1df8b0b703ef, type: 3}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
-  m_LightOrder: 0
+  m_LightOrder: 1
   m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
@@ -5106,7 +5114,7 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0, y: 0, z: 0}
+    m_Center: {x: 0, y: 0.26999998, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
