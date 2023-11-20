@@ -29,7 +29,7 @@ Material:
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords:
   - _FLIPBOOKBLENDING_OFF
-  m_LightmapFlags: 0
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
@@ -125,10 +125,10 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _BaseColor: {r: 1, g: 0.7276479, b: 0, a: 1}
+    - _BaseColor: {r: 0.8274749, g: 0.5801887, b: 1, a: 1}
     - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 1, g: 0.7276479, b: 0, a: 1}
-    - _EmissionColor: {r: 1, g: 0.16996826, b: 0, a: 1}
+    - _Color: {r: 0.8274749, g: 0.58018863, b: 1, a: 1}
+    - _EmissionColor: {r: 0.29402828, g: 0, b: 1, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
