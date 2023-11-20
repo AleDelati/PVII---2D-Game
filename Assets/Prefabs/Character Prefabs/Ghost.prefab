@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104100894214863564, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_InstanceId
-      value: -45306
+      value: -2810462
       objectReference: {fileID: 0}
     - target: {fileID: 4141565785763516012, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: leaveCorpseOnDeath
@@ -82,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4296948375338229556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: velocity
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4713165869051949446, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
@@ -147,9 +147,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  chaseDistanceThreshold: 10
+  chaseDistanceThreshold: 20
   attackDistanceThreshold: 0.8
-  attackDelay: 2.5
+  attackDelay: 1
   passedTime: 1
   OnMovementInput:
     m_PersistentCalls:
