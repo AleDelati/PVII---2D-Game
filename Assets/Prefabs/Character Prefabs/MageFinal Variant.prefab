@@ -53,12 +53,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 200011516190002921, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
+      propertyPath: corpsePrefab
+      value: 
+      objectReference: {fileID: 8420522698240876771, guid: 547bb2685896ae34cacaa6aef0878afb, type: 3}
+    - target: {fileID: 200011516190002921, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: leaveCorpseOnDeath
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 237542123412175433, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: m_InstanceId
-      value: -1605090
+      value: -2150100
       objectReference: {fileID: 0}
     - target: {fileID: 1362957625038243634, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: scoreDrop
@@ -70,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1711718324136676983, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: initialHP
-      value: 15
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2168625426243423565, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: TPpositions.Array.size
@@ -108,10 +112,18 @@ PrefabInstance:
       propertyPath: TPpositions.Array.data[3].y
       value: 156.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3412670289207996452, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5669153194583928948, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: m_Name
       value: MageFinal Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7144495697035944429, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2be7101a8d689ed40af912861ef4ff3e, type: 3}
     m_RemovedComponents:
     - {fileID: 2168625426243423565, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
     m_RemovedGameObjects: []
@@ -162,7 +174,7 @@ MonoBehaviour:
   chaseDistanceThreshold: 20
   attackDistanceThreshold: 20
   mantainDistanceThreshold: 4
-  attackDelay: 3
+  attackDelay: 1
   OnMovementInput:
     m_PersistentCalls:
       m_Calls:
@@ -215,32 +227,31 @@ MonoBehaviour:
   TPRadius: 1
   TPStunBefore: 1
   TPStunAfter: 1
+  SpecialDelay: 10
   castSpellsPos: {x: 5, y: 157, z: 0}
   castSpellsArea: 9
   castPositions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: -5.5, y: 156.5, z: 0}
+  - {x: 14.5, y: 156.5, z: 0}
+  - {x: 4.5, y: 147.5, z: 0}
+  - {x: 4.5, y: 166.5, z: 0}
+  - {x: 11.5, y: 163.5, z: 0}
+  - {x: -2.5, y: 163.5, z: 0}
+  - {x: -2.5, y: 149.5, z: 0}
+  - {x: 11.5, y: 149.5, z: 0}
   SummonPrefab: {fileID: 6098168185088547132, guid: d86be4fe76719554cad0d0b9ad578e86, type: 3}
   SummonQuantity: 2
   SummonTime: 1.5
   summonDelay: 15
-  summonMainDelay: -3
+  summonMainDelay: -1
   SpecialAQuantity: 5
-  SpecialADelay: 10
-  SpecialAMainDelay: -5
+  SpecialAMainDelay: -1
   SpecialAStunBefore: 1.5
   SpecialAStunBetwen: 0.1
   SpecialAStunAfter: 1.5
-  TPEnemyPos: {x: 5, y: 157, z: 0}
-  SpecialBMainDelay: -3
+  SpecialBMainDelay: -1
   SpecialBStunBefore: 3
   SpecialBStunAfter: 0.5
-  SpecialCMainDelay: -3
+  SpecialCMainDelay: -1
   SpecialCStunBefore: 1
   SpecialCStunAfter: 1

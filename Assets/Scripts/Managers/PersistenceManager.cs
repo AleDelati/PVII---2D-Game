@@ -67,11 +67,17 @@ public class PersistenceManager : MonoBehaviour {
     public void SaveHighScore(int score) {
         if( score > GetInt("HighScore")) {
             SetInt("HighScore", score);
+            SetInt("HighScoreDeathCount", GetInt("DeathCount"));
             Save();
             Debug.Log("Se guardo una nueva puntuacion mas alta: " + score);
         } else {
             Debug.Log("No se alcanzo una nueva puntuacion mas alta, la mas alta registrada es: " + GetInt("HighScore"));
         }
+    }
+
+    //Guarda la cantidad de muertes del jugador durante la Partida
+    public void SaveDeathCount(int count) {
+        SetInt("DeathCount", count);
     }
 
     //              -||-

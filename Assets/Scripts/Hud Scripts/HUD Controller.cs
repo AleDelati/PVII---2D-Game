@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -29,8 +27,16 @@ public class HUDController : MonoBehaviour {
         GameEvents.onResume -= Resume;
     }
 
-    private void Pause() => pauseMenu.SetActive(true);
-    private void Resume() => pauseMenu.SetActive(false);
+    private void Pause() {
+        if(pauseMenu != null) {
+            pauseMenu.SetActive(true);
+        }
+    }
+    private void Resume() {
+        if(pauseMenu != null) {
+            pauseMenu.SetActive(false);
+        }
+    }
 
     private void Update() {
         UpdateScoreHUD();
