@@ -29,6 +29,10 @@ public class Projectile : MonoBehaviour {
         caster = _caster;
     }
 
+    public void SetVelocity(float value) {
+        velocity = value;
+    }
+
     //Si el projectil impacta con cualquier objeto que no sea su propio caster es destruido e inflinge daño si es posible
     private void OnCollisionEnter2D(Collision2D collision) {
         if(caster == null) {

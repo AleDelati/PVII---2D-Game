@@ -1,5 +1,5 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 using UnityEngine.Events;
 
 public class EnemyAIMage : MonoBehaviour {
