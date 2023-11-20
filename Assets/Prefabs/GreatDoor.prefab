@@ -236,7 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorSprites:
   - {fileID: 1730265970, guid: db738e67d07602643b50b61b935fc173, type: 3}
-  - {fileID: 213118538, guid: db738e67d07602643b50b61b935fc173, type: 3}
+  - {fileID: -27443271, guid: db738e67d07602643b50b61b935fc173, type: 3}
   doorOpen: 1
 --- !u!1 &4874199589182468694
 GameObject:
