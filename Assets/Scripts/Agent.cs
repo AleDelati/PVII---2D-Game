@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Agent : MonoBehaviour {
@@ -13,6 +14,7 @@ public class Agent : MonoBehaviour {
 
     //              ----|Variables|----
     private Vector2 movementInput, pointerInput;
+    private float initialVelocity;
 
     public Vector2 MovementInput { get => movementInput; set => movementInput = value; }
     public Vector2 PointerInput { get => pointerInput; set => pointerInput = value; }
@@ -30,6 +32,10 @@ public class Agent : MonoBehaviour {
 
 
     //              ----|Functions|----
+    private void Start() {
+        initialVelocity = velocity;
+    }
+
     private void OnEnable() {           //Se ejecuta cuando el objeto se activa en el nivel
 
         _Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -54,6 +60,19 @@ public class Agent : MonoBehaviour {
 
         MoveAgent();
 
+    }
+
+    //Ralentiza al Agente si entra en contacto con un obstaculo
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.gameObject.tag == "Obstacle") {
+            velocity = initialVelocity / 2;
+        }
+    }
+    //Devuelve al Agente a su velocidad normal dejar de contactar con un obstaculo
+    private void OnTriggerExit2D(Collider2D collision) {
+        if (collision.gameObject.tag == "Obstacle") {
+            velocity = initialVelocity;
+        }
     }
 
     private void MoveAgent() {         //Ejecuta las acciones relacionadas al movimiento del Agente

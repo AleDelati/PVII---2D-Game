@@ -9,8 +9,6 @@ public class EnemyAIMage : MonoBehaviour {
     [SerializeField] private float attackDelay = 1;
     [SerializeField] private float passedTime = 1;
 
-    [SerializeField] private GameObject DropPrefab;
-
     public UnityEvent<Vector2> OnMovementInput, OnPointerInput;
     public UnityEvent OnAttack;
 
@@ -44,7 +42,6 @@ public class EnemyAIMage : MonoBehaviour {
     private Transform target;
     private GameObject ProjectileInstance;
     private GameObject SummonInstance;
-    private GameObject DropInstance;
     private ParticleSystem PS;
 
     //              ----|Functions|----
@@ -164,6 +161,8 @@ public class EnemyAIMage : MonoBehaviour {
                     ProjectileInstance = Instantiate(ProjectilePrefab, ProjectileSpawnPoint.position, Quaternion.identity);
                     ProjectileInstance.GetComponent<Projectile>().SetProjectile(direction.normalized, this.gameObject);
 
+                    GetComponent<AgentProjectile>().PlayOnSpawnAudio();
+
                     yield return new WaitForSeconds(0.5f);
                 }
 
@@ -214,13 +213,6 @@ public class EnemyAIMage : MonoBehaviour {
         }
     }
     
-    private void OnDestroy() {
-        if (target != null) {   //Evita que se instancie el objeto si el jugador murio y se reinicia el nivel
-            DropInstance = Instantiate(DropPrefab, transform.position, Quaternion.identity);
-            DropInstance.name = "Key";
-        }
-    }
-
     private void Teleport() {
         if (!teleporting) {
             int randPos = Random.Range(0, TPpositions.Length);

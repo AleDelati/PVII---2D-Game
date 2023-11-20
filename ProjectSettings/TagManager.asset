@@ -9,11 +9,12 @@ TagManager:
   - Exit
   - General Map
   - Item
+  - Obstacle
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Map
   - Water
   - UI
   - Player

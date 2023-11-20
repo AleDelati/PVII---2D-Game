@@ -4944,7 +4944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104100894214863564, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_InstanceId
-      value: -3631802
+      value: -1139956
       objectReference: {fileID: 0}
     - target: {fileID: 4141565785763516012, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: leaveCorpseOnDeath
@@ -5048,6 +5048,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8436290498940154097, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       insertIndex: 6
+      addedObject: {fileID: 4923845842203763989}
+    - targetCorrespondingSourceObject: {fileID: 8436290498940154097, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      insertIndex: 7
       addedObject: {fileID: 2168625426243423565}
     - targetCorrespondingSourceObject: {fileID: 8436290498940154097, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       insertIndex: -1
@@ -5140,6 +5143,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8436290498940154097, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
   m_PrefabInstance: {fileID: 4305257941795504261}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4923845842203763989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669153194583928948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce9fcd81e5c5754092a6fa0c9451286, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSwing: {fileID: 8300000, guid: 6458ae4173880d14b84d80a401ed7599, type: 3}
+  projectileImpact: {fileID: 8300000, guid: a257b70528eb37f4ab207e195f1ee763, type: 3}
+  projectileLethal: {fileID: 8300000, guid: fde31e5126eeafc429b1a888b3982410, type: 3}
+  projectileSpawn: {fileID: 8300000, guid: 6458ae4173880d14b84d80a401ed7599, type: 3}
 --- !u!114 &2168625426243423565
 MonoBehaviour:
   m_ObjectHideFlags: 0

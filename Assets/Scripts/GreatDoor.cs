@@ -77,7 +77,7 @@ public class GreatDoor : MonoBehaviour {
 
                 //Busca la llave en el inventario del jugador
                 
-                if (playerKeys != null && playerKeys.transform.childCount != 0) {
+                if (playerKeys != null && playerKeys.transform.childCount != 0 && keyTriggered == true) {
                     playerKeys.transform.GetChild(0).GetComponent<Item>().DestroyItem();
                     keyDelivered = true;
                 }

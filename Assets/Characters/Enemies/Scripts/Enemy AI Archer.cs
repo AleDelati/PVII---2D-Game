@@ -129,6 +129,8 @@ public class EnemyAIArcher : MonoBehaviour {
                     ProjectileInstance.GetComponent<Projectile>().SetProjectile(direction.normalized, this.gameObject);
                     ProjectileInstance.transform.up = direction;
 
+                    GetComponent<AgentProjectile>().PlayOnSpawnAudio();
+
                     yield return new WaitForSeconds(0.5f);
                 }
 

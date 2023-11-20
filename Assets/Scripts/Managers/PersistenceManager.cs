@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PersistenceManager : MonoBehaviour {
@@ -76,4 +74,8 @@ public class PersistenceManager : MonoBehaviour {
         }
     }
 
+    //              -||-
+    public void SaveSkipIntroCinematicsConfig(bool status) {
+        SetBool("SkipIntroCinematics", status);
+    }
 }

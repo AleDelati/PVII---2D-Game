@@ -1,24 +1,26 @@
 using UnityEngine;
+using System.Collections;
 
 public class Projectile : MonoBehaviour {
     //              ----|Unity Config|----
     [Header("General Config")]
     [SerializeField] private float velocity = 6.0f;
+    [SerializeField] private float despawnTime = 0.5f;
 
     //              ----|Variables|----
     private Vector2 direction;
     private GameObject caster;
 
     //              ----|References|----
-    private Rigidbody2D _RigidBody2D;
+    private Rigidbody2D RB;
 
     //              ----|Functions|----
     private void OnEnable() {
-        _RigidBody2D = GetComponent<Rigidbody2D>();
+        RB = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate() {
-        _RigidBody2D.MovePosition(_RigidBody2D.position + direction * (velocity * Time.fixedDeltaTime));
+        RB.MovePosition(RB.position + direction * (velocity * Time.fixedDeltaTime));
     }
 
     //Permite configurar el projectil luego de ser instanciado
@@ -36,11 +38,21 @@ public class Projectile : MonoBehaviour {
             Health health;
             if (health = collision.gameObject.GetComponent<Health>()) {
                 health.GetHit(1, caster);
-                //PlayAudioImpact(health)
-                Destroy(this.gameObject);
+                caster.GetComponent<AgentProjectile>().PlayAudioImpact(health);   //Reproduce el sonido
+                StartCoroutine(DestroyProjectile());
             }
-            Destroy(this.gameObject);
+            caster.GetComponent<AgentProjectile>().PlayAudioImpact();
+            StartCoroutine(DestroyProjectile());
         }
+    }
+
+    //Genera un pequeño delay para la destruccion del objeto para dar tiempo a las particulas a finalizar el runtime
+    private IEnumerator DestroyProjectile() {
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(despawnTime);
+        Destroy(this.gameObject);
+        yield return null;
     }
 
 }

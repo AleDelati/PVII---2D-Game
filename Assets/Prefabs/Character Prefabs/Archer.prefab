@@ -122,7 +122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104100894214863564, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_InstanceId
-      value: -3463088
+      value: -1142014
       objectReference: {fileID: 0}
     - target: {fileID: 4141565785763516012, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: corpsePrefab
@@ -257,7 +257,10 @@ PrefabInstance:
       addedObject: {fileID: 3116974255418838480}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8436290498940154097, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
-      insertIndex: 7
+      insertIndex: 6
+      addedObject: {fileID: 7270801299589522403}
+    - targetCorrespondingSourceObject: {fileID: 8436290498940154097, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      insertIndex: 8
       addedObject: {fileID: 4354321490257911513}
   m_SourcePrefab: {fileID: 100100000, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
 --- !u!114 &885917839199014053 stripped
@@ -281,6 +284,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8436290498940154097, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
   m_PrefabInstance: {fileID: 4029237683415520145}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7270801299589522403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4825892674719261536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce9fcd81e5c5754092a6fa0c9451286, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSwing: {fileID: 8300000, guid: 6458ae4173880d14b84d80a401ed7599, type: 3}
+  projectileImpact: {fileID: 8300000, guid: a257b70528eb37f4ab207e195f1ee763, type: 3}
+  projectileLethal: {fileID: 8300000, guid: fde31e5126eeafc429b1a888b3982410, type: 3}
+  projectileSpawn: {fileID: 8300000, guid: 6458ae4173880d14b84d80a401ed7599, type: 3}
 --- !u!114 &4354321490257911513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,7 +364,6 @@ MonoBehaviour:
         m_CallState: 2
   playerDetectionOrigin: {fileID: 7972720821588618336}
   playerDetectionRadius: 10
-  TPRadius: 1
   ProjectilePrefab: {fileID: 1808977328325856672, guid: d4b71c5482703e5489390742595b632b, type: 3}
   ProjectileSpawnPoint: {fileID: 3635963948841452338}
 --- !u!4 &7497633050928910488 stripped

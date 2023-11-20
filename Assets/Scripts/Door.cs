@@ -9,7 +9,6 @@ public class Door : MonoBehaviour {
 
     private void OnEnable() {
         SR = GetComponent<SpriteRenderer>();
-
     }
 
     public void CycleDoorSprites() {
