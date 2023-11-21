@@ -51,7 +51,8 @@ GameObject:
   - component: {fileID: -2380684426248923380}
   - component: {fileID: 70725599528144648}
   - component: {fileID: 7121590847392055801}
-  - component: {fileID: 9194609401590448238}
+  - component: {fileID: 3513445098567200443}
+  - component: {fileID: 3022150650043942635}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -468,11 +469,19 @@ MonoBehaviour:
   - {x: 0.29222775, y: -0.45205307, z: 0}
   m_ShapePathHash: -1835553995
   m_Mesh: {fileID: 0}
-  m_InstanceId: -719648
+  m_InstanceId: 459862
   m_LocalBounds:
     m_Center: {x: -0.031965017, y: -0.065927505, z: 0}
     m_Extent: {x: 0.32419276, y: 0.3901205, z: 0}
---- !u!82 &9194609401590448238
+--- !u!81 &3513445098567200443
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2454500811135734912}
+  m_Enabled: 1
+--- !u!82 &3022150650043942635
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -484,7 +493,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.3
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0

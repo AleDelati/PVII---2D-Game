@@ -1,5 +1,87 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4806880918716363582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7204323033251489232}
+  - component: {fileID: 2041250985875565127}
+  m_Layer: 0
+  m_Name: Aura Luminica
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7204323033251489232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4806880918716363582}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.011775017, y: 0.23156738, z: 0.566824}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3251266365365715715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2041250985875565127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4806880918716363582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 0.4838942, g: 0.4737896, b: 0.5943396, a: 1}
+  m_Intensity: 1
+  m_LightVolumeIntensity: 1
+  m_LightVolumeIntensityEnabled: 0
+  m_ApplyToSortingLayers: d17c0e97fd0ad1a900000000dbbb2fba
+  m_LightCookieSprite: {fileID: 21300000, guid: 119f93d0bcbf1e743bf5fcf237507d39, type: 3}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowIntensityEnabled: 0
+  m_ShadowIntensity: 0.75
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 5
+  m_PointLightOuterRadius: 15
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1001 &3410957329859109386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62,7 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 237542123412175433, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: m_InstanceId
-      value: -2150100
+      value: -4877584
       objectReference: {fileID: 0}
     - target: {fileID: 1362957625038243634, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: scoreDrop
@@ -70,11 +152,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1711718324136676983, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: maxHP
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1711718324136676983, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: initialHP
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2168625426243423565, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: TPpositions.Array.size
@@ -116,6 +198,10 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4923845842203763989, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
+      propertyPath: projectileSpawn
+      value: 
+      objectReference: {fileID: 8300000, guid: cddb7cb373f34324f8bfd7187be3545b, type: 3}
     - target: {fileID: 5669153194583928948, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: m_Name
       value: MageFinal Variant
@@ -123,11 +209,15 @@ PrefabInstance:
     - target: {fileID: 7144495697035944429, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2be7101a8d689ed40af912861ef4ff3e, type: 3}
+      objectReference: {fileID: 21300000, guid: 38ad52cbf4f4cb64999fbd7baa0ef27a, type: 3}
     m_RemovedComponents:
     - {fileID: 2168625426243423565, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
+    - {fileID: 237542123412175433, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 164651961277800713, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7204323033251489232}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5669153194583928948, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       insertIndex: 7
@@ -136,6 +226,11 @@ PrefabInstance:
 --- !u!4 &1258278319261561388 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4476695576123887654, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
+  m_PrefabInstance: {fileID: 3410957329859109386}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3251266365365715715 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 164651961277800713, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
   m_PrefabInstance: {fileID: 3410957329859109386}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &3407163405614251451 stripped
@@ -173,7 +268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseDistanceThreshold: 20
   attackDistanceThreshold: 20
-  mantainDistanceThreshold: 4
+  mantainDistanceThreshold: 6
   attackDelay: 1
   OnMovementInput:
     m_PersistentCalls:
@@ -222,7 +317,7 @@ MonoBehaviour:
         m_CallState: 2
   playerDetectionOrigin: {fileID: 5595458503538711934}
   playerDetectionRadius: 10
-  ProjectilePrefab: {fileID: 1808977328325856672, guid: 96428b0877a578047a9870ac4dfd1d96, type: 3}
+  ProjectilePrefab: {fileID: 6949429901831526545, guid: bbf3d0fb6b1f2c241874265606dabc17, type: 3}
   ProjectileSpawnPoint: {fileID: 1258278319261561388}
   TPRadius: 1
   TPStunBefore: 1
@@ -239,8 +334,8 @@ MonoBehaviour:
   - {x: -2.5, y: 163.5, z: 0}
   - {x: -2.5, y: 149.5, z: 0}
   - {x: 11.5, y: 149.5, z: 0}
-  SummonPrefab: {fileID: 6098168185088547132, guid: d86be4fe76719554cad0d0b9ad578e86, type: 3}
-  SummonQuantity: 2
+  SummonPrefab: {fileID: 9044593037926070279, guid: 2959e5ef2981444478c3919496c133e0, type: 3}
+  SummonQuantity: 1
   SummonTime: 1.5
   summonDelay: 15
   summonMainDelay: -1

@@ -59,7 +59,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: a331e556e99b6bb4ea72e4593c3506aa, type: 3}
+        m_Texture: {fileID: 2800000, guid: ead9ad043dc18294dbfd7da39426d9ca, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -71,7 +71,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 1e1fc91f3dca76f41829f300d0b09d65, type: 3}
+        m_Texture: {fileID: 2800000, guid: 318b522693c694c41a286849e32cc425, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:

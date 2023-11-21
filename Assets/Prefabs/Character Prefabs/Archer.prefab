@@ -122,7 +122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104100894214863564, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_InstanceId
-      value: -1142014
+      value: -5521588
       objectReference: {fileID: 0}
     - target: {fileID: 4141565785763516012, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: corpsePrefab
@@ -296,8 +296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce9fcd81e5c5754092a6fa0c9451286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSwing: {fileID: 8300000, guid: 6458ae4173880d14b84d80a401ed7599, type: 3}
-  projectileImpact: {fileID: 8300000, guid: a257b70528eb37f4ab207e195f1ee763, type: 3}
+  projectileSwing: {fileID: 8300000, guid: 5d35d59931e3d5e49b0820d07aeb5476, type: 3}
+  projectileImpact: {fileID: 8300000, guid: 5d35d59931e3d5e49b0820d07aeb5476, type: 3}
   projectileLethal: {fileID: 8300000, guid: fde31e5126eeafc429b1a888b3982410, type: 3}
   projectileSpawn: {fileID: 8300000, guid: 6458ae4173880d14b84d80a401ed7599, type: 3}
 --- !u!114 &4354321490257911513

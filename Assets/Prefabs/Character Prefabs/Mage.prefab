@@ -5026,11 +5026,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104100894214863564, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_InstanceId
-      value: -3504178
+      value: -6276752
       objectReference: {fileID: 0}
     - target: {fileID: 4141565785763516012, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: corpsePrefab
+      value: 
+      objectReference: {fileID: 5291254365311100918, guid: 99708f3e76826fb4bb8cd863662c97ce, type: 3}
+    - target: {fileID: 4141565785763516012, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: leaveCorpseOnDeath
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5197,7 +5201,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 2
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: d17c0e97fd0ad1a900000000dbbb2fba
@@ -5255,7 +5259,7 @@ MonoBehaviour:
   projectileSwing: {fileID: 8300000, guid: 6458ae4173880d14b84d80a401ed7599, type: 3}
   projectileImpact: {fileID: 8300000, guid: a257b70528eb37f4ab207e195f1ee763, type: 3}
   projectileLethal: {fileID: 8300000, guid: fde31e5126eeafc429b1a888b3982410, type: 3}
-  projectileSpawn: {fileID: 8300000, guid: 6458ae4173880d14b84d80a401ed7599, type: 3}
+  projectileSpawn: {fileID: 8300000, guid: cddb7cb373f34324f8bfd7187be3545b, type: 3}
 --- !u!114 &2168625426243423565
 MonoBehaviour:
   m_ObjectHideFlags: 0
