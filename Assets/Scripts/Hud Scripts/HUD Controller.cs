@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class HUDController : MonoBehaviour {
     [Header("Health Bar Config")]
-    [SerializeField] private bool showHealt;
+    [SerializeField] private bool showHealth;
     [SerializeField] GameObject healthIcon;
     [SerializeField] GameObject playerHealthContainter;
 
@@ -41,7 +41,7 @@ public class HUDController : MonoBehaviour {
     private void Update() {
         UpdateScoreHUD();
         UpdateDeathScoreHUD();
-        playerHealthContainter.SetActive(showHealt);
+        playerHealthContainter.SetActive(showHealth);
     }
 
     //              -|Health HUD|-
@@ -83,6 +83,11 @@ public class HUDController : MonoBehaviour {
     //              -|Key Fragments HUD|-
     public void AddKeyFragmentIcon() {
         Instantiate(keyFragmentIcon, keyFragmentsContainer.transform);
+    }
+
+    public void RemoveKeyFragmentIcon() {
+        Transform container = keyFragmentsContainer.transform;
+        GameObject.Destroy(container.GetChild(container.childCount - 1).gameObject);
     }
 
     //              -|Score HUD|-

@@ -25,7 +25,7 @@ public class GreatDoor : MonoBehaviour {
     private AudioSource AS;
 
     [SerializeField]
-    private UnityEvent OnDoorTriggered;
+    private UnityEvent OnDoorTriggered, OnOpenWithKey;
 
     private void Start() {
         doorRB = GetComponent<BoxCollider2D>();
@@ -111,6 +111,7 @@ public class GreatDoor : MonoBehaviour {
             disableDoor = true;
             AS.PlayOneShot(doorSound);
             UpdateDoorStatus();
+            OnOpenWithKey?.Invoke();
         }
 
     }

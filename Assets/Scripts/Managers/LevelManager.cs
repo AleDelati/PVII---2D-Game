@@ -53,7 +53,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     private void CheckIntroSkip() {
-        introSkip = !PersistenceManager.Instance.GetBool("SkipIntroCinematics");
+        introSkip = PersistenceManager.Instance.GetBool("SkipIntroCinematics");
         if (introSkip) {
             mainCamera.SetActive(true);
             auxCamera.SetActive(false);
@@ -78,15 +78,16 @@ public class LevelManager : MonoBehaviour {
 
     //Reinicia el nivel
     public void ResetGame() {
+        PersistenceManager.Instance.SaveHighScore(GameManager.instance.GetScore());
+        PersistenceManager.Instance.SaveScore(GameManager.instance.GetScore());
+        playerInventory.ResetItems();
+        GameManager.instance.ResetScore();
+
         if (easyMode) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         } else {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
-
-        playerInventory.ResetItems();
-        GameManager.instance.ResetScore();
-        //Debug.Log("Game Over");
     }
 
     private void CheckMusicState() {

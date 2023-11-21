@@ -190,10 +190,12 @@ public class EnemyAIMage : MonoBehaviour {
             if (collider.CompareTag("General Map") != true) {
                 if (SummonInstance == null) {
                     SummonInstance = Instantiate(SummonPrefab, transform.position + new Vector3(Random.Range(summonRadius - summonRadius*2, summonRadius), Random.Range(summonRadius - summonRadius*2, summonRadius), 0), Quaternion.identity);
+                    SummonInstance.GetComponent<Health>().SetDestroyOnDeath(true);
                 }
             } else {
                 if (SummonInstance == null) {
                     SummonInstance = Instantiate(SummonPrefab, transform.position, Quaternion.identity);
+                    SummonInstance.GetComponent<Health>().SetDestroyOnDeath(true);
                 }
             }
         }

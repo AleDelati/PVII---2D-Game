@@ -63,6 +63,10 @@ public class PersistenceManager : MonoBehaviour {
         SetBool("Music", status);
     }
 
+    public void SaveScore(int score) {
+        SetInt("Score", score);
+    }
+
     //Guarda la puntuacion del jugador si es la mas alta registrada
     public void SaveHighScore(int score) {
         if( score > GetInt("HighScore")) {
