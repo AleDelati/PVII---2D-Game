@@ -317,12 +317,12 @@ MonoBehaviour:
         m_CallState: 2
   playerDetectionOrigin: {fileID: 5595458503538711934}
   playerDetectionRadius: 10
-  ProjectilePrefab: {fileID: 6949429901831526545, guid: bbf3d0fb6b1f2c241874265606dabc17, type: 3}
+  ProjectilePrefab: {fileID: 1808977328325856672, guid: 96428b0877a578047a9870ac4dfd1d96, type: 3}
   ProjectileSpawnPoint: {fileID: 1258278319261561388}
   TPRadius: 1
   TPStunBefore: 1
   TPStunAfter: 1
-  TPAudioclip: {fileID: 0}
+  TPAudioclip: {fileID: 8300000, guid: 8bb3df7d9c084354fb988acd66523b15, type: 3}
   SpecialDelay: 10
   castSpellsPos: {x: 5, y: 157, z: 0}
   castSpellsArea: 9
@@ -335,7 +335,7 @@ MonoBehaviour:
   - {x: -2.5, y: 163.5, z: 0}
   - {x: -2.5, y: 149.5, z: 0}
   - {x: 11.5, y: 149.5, z: 0}
-  PreSummonPrefab: {fileID: 0}
+  PreSummonPrefab: {fileID: 2426794240591636884, guid: 21bd66aab90130b44ad5aada016db941, type: 3}
   SummonPrefab: {fileID: 9044593037926070279, guid: 2959e5ef2981444478c3919496c133e0, type: 3}
   summonDelay: 15
   SummonStunBefore: 1.5
@@ -347,13 +347,13 @@ MonoBehaviour:
   SpecialAStunBefore: 1.5
   SpecialAStunBetwen: 0.1
   SpecialAStunAfter: 1.5
-  SpecialAParticles: {fileID: 0}
+  SpecialAParticles: {fileID: 8547004415886735588, guid: 07adc7e37eba367419f4e773d4a29a52, type: 3}
   SpecialBMainDelay: -1
   SpecialBStunBefore: 3
   SpecialBStunAfter: 0.5
-  SpecialBparticles: {fileID: 0}
-  SpecialBAudioclip: {fileID: 0}
+  SpecialBparticles: {fileID: 5693595275218980382, guid: 1033a644800a0d248a686b84b5bde95d, type: 3}
+  SpecialBAudioclip: {fileID: 8300000, guid: fa34817e24d010046b4138e4b0cc437f, type: 3}
   SpecialCMainDelay: -1
   SpecialCStunBefore: 1
   SpecialCStunAfter: 1
-  SpecialCPrefab: {fileID: 0}
+  SpecialCPrefab: {fileID: 6949429901831526545, guid: bbf3d0fb6b1f2c241874265606dabc17, type: 3}

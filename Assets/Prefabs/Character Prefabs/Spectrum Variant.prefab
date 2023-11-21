@@ -9750,6 +9750,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1161483132003289164, guid: d86be4fe76719554cad0d0b9ad578e86, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161483132003289164, guid: d86be4fe76719554cad0d0b9ad578e86, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.12156863
+      objectReference: {fileID: 0}
     - target: {fileID: 1748836444407875649, guid: d86be4fe76719554cad0d0b9ad578e86, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.456724
@@ -9796,7 +9804,7 @@ PrefabInstance:
       objectReference: {fileID: 5291254365311100918, guid: 99708f3e76826fb4bb8cd863662c97ce, type: 3}
     - target: {fileID: 1821143243695592193, guid: d86be4fe76719554cad0d0b9ad578e86, type: 3}
       propertyPath: m_InstanceId
-      value: -4759138
+      value: -7356420
       objectReference: {fileID: 0}
     - target: {fileID: 1878953095881570041, guid: d86be4fe76719554cad0d0b9ad578e86, type: 3}
       propertyPath: velocity
