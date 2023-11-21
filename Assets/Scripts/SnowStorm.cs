@@ -5,9 +5,12 @@ public class SnowStorm : MonoBehaviour {
     [SerializeField] private Vector3 transitionPos;
     [SerializeField] private Vector3 startingPos;
 
-    [SerializeField] private GameObject player;
+    private GameObject player;
     [SerializeField] private AudioSource AS;
-   
+
+    private void Start() {
+        player = GameObject.Find("Player");
+    }
 
     private void Update() {
         UpdateStorm();

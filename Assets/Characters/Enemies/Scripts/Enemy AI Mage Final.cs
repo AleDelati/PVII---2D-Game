@@ -24,6 +24,7 @@ public class EnemyAIMageFinal : MonoBehaviour {
     [SerializeField] private float TPStunBefore = 1.0f;
     [SerializeField] private float TPStunAfter = 1.0f;
     [SerializeField] private AudioClip TPAudioclip;
+    [SerializeField] private ParticleSystem TPPS;
 
     [Header("Cast Spells Config")]
     [SerializeField] private float SpecialDelay = 10f;
@@ -52,9 +53,9 @@ public class EnemyAIMageFinal : MonoBehaviour {
     [SerializeField] private float SpecialBMainDelay = -3f;
     [SerializeField] private float SpecialBStunBefore = 3.0f;
     [SerializeField] private float SpecialBStunAfter = 0.5f;
-    [SerializeField] private ParticleSystem SpecialBParticles;
-    [SerializeField] private GameObject SpecialBanimation;
     [SerializeField] private AudioClip SpecialBAudioclip;
+    public UnityEvent OnSpecialAttackBBegin;
+    public UnityEvent OnSpecialAttackBEnd;
 
     [Header("Special Attack C - Lluvia de Projectiles")]
     [SerializeField] private float SpecialCMainDelay = -3f;
@@ -81,7 +82,6 @@ public class EnemyAIMageFinal : MonoBehaviour {
     private GameObject ProjectileInstance;
     private GameObject SummonInstance;
     private GameObject PreSummonInstance;
-    private ParticleSystem PS;
     private Health health;
     private AudioSource AS;
 
@@ -93,7 +93,6 @@ public class EnemyAIMageFinal : MonoBehaviour {
 
     private void OnEnable() {
         StartCoroutine(MageBehavior());
-        PS = GetComponent<ParticleSystem>();
         health = GetComponent<Health>();
         AS = GetComponent<AudioSource>();
 
@@ -213,7 +212,6 @@ public class EnemyAIMageFinal : MonoBehaviour {
                 foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, TPRadius)) {
                     //Si esta atascado al borde del mapa realiza un tp
                     if (collider.CompareTag("General Map") == true) {
-                        PS.Play();
                         yield return new WaitForSeconds(TPStunBefore);
                         Teleport();
                         yield return new WaitForSeconds(TPStunAfter);
@@ -324,15 +322,16 @@ public class EnemyAIMageFinal : MonoBehaviour {
         specialACooldown = SpecialDelay;
         mainCooldown = SpecialBMainDelay;
 
-        SpecialBParticles.Play();
-        SpecialBanimation.SetActive(true);
+        OnSpecialAttackBBegin?.Invoke();
+
         yield return new WaitForSeconds(SpecialBStunBefore);
 
         target.transform.position = castSpellsPos + new Vector3(Random.Range(castSpellsArea - castSpellsArea * 2, castSpellsArea), Random.Range(castSpellsArea - castSpellsArea * 2, castSpellsArea), 0);
         AS.PlayOneShot(SpecialBAudioclip);
 
         yield return new WaitForSeconds(SpecialBStunAfter);
-        SpecialBanimation.SetActive(false);
+
+        OnSpecialAttackBEnd?.Invoke();
 
     }
 
@@ -383,6 +382,7 @@ public class EnemyAIMageFinal : MonoBehaviour {
                     transform.position = startingPos;
                 }
             }
+            TPPS.Play();
             AS.PlayOneShot(TPAudioclip);
             teleporting = true;
         }

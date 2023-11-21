@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3251266365365715715}
+  m_Father: {fileID: 137348204827408706}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2041250985875565127
 MonoBehaviour:
@@ -215,7 +215,7 @@ PrefabInstance:
     - {fileID: 237542123412175433, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 164651961277800713, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 3364702292526897992, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7204323033251489232}
     m_AddedComponents:
@@ -223,14 +223,14 @@ PrefabInstance:
       insertIndex: 7
       addedObject: {fileID: 5083896300289993718}
   m_SourcePrefab: {fileID: 100100000, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
+--- !u!4 &137348204827408706 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3364702292526897992, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
+  m_PrefabInstance: {fileID: 3410957329859109386}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1258278319261561388 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4476695576123887654, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
-  m_PrefabInstance: {fileID: 3410957329859109386}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &3251266365365715715 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 164651961277800713, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
   m_PrefabInstance: {fileID: 3410957329859109386}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &3407163405614251451 stripped
@@ -349,9 +349,10 @@ MonoBehaviour:
   SpecialAStunAfter: 1.5
   SpecialAParticles: {fileID: 8547004415886735588, guid: 07adc7e37eba367419f4e773d4a29a52, type: 3}
   SpecialBMainDelay: -1
-  SpecialBStunBefore: 3
+  SpecialBStunBefore: 1.2
   SpecialBStunAfter: 0.5
-  SpecialBparticles: {fileID: 5693595275218980382, guid: 1033a644800a0d248a686b84b5bde95d, type: 3}
+  SpecialBParticles: {fileID: 0}
+  SpecialBanimation: {fileID: 0}
   SpecialBAudioclip: {fileID: 8300000, guid: fa34817e24d010046b4138e4b0cc437f, type: 3}
   SpecialCMainDelay: -1
   SpecialCStunBefore: 1
