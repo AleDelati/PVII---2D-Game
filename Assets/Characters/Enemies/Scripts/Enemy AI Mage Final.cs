@@ -52,7 +52,8 @@ public class EnemyAIMageFinal : MonoBehaviour {
     [SerializeField] private float SpecialBMainDelay = -3f;
     [SerializeField] private float SpecialBStunBefore = 3.0f;
     [SerializeField] private float SpecialBStunAfter = 0.5f;
-    [SerializeField] private ParticleSystem SpecialBparticles;
+    [SerializeField] private ParticleSystem SpecialBParticles;
+    [SerializeField] private GameObject SpecialBanimation;
     [SerializeField] private AudioClip SpecialBAudioclip;
 
     [Header("Special Attack C - Lluvia de Projectiles")]
@@ -294,6 +295,7 @@ public class EnemyAIMageFinal : MonoBehaviour {
         specialACooldown = SpecialDelay;
         mainCooldown = SpecialAMainDelay;
 
+        SpecialAParticles.Play();
         yield return new WaitForSeconds(SpecialAStunBefore);
 
         for (int i = 0; i < SpecialAQuantity; i++) {
@@ -322,12 +324,15 @@ public class EnemyAIMageFinal : MonoBehaviour {
         specialACooldown = SpecialDelay;
         mainCooldown = SpecialBMainDelay;
 
+        SpecialBParticles.Play();
+        SpecialBanimation.SetActive(true);
         yield return new WaitForSeconds(SpecialBStunBefore);
 
         target.transform.position = castSpellsPos + new Vector3(Random.Range(castSpellsArea - castSpellsArea * 2, castSpellsArea), Random.Range(castSpellsArea - castSpellsArea * 2, castSpellsArea), 0);
         AS.PlayOneShot(SpecialBAudioclip);
 
         yield return new WaitForSeconds(SpecialBStunAfter);
+        SpecialBanimation.SetActive(false);
 
     }
 
