@@ -210,6 +210,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 38ad52cbf4f4cb64999fbd7baa0ef27a, type: 3}
+    - target: {fileID: 9119711046826371862, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].cycleCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9119711046826371862, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].repeatInterval
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2168625426243423565, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
     - {fileID: 237542123412175433, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
@@ -323,6 +331,7 @@ MonoBehaviour:
   TPStunBefore: 1
   TPStunAfter: 1
   TPAudioclip: {fileID: 8300000, guid: 8bb3df7d9c084354fb988acd66523b15, type: 3}
+  TPPS: {fileID: 0}
   SpecialDelay: 10
   castSpellsPos: {x: 5, y: 157, z: 0}
   castSpellsArea: 9
@@ -351,9 +360,13 @@ MonoBehaviour:
   SpecialBMainDelay: -1
   SpecialBStunBefore: 1.2
   SpecialBStunAfter: 0.5
-  SpecialBParticles: {fileID: 0}
-  SpecialBanimation: {fileID: 0}
   SpecialBAudioclip: {fileID: 8300000, guid: fa34817e24d010046b4138e4b0cc437f, type: 3}
+  OnSpecialAttackBBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSpecialAttackBEnd:
+    m_PersistentCalls:
+      m_Calls: []
   SpecialCMainDelay: -1
   SpecialCStunBefore: 1
   SpecialCStunAfter: 1
