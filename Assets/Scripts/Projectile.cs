@@ -34,13 +34,13 @@ public class Projectile : MonoBehaviour {
     }
 
     //Si el projectil impacta con cualquier objeto que no sea su propio caster es destruido e inflinge daño si es posible
-    private void OnCollisionEnter2D(Collision2D collision) {
+    private void OnTriggerEnter2D(Collider2D collider) {
         if(caster == null) {
             Destroy(this.gameObject);
-        } else if (collision.gameObject.layer != caster.layer) {
+        } else if (collider.gameObject.layer != caster.layer && collider.gameObject.layer != gameObject.layer) {
             //Si el objetivo impactado tiene vida le hace daño
             Health health;
-            if (health = collision.gameObject.GetComponent<Health>()) {
+            if (health = collider.gameObject.GetComponent<Health>()) {
                 health.GetHit(1, caster);
                 caster.GetComponent<AgentProjectile>().PlayAudioImpact(health);   //Reproduce el sonido
                 StartCoroutine(DestroyProjectile());

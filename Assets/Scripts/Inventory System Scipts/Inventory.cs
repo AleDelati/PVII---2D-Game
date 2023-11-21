@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour {
     //              ----|Variables|----
 
     //              ----|References|----
+    private AudioSource AS;
 
     //              ----|Events|----
     public UnityEvent OnItemPickUp;
@@ -20,23 +21,23 @@ public class Inventory : MonoBehaviour {
     //              ----|Functions|----
     private void Awake() {
         items = new List<GameObject>();
+        AS = GetComponent<AudioSource>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        if (!collision.gameObject.CompareTag("Item")) { return; }
+    private void OnTriggerEnter2D(Collider2D collider) {
+        if (!collider.gameObject.CompareTag("Item")) { return; }
 
-        GameObject newItem = collision.gameObject;
-        newItem.SetActive(false);
-
+        GameObject newItem = collider.gameObject;
         items.Add(newItem);
 
-        if(collision.transform.name == "Key") {
+        if(collider.transform.name == "Key") {
+            AS.PlayOneShot(collider.GetComponent<Item>().GetItemSound());
             newItem.transform.SetParent(keyInventory.transform);
         } else {
             newItem.transform.SetParent(inventory.transform);
         }
-        
 
+        newItem.SetActive(false);
         OnItemPickUp?.Invoke();  //Triggerea un evento al recolectar un Collectable Object
 
     }

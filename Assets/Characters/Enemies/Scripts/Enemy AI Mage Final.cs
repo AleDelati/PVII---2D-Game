@@ -37,6 +37,7 @@ public class EnemyAIMageFinal : MonoBehaviour {
     [SerializeField] private GameObject SummonPrefab;
     [SerializeField] private float summonDelay = 15f;
     [SerializeField] private float SummonStunBefore = 1.5f;
+    [SerializeField] private float SummonStunBetwen = 1.0f;
     [SerializeField] private float SummonStunAfter = 1.5f;
     [SerializeField] private float summonMainDelay = -3f;
     [SerializeField] private ParticleSystem summonParticles;
@@ -276,6 +277,7 @@ public class EnemyAIMageFinal : MonoBehaviour {
         if(SummonInstance == null && summonCooldown <= 0) {
             SummonInstance = Instantiate(SummonPrefab, PreSummonInstance.transform.position, Quaternion.identity);
             SummonInstance.GetComponent<Health>().SetDestroyOnDeath(true);
+            yield return new WaitForSeconds(SummonStunBetwen);
             Destroy(PreSummonInstance.gameObject);
         }
 

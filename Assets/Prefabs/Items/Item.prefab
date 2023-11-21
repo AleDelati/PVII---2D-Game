@@ -4945,7 +4945,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -4969,7 +4969,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6164914025833157633}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -5000,3 +5000,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de8eba4b313ac8440b12ee961a9ee372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemSound: {fileID: 0}

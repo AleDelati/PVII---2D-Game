@@ -8,6 +8,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6177160559333347382, guid: 0c44cbfc4a70a564091d6af08e44a0a6, type: 3}
+      propertyPath: itemSound
+      value: 
+      objectReference: {fileID: 8300000, guid: f5c310ea04c99474caf08e285ab14cb9, type: 3}
+    - target: {fileID: 4505441759096455145, guid: 0c44cbfc4a70a564091d6af08e44a0a6, type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4505441759096455145, guid: 0c44cbfc4a70a564091d6af08e44a0a6, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: f5c310ea04c99474caf08e285ab14cb9, type: 3}
+    - target: {fileID: 4505441759096455145, guid: 0c44cbfc4a70a564091d6af08e44a0a6, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6164914025833157633, guid: 0c44cbfc4a70a564091d6af08e44a0a6, type: 3}
       propertyPath: m_Name
       value: Key
