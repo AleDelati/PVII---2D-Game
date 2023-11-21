@@ -106,6 +106,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: caa0f26ae77bce847aa599a6df7445ce, type: 2}
+    - target: {fileID: 2978405427302500279, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: scoreDrop
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 3206114293252034290, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: maxHP
       value: 3

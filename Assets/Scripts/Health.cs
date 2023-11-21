@@ -100,5 +100,9 @@ public class Health : MonoBehaviour {
         yield return new WaitForSeconds(healEffectCooldown);
         _SpriteRenderer.color = Color.white;
     }
+    
+    public void SetDestroyOnDeath(bool state) {
+        destroyOnDeath = state;
+    }
 
 }

@@ -9742,6 +9742,10 @@ PrefabInstance:
       propertyPath: initialHP
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 994404723329673023, guid: d86be4fe76719554cad0d0b9ad578e86, type: 3}
+      propertyPath: destroyOnDeath
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 994600327299107717, guid: d86be4fe76719554cad0d0b9ad578e86, type: 3}
       propertyPath: m_IsActive
       value: 1

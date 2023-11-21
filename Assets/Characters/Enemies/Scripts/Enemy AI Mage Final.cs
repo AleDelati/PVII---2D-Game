@@ -23,6 +23,7 @@ public class EnemyAIMageFinal : MonoBehaviour {
     [SerializeField] private float TPRadius = 1.0f;
     [SerializeField] private float TPStunBefore = 1.0f;
     [SerializeField] private float TPStunAfter = 1.0f;
+    [SerializeField] private AudioClip TPAudioclip;
 
     [Header("Cast Spells Config")]
     [SerializeField] private float SpecialDelay = 10f;
@@ -31,11 +32,13 @@ public class EnemyAIMageFinal : MonoBehaviour {
     [SerializeField] private Vector3[] castPositions;
 
     [Header("Summon Config")]
+    [SerializeField] private GameObject PreSummonPrefab;
     [SerializeField] private GameObject SummonPrefab;
-    [SerializeField] private int SummonQuantity = 2;
-    [SerializeField] private float SummonTime = 1.5f;
     [SerializeField] private float summonDelay = 15f;
+    [SerializeField] private float SummonStunBefore = 1.5f;
+    [SerializeField] private float SummonStunAfter = 1.5f;
     [SerializeField] private float summonMainDelay = -3f;
+    [SerializeField] private ParticleSystem summonParticles;
 
     [Header("Special Attack A - Ametralladora")]
     [SerializeField] private int SpecialAQuantity = 8;
@@ -43,16 +46,20 @@ public class EnemyAIMageFinal : MonoBehaviour {
     [SerializeField] private float SpecialAStunBefore = 1.5f;
     [SerializeField] private float SpecialAStunBetwen = 0.1f;
     [SerializeField] private float SpecialAStunAfter = 1.5f;
+    [SerializeField] private ParticleSystem SpecialAParticles;
 
     [Header("Special Attack B - TP Player")]
     [SerializeField] private float SpecialBMainDelay = -3f;
     [SerializeField] private float SpecialBStunBefore = 3.0f;
     [SerializeField] private float SpecialBStunAfter = 0.5f;
+    [SerializeField] private ParticleSystem SpecialBparticles;
+    [SerializeField] private AudioClip SpecialBAudioclip;
 
     [Header("Special Attack C - Lluvia de Projectiles")]
     [SerializeField] private float SpecialCMainDelay = -3f;
     [SerializeField] private float SpecialCStunBefore = 1.0f;
     [SerializeField] private float SpecialCStunAfter = 1.0f;
+    [SerializeField] private GameObject SpecialCPrefab;
 
 
     //              ----|Variables|----
@@ -72,8 +79,10 @@ public class EnemyAIMageFinal : MonoBehaviour {
     private Transform target;
     private GameObject ProjectileInstance;
     private GameObject SummonInstance;
+    private GameObject PreSummonInstance;
     private ParticleSystem PS;
     private Health health;
+    private AudioSource AS;
 
     //              ----|Functions|----
     private void Start() {
@@ -85,6 +94,7 @@ public class EnemyAIMageFinal : MonoBehaviour {
         StartCoroutine(MageBehavior());
         PS = GetComponent<ParticleSystem>();
         health = GetComponent<Health>();
+        AS = GetComponent<AudioSource>();
 
         currentHealth = health.GetHP();
     }
@@ -128,7 +138,7 @@ public class EnemyAIMageFinal : MonoBehaviour {
                     break;
                 case 2:
                     StartCoroutine(Summon());
-                    currentWaitTime = SummonTime;
+                    currentWaitTime = 0;
                     break;
                 case 3:
                     StartCoroutine(SpecialAttackA());
@@ -257,17 +267,22 @@ public class EnemyAIMageFinal : MonoBehaviour {
         OnMovementInput?.Invoke(Vector2.zero);
         OnPointerInput?.Invoke(transform.position + new Vector3(10, 1, 0));
         mainCooldown = summonMainDelay;
-        yield return new WaitForSeconds(SummonTime);
 
-        if (summonCooldown <= 0) {
-            for (int i = 0; i < SummonQuantity; i++) {
-                SummonInstance = Instantiate(SummonPrefab, castSpellsPos + new Vector3(Random.Range(castSpellsArea - castSpellsArea * 2, castSpellsArea), Random.Range(castSpellsArea - castSpellsArea * 2, castSpellsArea), 0), Quaternion.identity);
-                summonCooldown = summonDelay;
-            }
+        if(PreSummonInstance == null) {
+            PreSummonInstance = Instantiate(PreSummonPrefab, castSpellsPos + new Vector3(Random.Range(castSpellsArea - castSpellsArea * 2, castSpellsArea), Random.Range(castSpellsArea - castSpellsArea * 2, castSpellsArea), 0), Quaternion.identity);
         }
 
+        yield return new WaitForSeconds(SummonStunBefore);
 
-        yield return null;
+        if(SummonInstance == null && summonCooldown <= 0) {
+            SummonInstance = Instantiate(SummonPrefab, PreSummonInstance.transform.position, Quaternion.identity);
+            SummonInstance.GetComponent<Health>().SetDestroyOnDeath(true);
+            Destroy(PreSummonInstance.gameObject);
+        }
+
+        summonCooldown = summonDelay;
+
+        yield return new WaitForSeconds(SummonStunAfter);
     }
 
     //              -|Special Attack A|-
@@ -310,6 +325,7 @@ public class EnemyAIMageFinal : MonoBehaviour {
         yield return new WaitForSeconds(SpecialBStunBefore);
 
         target.transform.position = castSpellsPos + new Vector3(Random.Range(castSpellsArea - castSpellsArea * 2, castSpellsArea), Random.Range(castSpellsArea - castSpellsArea * 2, castSpellsArea), 0);
+        AS.PlayOneShot(SpecialBAudioclip);
 
         yield return new WaitForSeconds(SpecialBStunAfter);
 
@@ -330,9 +346,8 @@ public class EnemyAIMageFinal : MonoBehaviour {
             //Disparar projectil
             Vector2 direction = target.position - castPositions[i];
 
-            ProjectileInstance = Instantiate(ProjectilePrefab, castPositions[i], Quaternion.identity);
+            ProjectileInstance = Instantiate(SpecialCPrefab, castPositions[i], Quaternion.identity);
             ProjectileInstance.GetComponent<Projectile>().SetProjectile(direction.normalized, this.gameObject);
-            ProjectileInstance.GetComponent<Projectile>().SetVelocity(10.0f);
 
             GetComponent<AgentProjectile>().PlayOnSpawnAudio();
         }
@@ -363,6 +378,7 @@ public class EnemyAIMageFinal : MonoBehaviour {
                     transform.position = startingPos;
                 }
             }
+            AS.PlayOneShot(TPAudioclip);
             teleporting = true;
         }
     }

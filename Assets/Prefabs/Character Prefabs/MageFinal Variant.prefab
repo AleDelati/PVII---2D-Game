@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1362957625038243634, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: scoreDrop
-      value: 5000
+      value: 50000
       objectReference: {fileID: 0}
     - target: {fileID: 1711718324136676983, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: maxHP
@@ -322,6 +322,7 @@ MonoBehaviour:
   TPRadius: 1
   TPStunBefore: 1
   TPStunAfter: 1
+  TPAudioclip: {fileID: 0}
   SpecialDelay: 10
   castSpellsPos: {x: 5, y: 157, z: 0}
   castSpellsArea: 9
@@ -334,19 +335,25 @@ MonoBehaviour:
   - {x: -2.5, y: 163.5, z: 0}
   - {x: -2.5, y: 149.5, z: 0}
   - {x: 11.5, y: 149.5, z: 0}
+  PreSummonPrefab: {fileID: 0}
   SummonPrefab: {fileID: 9044593037926070279, guid: 2959e5ef2981444478c3919496c133e0, type: 3}
-  SummonQuantity: 1
-  SummonTime: 1.5
   summonDelay: 15
+  SummonStunBefore: 1.5
+  SummonStunAfter: 1.5
   summonMainDelay: -1
+  summonParticles: {fileID: 0}
   SpecialAQuantity: 5
   SpecialAMainDelay: -1
   SpecialAStunBefore: 1.5
   SpecialAStunBetwen: 0.1
   SpecialAStunAfter: 1.5
+  SpecialAParticles: {fileID: 0}
   SpecialBMainDelay: -1
   SpecialBStunBefore: 3
   SpecialBStunAfter: 0.5
+  SpecialBparticles: {fileID: 0}
+  SpecialBAudioclip: {fileID: 0}
   SpecialCMainDelay: -1
   SpecialCStunBefore: 1
   SpecialCStunAfter: 1
+  SpecialCPrefab: {fileID: 0}

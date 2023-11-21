@@ -4850,7 +4850,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 14e044a80cdad2941a5ddee7fd89666a, type: 2}
     - target: {fileID: 2978405427302500279, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: scoreDrop
-      value: 250
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3206114293252034290, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: maxHP
@@ -4866,7 +4866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3206114293252034290, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: destroyOnDeath
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3206340417494229576, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_Name
