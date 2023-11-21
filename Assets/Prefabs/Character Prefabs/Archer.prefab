@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseDistanceThreshold: 10
-  attackDistanceThreshold: 6.2
+  attackDistanceThreshold: 7
   mantainDistanceThreshold: 6
   attackDelay: 3
   passedTime: 1
