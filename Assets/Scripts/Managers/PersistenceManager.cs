@@ -61,10 +61,12 @@ public class PersistenceManager : MonoBehaviour {
     //              -||-
     public void SaveMusicConfig(bool status) {
         SetBool("Music", status);
+        Save();
     }
 
     public void SaveScore(int score) {
         SetInt("Score", score);
+        Save();
     }
 
     //Guarda la puntuacion del jugador si es la mas alta registrada
@@ -82,10 +84,17 @@ public class PersistenceManager : MonoBehaviour {
     //Guarda la cantidad de muertes del jugador durante la Partida
     public void SaveDeathCount(int count) {
         SetInt("DeathCount", count);
+        Save();
     }
 
     //              -||-
     public void SaveSkipIntroCinematicsConfig(bool status) {
         SetBool("SkipIntroCinematics", status);
+        Save();
+    }
+
+    public void SaveEasyMode(bool status) {
+        SetBool("EasyMode", status);
+        Save();
     }
 }

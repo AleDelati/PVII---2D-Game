@@ -4,12 +4,14 @@ using UnityEngine.Events;
 public class MainMenu : MonoBehaviour {
 
     public UnityEvent<string> OnLoadBestScore, OnLoadBestScoreDeathCount, OnLoadScore, OnLoadDeaths;
+    public UnityEvent<bool> OnLoadEasyModeState;
 
     private void Start() {
         LoadScore();
         LoadDeaths();
         LoadHighScore();
         LoadHighScoreDeaths();
+        LoadEasyModeState();
     }
 
     public void LoadScore() {
@@ -30,6 +32,11 @@ public class MainMenu : MonoBehaviour {
     public void LoadHighScoreDeaths() {
         int highScoreDeaths = PersistenceManager.Instance.GetInt("DeathCount");
         OnLoadBestScoreDeathCount?.Invoke(highScoreDeaths.ToString());
+    }
+
+    public void LoadEasyModeState() {
+        bool state = PersistenceManager.Instance.GetBool("EasyMode");
+        OnLoadEasyModeState?.Invoke(state);
     }
 
 }
