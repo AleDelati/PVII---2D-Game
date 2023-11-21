@@ -12,13 +12,17 @@ public class GreatDoor : MonoBehaviour {
     [SerializeField] bool invertTrigger = false;
 
     [SerializeField] bool keyTriggered = true;
+
+    [SerializeField] private AudioClip doorSound;
     
     private bool lastDoorState = false;
     private bool disableDoor = false;
     private bool keyDelivered = false;
+    private bool startTriggered = false;
 
     private BoxCollider2D doorRB;
     private GameObject playerKeys;
+    private AudioSource AS;
 
     [SerializeField]
     private UnityEvent OnDoorTriggered;
@@ -26,6 +30,9 @@ public class GreatDoor : MonoBehaviour {
     private void Start() {
         doorRB = GetComponent<BoxCollider2D>();
         playerKeys = GameObject.Find("Inventory/Keys");
+        AS = GetComponent<AudioSource>();
+
+        startTriggered = doorTriggered;
     }
 
     private void Update() {
@@ -58,14 +65,12 @@ public class GreatDoor : MonoBehaviour {
             foreach (Collider2D collider in Physics2D.OverlapBoxAll(transform.position + new Vector3(0, -2, 0), new Vector3(3.3f, 1, 1), 0)) {
                 if (collider.CompareTag("Player")) {
                     doorTriggered = true;
-                    Debug.Log("Door Triggered");
                 }
             }
         } else {
             foreach (Collider2D collider in Physics2D.OverlapBoxAll(transform.position + new Vector3(0, 1, 0), new Vector3(3.3f, 1, 1), 0)) {
                 if (collider.CompareTag("Player")) {
                     doorTriggered = true;
-                    Debug.Log("Door Triggered");
                 }
             }
         }
@@ -88,6 +93,7 @@ public class GreatDoor : MonoBehaviour {
     private void CheckTrigger() {
         if(doorTriggered != lastDoorState) {
             lastDoorState = doorTriggered;
+            if (!startTriggered) { AS.PlayOneShot(doorSound); }
             UpdateDoorStatus();
         }
 
@@ -95,6 +101,7 @@ public class GreatDoor : MonoBehaviour {
         if(TargetTriggered && target == null) {
             doorTriggered = false;
             disableDoor = true;
+            AS.PlayOneShot(doorSound);
             UpdateDoorStatus();
         }
 
@@ -102,6 +109,7 @@ public class GreatDoor : MonoBehaviour {
         if(keyTriggered && keyDelivered) {
             doorTriggered = false;
             disableDoor = true;
+            AS.PlayOneShot(doorSound);
             UpdateDoorStatus();
         }
 
