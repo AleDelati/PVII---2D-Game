@@ -20,11 +20,13 @@ public class OnDeath : MonoBehaviour {
     //              ----|References|----
     private GameObject corpseInstance;
     private GameObject dropInstance;
+    private GameObject player;
 
     //              ----|Functions|----
     private void OnEnable() {
         corpseContainer = GameObject.Find("Corpse Container");
         lootContainer = GameObject.Find("Loot Container");
+        player = GameObject.Find("Player");
     }
 
     private void OnDestroy() {
@@ -32,7 +34,8 @@ public class OnDeath : MonoBehaviour {
     }
 
     public void DropLoot() {
-        if (dropLoot && dropPrefab != null) {
+        player = GameObject.Find("Player");
+        if (dropLoot && dropPrefab != null && player != null) {
             if (alwaysDrop) {
                 dropInstance = Instantiate(dropPrefab, transform.position, dropPrefab.transform.rotation);
                 dropInstance.transform.SetParent(lootContainer.transform);

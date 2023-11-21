@@ -101,4 +101,10 @@ public class HUDController : MonoBehaviour {
         int deathCount = GameManager.instance.GetDeathCount();
         OnDeathCountChanged?.Invoke(deathCount.ToString());
     }
+
+    //Guarda el estado del toggle de Easy mode en el Persistence Manager
+    public void UpdateEasyMode(bool state) {
+        PersistenceManager.Instance.SaveEasyMode(state);
+    }
+
 }

@@ -36,6 +36,7 @@ public class LevelManager : MonoBehaviour {
         playerInventory = player.GetComponent<Inventory>();
 
         CheckIntroSkip();
+        CheckEasyMode();
     }
 
     private void OnDisable() {
@@ -99,6 +100,10 @@ public class LevelManager : MonoBehaviour {
         } else {
             BackgroundMusic.Stop();
         }
+    }
+
+    private void CheckEasyMode() {
+        easyMode = PersistenceManager.Instance.GetBool("EasyMode");
     }
 
 }
