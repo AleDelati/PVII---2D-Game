@@ -5030,7 +5030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104100894214863564, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_InstanceId
-      value: -330262
+      value: -65004
       objectReference: {fileID: 0}
     - target: {fileID: 4141565785763516012, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: corpsePrefab
@@ -5084,6 +5084,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 38ad52cbf4f4cb64999fbd7baa0ef27a, type: 3}
+    - target: {fileID: 6384135811159613800, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6384135811159613800, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_SortingLayer
       value: 1

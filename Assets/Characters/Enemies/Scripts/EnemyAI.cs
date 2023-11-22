@@ -72,7 +72,7 @@ public class EnemyAI : MonoBehaviour {
                     OnMovementInput?.Invoke(Vector2.zero);
                     if (passedTime >= attackDelay) {
                         passedTime = 0;
-                        OnAttack?.Invoke();
+                        OnAttack?.Invoke();;
                     }
 
                 } else {

@@ -24,7 +24,8 @@ public class EnemyAIMageFinal : MonoBehaviour {
     [SerializeField] private float TPStunBefore = 0.5f;
     [SerializeField] private float TPStunAfter = 1.5f;
     [SerializeField] private AudioClip TPAudioclip;
-    [SerializeField] private ParticleSystem TPPS;
+    [SerializeField] private ParticleSystem TPParticles1;
+    [SerializeField] private ParticleSystem TPParticles2;
 
     [Header("Cast Spells Config")]
     [SerializeField] private float SpecialDelay = 10f;
@@ -41,6 +42,7 @@ public class EnemyAIMageFinal : MonoBehaviour {
     [SerializeField] private float SummonStunAfter = 1.5f;
     [SerializeField] private float summonMainDelay = -3f;
     [SerializeField] private ParticleSystem summonParticles;
+    [SerializeField] private AudioClip summonAudioclip;
 
     [Header("Special Attack A - Ametralladora")]
     [SerializeField] private int SpecialAQuantity = 8;
@@ -264,6 +266,7 @@ public class EnemyAIMageFinal : MonoBehaviour {
         }
     }
 
+    //               -|Special Summon|-
     private IEnumerator Summon() {
         OnMovementInput?.Invoke(Vector2.zero);
         OnPointerInput?.Invoke(transform.position + new Vector3(10, 1, 0));
@@ -278,6 +281,8 @@ public class EnemyAIMageFinal : MonoBehaviour {
         if(SummonInstance == null && summonCooldown <= 0) {
             SummonInstance = Instantiate(SummonPrefab, PreSummonInstance.transform.position, Quaternion.identity);
             SummonInstance.GetComponent<Health>().SetDestroyOnDeath(true);
+            summonParticles.Play();
+            AS.PlayOneShot(summonAudioclip);
             yield return new WaitForSeconds(SummonStunBetwen);
             Destroy(PreSummonInstance.gameObject);
         }
@@ -385,7 +390,8 @@ public class EnemyAIMageFinal : MonoBehaviour {
                 transform.position = startingPos;
             }
 
-            TPPS.Play();
+            TPParticles1.Play();
+            TPParticles2.Play();
             AS.PlayOneShot(TPAudioclip);
             teleporting = true;
             yield return null;

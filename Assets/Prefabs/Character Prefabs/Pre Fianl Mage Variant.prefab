@@ -70,7 +70,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 237542123412175433, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: m_InstanceId
-      value: -6271506
+      value: -8753222
       objectReference: {fileID: 0}
     - target: {fileID: 1362957625038243634, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: scoreDrop
@@ -78,11 +78,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1711718324136676983, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: maxHP
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1711718324136676983, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: initialHP
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2168625426243423565, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: attackDelay
