@@ -21,8 +21,8 @@ public class EnemyAIMageFinal : MonoBehaviour {
 
     [Header("TP Config")]
     [SerializeField] private float TPRadius = 1.0f;
-    [SerializeField] private float TPStunBefore = 1.0f;
-    [SerializeField] private float TPStunAfter = 1.0f;
+    [SerializeField] private float TPStunBefore = 0.5f;
+    [SerializeField] private float TPStunAfter = 1.5f;
     [SerializeField] private AudioClip TPAudioclip;
     [SerializeField] private ParticleSystem TPPS;
 
@@ -202,8 +202,9 @@ public class EnemyAIMageFinal : MonoBehaviour {
             //Si recibe un golpe se teletransporta
             if(health.GetHP() != currentHealth) {
                 currentHealth = health.GetHP();
-                Teleport();
+                StartCoroutine(Teleport());
             }
+            teleporting = false;
 
             if (distance <= mantainDistanceThreshold) {     //Si el enemigo se acerca demaciado
                 //Mantener distancia con el jugador
@@ -211,10 +212,10 @@ public class EnemyAIMageFinal : MonoBehaviour {
                 OnMovementInput?.Invoke(-direction.normalized);
 
                 foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, TPRadius)) {
-                    //Si esta atascado al borde del mapa realiza un tp
-                    if (collider.CompareTag("General Map") == true) {
+                    //Si esta fuera del area del castSpell y el jugador esta cerca se teletransporta
+                    if (collider.CompareTag("Player") == true && !CheckCastSpeelArea()) {
                         yield return new WaitForSeconds(TPStunBefore);
-                        Teleport();
+                        StartCoroutine(Teleport());
                         yield return new WaitForSeconds(TPStunAfter);
                         teleporting = false;
                     }
@@ -345,7 +346,7 @@ public class EnemyAIMageFinal : MonoBehaviour {
             mainCooldown = SpecialCMainDelay;
 
             int rand = Random.Range(0, 2);
-            if(rand == 1) {
+            if(rand == 0) {
                 yield return new WaitForSeconds(SpecialCStunBefore);
             }
             
@@ -372,22 +373,33 @@ public class EnemyAIMageFinal : MonoBehaviour {
         }
     }
 
-    private void Teleport() {
+    private IEnumerator Teleport() {
 
         //Se teletransporta a una posicion asignada si esta dentro del area del castSpeel, de lo contrario vuelve a la posicion inicial
         if (!teleporting) {
-            foreach (Collider2D collider in Physics2D.OverlapCircleAll(castSpellsPos, castSpellsArea)) {
-                if(collider.CompareTag(gameObject.tag) == true) {
-                    int randPos = Random.Range(0, castPositions.Length);
-                    transform.position = castPositions[randPos];
-                } else {
-                    transform.position = startingPos;
-                }
+
+            if (CheckCastSpeelArea() && !teleporting){
+                int randPos = Random.Range(0, castPositions.Length);
+                transform.position = castPositions[randPos];
+            } else {
+                transform.position = startingPos;
             }
+
             TPPS.Play();
             AS.PlayOneShot(TPAudioclip);
             teleporting = true;
+            yield return null;
         }
+    }
+
+    //Retorna si el mago esta dentro del area del castSpell
+    private bool CheckCastSpeelArea() {
+        foreach (Collider2D collider in Physics2D.OverlapCircleAll(castSpellsPos, castSpellsArea)) {
+            if (collider.CompareTag(gameObject.tag) == true) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
