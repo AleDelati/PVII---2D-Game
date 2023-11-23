@@ -268,6 +268,7 @@ public class EnemyAIMageFinal : MonoBehaviour {
 
     //               -|Special Summon|-
     private IEnumerator Summon() {
+
         OnMovementInput?.Invoke(Vector2.zero);
         OnPointerInput?.Invoke(transform.position + new Vector3(10, 1, 0));
         mainCooldown = summonMainDelay;
@@ -278,14 +279,15 @@ public class EnemyAIMageFinal : MonoBehaviour {
 
         yield return new WaitForSeconds(SummonStunBefore);
 
-        if(SummonInstance == null && summonCooldown <= 0) {
+        if (SummonInstance == null && summonCooldown <= 0) {
             SummonInstance = Instantiate(SummonPrefab, PreSummonInstance.transform.position, Quaternion.identity);
             SummonInstance.GetComponent<Health>().SetDestroyOnDeath(true);
-            summonParticles.Play();
-            AS.PlayOneShot(summonAudioclip);
             yield return new WaitForSeconds(SummonStunBetwen);
             Destroy(PreSummonInstance.gameObject);
         }
+
+        summonParticles.Play();
+        AS.PlayOneShot(summonAudioclip);   // BUG DE SONIDO
 
         summonCooldown = summonDelay;
 
