@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class HealthBarManager : MonoBehaviour
 {
     [SerializeField] GameObject healthBarTarget;
+    [SerializeField] bool playerHealtBar = false;
 
     private Animator animator;
     private Slider slider;
@@ -19,7 +20,7 @@ public class HealthBarManager : MonoBehaviour
     }
 
     private void Update() {
-        if(healthBarTarget == null) {
+        if(healthBarTarget == null && !playerHealtBar) {
             gameObject.SetActive(false);
         }
     }
