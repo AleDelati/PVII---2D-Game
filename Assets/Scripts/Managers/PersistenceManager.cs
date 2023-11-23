@@ -97,4 +97,17 @@ public class PersistenceManager : MonoBehaviour {
         SetBool("EasyMode", status);
         Save();
     }
+
+    //Guarda el checkpoint actual de los niveles
+    public void SaveCheckPoint(int currentLevel) {
+        switch(currentLevel) {
+            case 2:
+                SetBool("Level 2 CheckPoint", true);
+                break;
+            case 3:
+                SetBool("Level 3 CheckPoint", true);
+                break;
+        }
+    }
+
 }

@@ -9810,6 +9810,18 @@ PrefabInstance:
       propertyPath: velocity
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3257603909418888306, guid: d86be4fe76719554cad0d0b9ad578e86, type: 3}
+      propertyPath: m_Volume
+      value: 0.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 3257603909418888306, guid: d86be4fe76719554cad0d0b9ad578e86, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3815438838819586408, guid: d86be4fe76719554cad0d0b9ad578e86, type: 3}
+      propertyPath: spawnAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 5c2d59e4cc5561442b3386a9a679e1f3, type: 3}
     - target: {fileID: 3815438838819586408, guid: d86be4fe76719554cad0d0b9ad578e86, type: 3}
       propertyPath: spawnColor.b
       value: 1
@@ -9821,6 +9833,18 @@ PrefabInstance:
     - target: {fileID: 3815438838819586408, guid: d86be4fe76719554cad0d0b9ad578e86, type: 3}
       propertyPath: spawnColor.r
       value: 0.5248623
+      objectReference: {fileID: 0}
+    - target: {fileID: 3815438838819586408, guid: d86be4fe76719554cad0d0b9ad578e86, type: 3}
+      propertyPath: customSpawnAudio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3815438838819586408, guid: d86be4fe76719554cad0d0b9ad578e86, type: 3}
+      propertyPath: customSpawnColor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3815438838819586408, guid: d86be4fe76719554cad0d0b9ad578e86, type: 3}
+      propertyPath: spawnAudioVolume
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4481100584374147369, guid: d86be4fe76719554cad0d0b9ad578e86, type: 3}
       propertyPath: m_Enabled

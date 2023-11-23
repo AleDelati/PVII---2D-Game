@@ -5001,5 +5001,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bba4af6b2d629a4887486e3d01ca50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customSpawnColor: 1
   spawnColorTime: 0.5
   spawnColor: {r: 1, g: 0.5744222, b: 0, a: 1}
+  customSpawnAudio: 0
+  spawnAudio: {fileID: 0}
+  spawnAudioVolume: 0
