@@ -41,8 +41,6 @@ public class EnemyAIMageFinal : MonoBehaviour {
     [SerializeField] private float SummonStunBetwen = 1.0f;
     [SerializeField] private float SummonStunAfter = 1.5f;
     [SerializeField] private float summonMainDelay = -3f;
-    [SerializeField] private ParticleSystem summonParticles;
-    [SerializeField] private AudioClip summonAudioclip;
 
     [Header("Special Attack A - Ametralladora")]
     [SerializeField] private int SpecialAQuantity = 8;
@@ -281,8 +279,7 @@ public class EnemyAIMageFinal : MonoBehaviour {
         if(SummonInstance == null && summonCooldown <= 0) {
             SummonInstance = Instantiate(SummonPrefab, PreSummonInstance.transform.position, Quaternion.identity);
             SummonInstance.GetComponent<Health>().SetDestroyOnDeath(true);
-            summonParticles.Play();
-            AS.PlayOneShot(summonAudioclip);
+
             yield return new WaitForSeconds(SummonStunBetwen);
             Destroy(PreSummonInstance.gameObject);
         }

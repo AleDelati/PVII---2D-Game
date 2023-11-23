@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour {
         LoadHighScore();
         LoadHighScoreDeaths();
         LoadEasyModeState();
+        ResetCheckPoints();
     }
 
     public void LoadScore() {
@@ -37,6 +38,16 @@ public class MainMenu : MonoBehaviour {
     public void LoadEasyModeState() {
         bool state = PersistenceManager.Instance.GetBool("EasyMode");
         OnLoadEasyModeState?.Invoke(state);
+    }
+
+    public void ResetCheckPoints() {
+        PersistenceManager.Instance.SetBool("Level 1 CheckPoint", false);
+        PersistenceManager.Instance.SetBool("Level 2 CheckPoint", false);
+        PersistenceManager.Instance.SetBool("Level 3 CheckPoint", false);
+    }
+
+    public void ResetMusic() {
+        PersistenceManager.Instance.SaveMusicConfig(true);
     }
 
 }

@@ -98,11 +98,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104100894214863564, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_InstanceId
-      value: -7777074
+      value: -36620
       objectReference: {fileID: 0}
     - target: {fileID: 4141565785763516012, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: dropLoot
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4141565785763516012, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: dropName
@@ -114,7 +114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4141565785763516012, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: alwaysDrop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4141565785763516012, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: dropPrefab
@@ -138,11 +138,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.587093
+      value: 9.11204
       objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 46.67489
+      value: 81.233665
       objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.z

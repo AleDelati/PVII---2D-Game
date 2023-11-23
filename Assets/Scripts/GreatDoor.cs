@@ -9,11 +9,14 @@ public class GreatDoor : MonoBehaviour {
     [SerializeField] bool TargetTriggered = false;
     [SerializeField] GameObject target;
 
-    [SerializeField] bool invertTrigger = false;
-
     [SerializeField] bool keyTriggered = true;
 
-    [SerializeField] private AudioClip doorSound;
+    [SerializeField] bool enableBossHealthBar = false;
+    [SerializeField] GameObject bossHealthBar;
+
+    [SerializeField] bool invertTrigger = false;
+    [SerializeField] AudioClip doorSound;
+
     
     private bool lastDoorState = false;
     private bool disableDoor = false;
@@ -94,6 +97,7 @@ public class GreatDoor : MonoBehaviour {
         if(doorTriggered != lastDoorState) {
             lastDoorState = doorTriggered;
             if (!startTriggered) { AS.PlayOneShot(doorSound); }
+            if (enableBossHealthBar){ bossHealthBar.SetActive(true); }
             UpdateDoorStatus();
         }
 

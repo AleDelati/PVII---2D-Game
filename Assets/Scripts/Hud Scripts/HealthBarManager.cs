@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthBarManager : MonoBehaviour
 {
+    [SerializeField] GameObject healthBarTarget;
+
     private Animator animator;
     private Slider slider;
 
@@ -16,6 +16,12 @@ public class HealthBarManager : MonoBehaviour
         slider = transform.GetComponent<Slider>();
 
         lastHeal = slider.value;
+    }
+
+    private void Update() {
+        if(healthBarTarget == null) {
+            gameObject.SetActive(false);
+        }
     }
 
     public void TriggerHealthBar()
