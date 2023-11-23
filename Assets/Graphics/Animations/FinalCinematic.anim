@@ -4421,7 +4421,7 @@ AnimationClip:
     - time: 41.833332
       value: {fileID: 21300000, guid: dc9744eede9004d43bdb8406b9fd3165, type: 3}
     - time: 46.95
-      value: {fileID: 21300000, guid: d6d8a9962f92ba34ebf41ffc960a9ac1, type: 3}
+      value: {fileID: 21300000, guid: a154e049971ed054aba3731cd7a0c60d, type: 3}
     attribute: m_Sprite
     path: Mage
     classID: 212
@@ -4727,7 +4727,7 @@ AnimationClip:
     - {fileID: 21300000, guid: 8e63b892b441f264b845675c2cdc7cdf, type: 3}
     - {fileID: 21300000, guid: 22727b2af1e613d4b879ad47b5dd0d22, type: 3}
     - {fileID: 21300000, guid: dc9744eede9004d43bdb8406b9fd3165, type: 3}
-    - {fileID: 21300000, guid: d6d8a9962f92ba34ebf41ffc960a9ac1, type: 3}
+    - {fileID: 21300000, guid: a154e049971ed054aba3731cd7a0c60d, type: 3}
     - {fileID: 21300000, guid: a3e9fce4178a7554dba4cb0c0d7c31ff, type: 3}
     - {fileID: 21300000, guid: c2afda4bcabcab746998c2c31d56bb88, type: 3}
     - {fileID: 21300000, guid: 6acf70eb81ca3df4cb45fa8eb49f7f8c, type: 3}
