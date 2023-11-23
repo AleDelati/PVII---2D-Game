@@ -4835,7 +4835,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2cbff1b624cbc1d42ad37d7b04b87e64, type: 2}
+  - {fileID: 2100000, guid: 6aa406bb385a88a49a0f3590d636b6f4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5030,7 +5030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104100894214863564, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_InstanceId
-      value: -65004
+      value: -1574034
       objectReference: {fileID: 0}
     - target: {fileID: 4141565785763516012, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: corpsePrefab
@@ -5042,11 +5042,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 63
       objectReference: {fileID: 0}
     - target: {fileID: 4177000004930396556, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5120,6 +5120,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.263
       objectReference: {fileID: 0}
+    - target: {fileID: 7486078903519407015, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 2743805560d41654b9aa5e2e1033b207, type: 2}
     - target: {fileID: 7726232025039258884, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -5167,6 +5171,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8436290498940154097, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 354500887964108553}
+    - targetCorrespondingSourceObject: {fileID: 8436290498940154097, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1652707501418252595}
     - targetCorrespondingSourceObject: {fileID: 1061109116207192901, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4998363900928759189}
@@ -5340,11 +5347,14 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 1808977328325856672, guid: 96428b0877a578047a9870ac4dfd1d96, type: 3}
   ProjectileSpawnPoint: {fileID: 4476695576123887654}
   SummonPrefab: {fileID: 6098168185088547132, guid: d86be4fe76719554cad0d0b9ad578e86, type: 3}
-  SummonTime: 1.5
+  SummonTime: 2.5
   summonRadius: 3
-  TPpositions: []
+  TPpositions:
+  - {x: 0.5, y: 54, z: 0}
+  - {x: 4.5, y: 49, z: 0}
+  - {x: -4.5, y: 49, z: 0}
   TPRadius: 1
-  TPStunBefore: 1
+  TPStunBefore: 0.8
   TPStunAfter: 1
 --- !u!198 &4268081702109610699
 ParticleSystem:
@@ -10199,6 +10209,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &1652707501418252595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669153194583928948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c4d7366a0ffb9c4a91dc64435d43e7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 0}
 --- !u!4 &7129523951127592820 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6435205213170171889, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}

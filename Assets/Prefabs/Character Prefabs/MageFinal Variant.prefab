@@ -5096,6 +5096,10 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3937005228798738769, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2cbff1b624cbc1d42ad37d7b04b87e64, type: 2}
     - target: {fileID: 4923845842203763989, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       propertyPath: projectileSpawn
       value: 
@@ -5145,6 +5149,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5669153194583928948, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
       insertIndex: 7
       addedObject: {fileID: 5083896300289993718}
+    - targetCorrespondingSourceObject: {fileID: 5669153194583928948, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8757109457954505450}
   m_SourcePrefab: {fileID: 100100000, guid: 56625ba6794464c4295681b22816fc3c, type: 3}
 --- !u!4 &137348204827408706 stripped
 Transform:
@@ -5277,7 +5284,6 @@ MonoBehaviour:
   SummonStunBetwen: 1
   SummonStunAfter: 3
   summonMainDelay: -1
-  summonParticles: {fileID: 0}
   SpecialAQuantity: 5
   SpecialAMainDelay: -1
   SpecialAStunBefore: 1.5
@@ -5346,3 +5352,16 @@ MonoBehaviour:
   SpecialCStunBefore: 1
   SpecialCStunAfter: 1
   SpecialCPrefab: {fileID: 6949429901831526545, guid: bbf3d0fb6b1f2c241874265606dabc17, type: 3}
+--- !u!114 &8757109457954505450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7060174537269596798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c4d7366a0ffb9c4a91dc64435d43e7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 0}

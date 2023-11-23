@@ -467,7 +467,7 @@ MonoBehaviour:
   - {x: 0.29222775, y: -0.45205307, z: 0}
   m_ShapePathHash: -1835553995
   m_Mesh: {fileID: 0}
-  m_InstanceId: 336604
+  m_InstanceId: 287784
   m_LocalBounds:
     m_Center: {x: -0.031965017, y: -0.065927505, z: 0}
     m_Extent: {x: 0.32419276, y: 0.3901205, z: 0}
@@ -862,7 +862,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
