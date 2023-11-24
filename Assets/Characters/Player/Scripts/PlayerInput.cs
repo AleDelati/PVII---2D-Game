@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -18,19 +16,21 @@ public class PlayerInput : MonoBehaviour {
     //              ----|Variables|----
 
     //              ----|References|----
+    private WeaponParent weaponParent;
 
     //              ----|Functions|----
-    private void Update() {
-        OnMovementInput?.Invoke(movementInput.action.ReadValue<Vector2>()); //Guarda en movement los Inputs de movimiento recibidos
-        OnPointerInput?.Invoke(GetPointerInput());  //Mantiene actualizada la variable que contiene la posicion del mouse
-    }
-
     private void OnEnable() {
         attackInput.action.performed += PerformAttack;
     }
 
     private void OnDisable() {
         attackInput.action.performed -= PerformAttack;
+    }
+
+    private void Update() {
+        weaponParent = GetComponentInChildren<WeaponParent>();
+        OnMovementInput?.Invoke(movementInput.action.ReadValue<Vector2>()); //Guarda en movement los Inputs de movimiento recibidos
+        OnPointerInput?.Invoke(GetPointerInput());  //Mantiene actualizada la variable que contiene la posicion del mouse
     }
 
     private Vector2 GetPointerInput() {
@@ -40,7 +40,7 @@ public class PlayerInput : MonoBehaviour {
     }
 
     private void PerformAttack(InputAction.CallbackContext obj) {
-        OnAttack?.Invoke();
+        if(weaponParent != null){ OnAttack?.Invoke(); } 
     }
 
 }

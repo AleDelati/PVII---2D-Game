@@ -26,7 +26,8 @@ public class Agent : MonoBehaviour {
     private SpriteRenderer _SpriteRenderer;
     private Rigidbody2D _Rigidbody2D;
     private Animator _Animator;
-    private WeaponParent _WeaponParent;
+    private WeaponParent weaponParent;
+    private Shield shieldParent;
 
 
 
@@ -40,15 +41,15 @@ public class Agent : MonoBehaviour {
         _Rigidbody2D = GetComponent<Rigidbody2D>();
         _Animator = GetComponent<Animator>();
         _SpriteRenderer = GetComponent<SpriteRenderer>();
-
-        _WeaponParent = GetComponentInChildren<WeaponParent>();
-
         _AgentSprite = _SpriteRenderer.sprite;     //Guarda el sprite actual del agente
     }
 
     private void Update() {              //Se ejecuta en cada frame del juego (Intervalo variable) 
 
-        _WeaponParent.PointerPosition = PointerInput;        //Envia la posicion del mouse al WeaponParent vinculado
+        weaponParent = GetComponentInChildren<WeaponParent>();
+        shieldParent = GetComponentInChildren<Shield>();
+        if(weaponParent != null) { weaponParent.PointerPosition = PointerInput; }
+        if(shieldParent != null){ shieldParent.PointerPosition = PointerInput; }
 
         MovementAnimTrigger();
 
@@ -95,7 +96,7 @@ public class Agent : MonoBehaviour {
     }
 
     public void PerformAttack() {
-        _WeaponParent.Attack();
+        weaponParent.Attack();
     }
 
     public void SetVelocity(float value) {

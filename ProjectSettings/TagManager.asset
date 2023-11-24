@@ -10,6 +10,7 @@ TagManager:
   - General Map
   - Item
   - Obstacle
+  - Shield
   layers:
   - Default
   - TransparentFX

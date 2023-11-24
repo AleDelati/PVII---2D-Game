@@ -38,6 +38,10 @@ public class Projectile : MonoBehaviour {
         if(caster == null) {
             Destroy(this.gameObject);
         } else if (collider.gameObject.layer != caster.layer && collider.gameObject.layer != gameObject.layer) {
+            if (collider.tag == "Shield") {
+                StartCoroutine(DestroyProjectile());
+                caster.GetComponent<AgentProjectile>().PlayAudioImpact();
+                return; }    //Si se impacta con un escudo
             //Si el objetivo impactado tiene vida le hace daño
             Health health;
             if (health = collider.gameObject.GetComponent<Health>()) {

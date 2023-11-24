@@ -38,6 +38,10 @@ public class WeaponParent : MonoBehaviour {
     private void OnEnable() {
         AS = GetComponentInParent<AudioSource>();
         agent = GetComponentInParent<Agent>();
+
+        isAttacking = false;
+        attackCoolDown = false;
+        hasTarget = false;
     }
 
     private void Update() {
@@ -106,6 +110,7 @@ public class WeaponParent : MonoBehaviour {
     public void DetectColliders() {
         bool impact = false;
         foreach (Collider2D collider in Physics2D.OverlapCircleAll(circleOrigin.position, radius)) {
+            if(collider.tag == "Shield") { AS.PlayOneShot(swordImpact); return; }    //Si se impacta con un escudo
             //Debug.Log(collider.name);
             Health health;
             if (health = collider.GetComponent<Health>()) {

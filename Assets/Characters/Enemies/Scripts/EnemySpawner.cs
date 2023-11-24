@@ -44,7 +44,6 @@ public class EnemySpawner : MonoBehaviour {
                 pooledObject.transform.rotation = Quaternion.identity;
                 pooledObject.SetActive(true);
 
-                if(spawnLimit) { spawnCount++; Debug.Log("SpawnCount: " + spawnCount); }
                 if(spawnCount >= spawnCountLimit) { active = false; }
             }
         }
