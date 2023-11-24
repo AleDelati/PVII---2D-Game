@@ -179,6 +179,7 @@ MonoBehaviour:
   RestoredHP: 1
   scorePenalty: 50
   coolDown: 1
+  interactionArea: 2
   anvilRepair: {fileID: 8300000, guid: 4e95735ea36b1d24c9f09fe63e056c05, type: 3}
 --- !u!82 &8954330385115555599
 AudioSource:
