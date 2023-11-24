@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
     //              ----|Unity Config|----
-    [Header("General Config")]
+    [Header("Spawner Config")]
     [SerializeField]
     [Range(1.0f, 60.0f)]
     private float Interval;
@@ -12,10 +12,14 @@ public class EnemySpawner : MonoBehaviour {
     private float repeatRate;
     private bool active = true;
 
-    //              ----|Variables|----
-    private ObjectPool objectPool;
-    //              ----|References|----
+    [SerializeField] private bool spawnLimit = true;
+    [SerializeField] private int spawnCountLimit = 3;
 
+
+    //              ----|Variables|----
+    private int spawnCount = 0;
+    //              ----|References|----
+    private ObjectPool objectPool;
     //              ----|Functions|----
     private void Start() {
         objectPool = GetComponent<ObjectPool>();
@@ -29,19 +33,20 @@ public class EnemySpawner : MonoBehaviour {
         GameEvents.onLevelCleared -= Disable;
     }
 
+    //Si se limpio el nivel detiene la generacion de enemigos
     private void Disable() => active = false;
 
     void SpawnEnemy() {
-        //Si se limpio el nivel detiene la generacion de enemigos
         if (active) {
             GameObject pooledObject = objectPool.GetPooledObject();
             if (pooledObject != null) {
                 pooledObject.transform.position = transform.position;
                 pooledObject.transform.rotation = Quaternion.identity;
                 pooledObject.SetActive(true);
+
+                if(spawnLimit) { spawnCount++; Debug.Log("SpawnCount: " + spawnCount); }
+                if(spawnCount >= spawnCountLimit) { active = false; }
             }
-        } else {
-            Debug.Log("Puerta de salida abierta, Spawn de enemigo cancelado");
         }
     }
 

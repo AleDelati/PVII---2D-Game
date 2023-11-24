@@ -2,8 +2,19 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public static GameManager instance {get; private set;}
+
+    //
+    [SerializeField] int targetFPS = 60;
+    [SerializeField] int vsync = 1;
+
     private int score;
     private int deathCount;
+
+    //----|Functions|----
+    private void Start() {
+        QualitySettings.vSyncCount = vsync;
+        Application.targetFrameRate = targetFPS;
+    }
 
     private void Awake() {
         if(instance == null) {

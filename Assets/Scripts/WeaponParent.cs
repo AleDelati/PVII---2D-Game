@@ -1,18 +1,20 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using System.Collections;
 
 public class WeaponParent : MonoBehaviour {
 
     //              ----|Unity Config|----
     [Header("General Config")]
-    [SerializeField] private SpriteRenderer characterRenderer;
+    [SerializeField] private SpriteRenderer agentRenderer;
     [SerializeField] private SpriteRenderer weaponRenderer;
     [SerializeField] public Vector2 PointerPosition { get; set; }
-    [SerializeField] private Animator _weaponAnimator;
+    [SerializeField] private Animator weaponAnimator;
     [SerializeField] private float coolDown = 0.3f;
+
+    [Header("Attack Slowdown Config")]
+    [SerializeField] private bool slowdownEnabled = true;
+    [SerializeField] private float slowdownDuration = 1.0f;
+    [SerializeField] private bool slowdownStops = false;
 
     [SerializeField] private Transform circleOrigin;
     [SerializeField] private float radius;
@@ -29,11 +31,13 @@ public class WeaponParent : MonoBehaviour {
     public bool isAttacking { get; private set; }
 
     //              ----|References|----
-    private AudioSource _AudioSource;
+    private AudioSource AS;
+    private Agent agent;
 
     //              ----|Functions|----
     private void OnEnable() {
-        _AudioSource = GetComponentInParent<AudioSource>();
+        AS = GetComponentInParent<AudioSource>();
+        agent = GetComponentInParent<Agent>();
     }
 
     private void Update() {
@@ -54,9 +58,9 @@ public class WeaponParent : MonoBehaviour {
 
         //Varia el SortingOrder del arma dependiendo del angulo actual
         if (transform.eulerAngles.z > 0 && transform.eulerAngles.z < 180) {
-            weaponRenderer.sortingOrder = characterRenderer.sortingOrder - 1;
+            weaponRenderer.sortingOrder = agentRenderer.sortingOrder - 1;
         } else {
-            weaponRenderer.sortingOrder = characterRenderer.sortingOrder + 1;
+            weaponRenderer.sortingOrder = agentRenderer.sortingOrder + 1;
         }
     }
 
@@ -64,7 +68,8 @@ public class WeaponParent : MonoBehaviour {
         if( attackCoolDown == true ) {
             return;
         } else {
-            _weaponAnimator.SetTrigger("Attack");
+            if(slowdownEnabled) { StartCoroutine(AttackSlowDown()); }  //Ralentiza al agente si no es el jugador
+            weaponAnimator.SetTrigger("Attack");
             isAttacking = true;
             attackCoolDown = true;
             StartCoroutine(AttackCoolDown());
@@ -76,6 +81,15 @@ public class WeaponParent : MonoBehaviour {
         yield return new WaitForSeconds(coolDown);
         attackCoolDown = false;
         hasTarget = false;
+    }
+
+    //Ralentiza el movimiento del agente tras realizar un ataque
+    private IEnumerator AttackSlowDown() {
+        if (slowdownStops) { agent.SetVelocity(0); }
+        else{ agent.SetVelocity(agent.GetVelocity() / 2); }
+        
+        yield return new WaitForSeconds(slowdownDuration);
+        agent.ResetVelocity();
     }
 
     public void ResetIsAttacking() {
@@ -111,7 +125,7 @@ public class WeaponParent : MonoBehaviour {
         }
         //Si al terminar de verificar las colisiones no se impacto a ningun objetivo reproduce el sonido correspondiente
         if (impact == false) {
-            _AudioSource.PlayOneShot(swordSwing);    //Sin Impacto
+            AS.PlayOneShot(swordSwing);    //Sin Impacto
         }
     }
 
@@ -122,9 +136,9 @@ public class WeaponParent : MonoBehaviour {
         //Reproduce un sonido dependiendo de si se impacto a un enemigo o no
         if (health.transform.gameObject.layer != gameObject.layer) {
             if (health.GetHP() > 0) {
-                _AudioSource.PlayOneShot(swordImpact);   //Impacto
+                AS.PlayOneShot(swordImpact);   //Impacto
             } else {
-                _AudioSource.PlayOneShot(swordLethal);   //Letal
+                AS.PlayOneShot(swordLethal);   //Letal
             }
         }
     }

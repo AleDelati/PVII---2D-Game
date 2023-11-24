@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104100894214863564, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_InstanceId
-      value: -6017274
+      value: -137954
       objectReference: {fileID: 0}
     - target: {fileID: 4141565785763516012, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: leaveCorpseOnDeath
@@ -87,6 +87,10 @@ PrefabInstance:
     - target: {fileID: 4713165869051949446, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5310517737139495159, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
+      propertyPath: slowdownEnabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6384135811159613800, guid: 1e087c05125feb4479ad6aaa5a23ffcb, type: 3}
       propertyPath: m_Sprite

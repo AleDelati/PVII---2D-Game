@@ -140,10 +140,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92263c988035054479b9e895abacc3f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterRenderer: {fileID: 1355821449781296738}
+  agentRenderer: {fileID: 0}
   weaponRenderer: {fileID: 7636352897468565524}
-  _weaponAnimator: {fileID: 3290509304482018477}
+  weaponAnimator: {fileID: 0}
   coolDown: 0.5
+  slowdownEnabled: 1
+  slowdownDuration: 2
+  slowdownStops: 1
   circleOrigin: {fileID: 5753043405233885097}
   radius: 1.2
   areaAttack: 1
@@ -675,7 +678,7 @@ MonoBehaviour:
   - {x: 0.29222775, y: -0.45205307, z: 0}
   m_ShapePathHash: -1835553995
   m_Mesh: {fileID: 0}
-  m_InstanceId: -889394
+  m_InstanceId: 110574
   m_LocalBounds:
     m_Center: {x: -0.031965017, y: -0.065927505, z: 0}
     m_Extent: {x: 0.32419276, y: 0.3901205, z: 0}

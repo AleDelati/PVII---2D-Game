@@ -7,8 +7,9 @@ public class HealSource : MonoBehaviour
     //              ----|Unity Config|----
     [Header("General Config")]
     [SerializeField] float RestoredHP = 1f;
-    [SerializeField] private int scorePenalty = 50;
-    public float coolDown = 1.0f;
+    [SerializeField] int scorePenalty = 50;
+    [SerializeField] float coolDown = 1.0f;
+    [SerializeField] float interactionArea = 1.0f;
 
     [Header("Audio Config")]
     [SerializeField] private AudioClip anvilRepair;
@@ -17,38 +18,43 @@ public class HealSource : MonoBehaviour
     bool healCoolDown;
 
     //              ----|References|----
-    private AudioSource _AudioSource;
+    private GameObject player;
+    private AudioSource AS;
     private ParticleSystem PS;
 
     //              ----|Functions|----
 
     private void OnEnable() {
-        _AudioSource = GetComponent<AudioSource>();
+        player = GameObject.Find("Player");
+        AS = GetComponent<AudioSource>();
         PS = GetComponent<ParticleSystem>();
     }
 
-    //Si el Objeto colisiona con el jugador le restaura al mismo los puntos de vidas configurados
-    private void OnCollisionEnter2D(Collision2D collision) {
+    private void Update() {
+        CheckPlayerInteraction();
+    }
 
-        if(healCoolDown == true) {
-            return;
-        } else {
-            if (collision.gameObject.CompareTag("Player")) {
+    //Dibuja el Area de interaccion del Anvil
+    private void OnDrawGizmosSelected() {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, interactionArea);
+    }
 
-                Agent player = collision.gameObject.GetComponent<Agent>();    //Referencia al player
-                Health playerHP = player.GetComponent<Health>();                //Referencia al componente de HP del player
+    //Si el jugador esta dentro del area de interaccion e interactua con el Anvil restaura los puntos de vida configurados
+    private void CheckPlayerInteraction() {
+        if(CheckInteractionArea() && !healCoolDown && Input.GetKeyDown(KeyCode.E)) {
+            Health playerHP = player.GetComponent<Health>();    //Referencia al componente de Health del player
 
-                if (playerHP.GetHP() < playerHP.GetMaxHP())    //No aumenta la salud del jugador si ya esta al maximo
-                {
-                    playerHP.SetHP(playerHP.GetHP() + RestoredHP);
-                    //Debug.Log("Vida restaurada al jugador " + RestoredHP);
+            if (playerHP.GetHP() < playerHP.GetMaxHP())    //No aumenta la salud del jugador si ya esta al maximo
+            {
+                playerHP.SetHP(playerHP.GetHP() + RestoredHP);
+                //Debug.Log("Vida restaurada al jugador " + RestoredHP);
 
-                    PlayAudio();
-                    healCoolDown = true;
-                    GameManager.instance.SubtractScore(scorePenalty);     //Disminuye la puntuacion al curarse
-                    StartCoroutine(HealCoolDown());
-                    PS.Play();
-                }
+                PlayAudio();
+                healCoolDown = true;
+                GameManager.instance.SubtractScore(scorePenalty);     //Disminuye la puntuacion al curarse
+                StartCoroutine(HealCoolDown());
+                PS.Play();
             }
         }
     }
@@ -61,11 +67,21 @@ public class HealSource : MonoBehaviour
 
     //Ejecuta los sonidos de curacion
     private void PlayAudio() {
-        if (_AudioSource.isPlaying) {
+        if (AS.isPlaying) {
             return;
         } else {
-            _AudioSource.PlayOneShot(anvilRepair);
+            AS.PlayOneShot(anvilRepair);
         }
+    }
+
+    //Retorna si el jugador esta dentro del area de interaccion
+    private bool CheckInteractionArea() {
+        foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, interactionArea)) {
+            if (collider.CompareTag("Player") == true) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

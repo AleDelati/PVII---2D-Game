@@ -27,7 +27,6 @@ public class Agent : MonoBehaviour {
     private Rigidbody2D _Rigidbody2D;
     private Animator _Animator;
     private WeaponParent _WeaponParent;
-    private Health _Health;
 
 
 
@@ -41,7 +40,6 @@ public class Agent : MonoBehaviour {
         _Rigidbody2D = GetComponent<Rigidbody2D>();
         _Animator = GetComponent<Animator>();
         _SpriteRenderer = GetComponent<SpriteRenderer>();
-        _Health = GetComponent<Health>();
 
         _WeaponParent = GetComponentInChildren<WeaponParent>();
 
@@ -102,6 +100,14 @@ public class Agent : MonoBehaviour {
 
     public void SetVelocity(float value) {
         velocity = value;
+    }
+
+    public float GetVelocity() {
+        return velocity;
+    }
+
+    public void ResetVelocity() {
+        velocity = initialVelocity;
     }
 
 }
